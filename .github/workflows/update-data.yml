@@ -12,9 +12,13 @@ on:
 jobs:
   update-data:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       
       - name: 设置 Python 环境
         uses: actions/setup-python@v5
@@ -28,9 +32,8 @@ jobs:
         run: python scripts/fetch_data.py
           
       - name: 提交更新
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/market-data.json
-          git commit -m "自动更新市场数据 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M:%S CST')" || echo "无变化"
-          git push
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: github-actions[bot]
+          author_email: github-actions[bot]@users.noreply.github.com
+          message: "自动更新市场数据"

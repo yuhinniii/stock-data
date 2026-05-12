@@ -1,0 +1,34 @@
+{
+  "updateTime": "2025-05-12 08:00:00",
+  "sp500": {
+    "price": 5200.50,
+    "changePercent": 1.71,
+    "score": 7.7,
+    "pe": 22.6,
+    "vix": 17.19
+  },
+  "nasdaq100": {
+    "price": 18500.80,
+    "changePercent": 2.35,
+    "score": 8.2,
+    "pe": 28.5,
+    "vix": 17.19
+  },
+  "vix": {
+    "price": 17.19,
+    "changePercent": 0.64
+  },
+  "us_etfs": [
+    {"ticker": "VOO", "name": "VOO", "fullName": "Vanguard 标普500 ETF", "price": 502.35, "changePercent": 1.71, "type": "sp500"},
+    {"ticker": "SPY", "name": "SPY", "fullName": "SPDR 标普500 ETF", "price": 502.18, "changePercent": 1.68, "type": "sp500"},
+    {"ticker": "IVV", "name": "IVV", "fullName": "iShares 标普500 ETF", "price": 501.92, "changePercent": 1.70, "type": "sp500"},
+    {"ticker": "QQQ", "name": "QQQ", "fullName": "Invesco 纳指100 ETF", "price": 438.56, "changePercent": 2.35, "type": "nasdaq"},
+    {"ticker": "QQQM", "name": "QQQM", "fullName": "Invesco 纳指100迷你 ETF", "price": 168.42, "changePercent": 2.33, "type": "nasdaq"}
+  ],
+  "off_funds": [
+    {"code": "050025", "name": "博时标普500ETF联接A", "manager": "博时基金", "classType": "A", "type": "sp500", "nav": 1.823, "price": 1.825, "dayReturn": 1.71, "alipayFee": 0.12, "ttjjFee": 0.08, "expenseRatio": 0.80, "managementFee": 0.50, "pe": 22.6, "limitStatus": "normal", "limitAmount": null},
+    {"code": "050026", "name": "博时标普500ETF联接C", "manager": "博时基金", "classType": "C", "type": "sp500", "nav": 1.815, "price": 1.817, "dayReturn": 1.70, "alipayFee": 0.10, "ttjjFee": 0.08, "expenseRatio": 0.80, "managementFee": 0.50, "pe": 22.6, "limitStatus": "normal", "limitAmount": null},
+    {"code": "000075", "name": "华夏纳斯达克100ETF发起式联接A", "manager": "华夏基金", "classType": "A", "type": "nasdaq", "nav": 1.789, "price": 1.794, "dayReturn": 2.33, "alipayFee": 0.11, "ttjjFee": 0.07, "expenseRatio": 0.70, "managementFee": 0.45, "pe": 28.5, "limitStatus": "normal", "limitAmount": null},
+    {"code": "000078", "name": "华夏纳斯达克100ETF发起式联接C", "manager": "华夏基金", "classType": "C", "type": "nasdaq", "nav": 1.782, "price": 1.787, "dayReturn": 2.32, "alipayFee": 0.10, "ttjjFee": 0.07, "expenseRatio": 0.70, "managementFee": 0.45, "pe": 28.5, "limitStatus": "normal", "limitAmount": null}
+  ]
+}

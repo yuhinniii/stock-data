@@ -6,33 +6,49 @@ def fetch_data():
     """获取市场数据并保存为 JSON"""
     
     print("正在获取标普500数据...")
-    sp500 = yf.Ticker("^GSPC")
-    sp500_info = sp500.info
-    sp500_hist = sp500.history(period="5d")
-    sp500_price = round(sp500_info.get('regularMarketPrice', 5200.50), 2)
-    sp500_prev = sp500_hist['Close'].iloc[-2] if len(sp500_hist) >= 2 else sp500_price
-    sp500_change = round(((sp500_price - sp500_prev) / sp500_prev) * 100, 2)
-    sp500_pe = round(sp500_info.get('trailingPE', 22.6), 1)
+    try:
+        sp500 = yf.Ticker("^GSPC")
+        sp500_info = sp500.info
+        sp500_hist = sp500.history(period="5d")
+        sp500_price = round(sp500_info.get('regularMarketPrice', 5200.50), 2)
+        sp500_prev = sp500_hist['Close'].iloc[-2] if len(sp500_hist) >= 2 else sp500_price
+        sp500_change = round(((sp500_price - sp500_prev) / sp500_prev) * 100, 2)
+        sp500_pe = round(sp500_info.get('trailingPE', 22.6), 1)
+    except Exception as e:
+        print(f"获取标普500失败: {e}")
+        sp500_price = 5200.50
+        sp500_change = 1.71
+        sp500_pe = 22.6
     
     print("正在获取纳指100数据...")
-    nasdaq100 = yf.Ticker("^NDX")
-    nasdaq100_info = nasdaq100.info
-    nasdaq100_hist = nasdaq100.history(period="5d")
-    nasdaq100_price = round(nasdaq100_info.get('regularMarketPrice', 18500.80), 2)
-    nasdaq100_prev = nasdaq100_hist['Close'].iloc[-2] if len(nasdaq100_hist) >= 2 else nasdaq100_price
-    nasdaq100_change = round(((nasdaq100_price - nasdaq100_prev) / nasdaq100_prev) * 100, 2)
-    nasdaq100_pe = round(nasdaq100_info.get('trailingPE', 28.5), 1)
+    try:
+        nasdaq100 = yf.Ticker("^NDX")
+        nasdaq100_info = nasdaq100.info
+        nasdaq100_hist = nasdaq100.history(period="5d")
+        nasdaq100_price = round(nasdaq100_info.get('regularMarketPrice', 18500.80), 2)
+        nasdaq100_prev = nasdaq100_hist['Close'].iloc[-2] if len(nasdaq100_hist) >= 2 else nasdaq100_price
+        nasdaq100_change = round(((nasdaq100_price - nasdaq100_prev) / nasdaq100_prev) * 100, 2)
+        nasdaq100_pe = round(nasdaq100_info.get('trailingPE', 28.5), 1)
+    except Exception as e:
+        print(f"获取纳指100失败: {e}")
+        nasdaq100_price = 18500.80
+        nasdaq100_change = 2.35
+        nasdaq100_pe = 28.5
     
     print("正在获取VIX数据...")
-    vix = yf.Ticker("^VIX")
-    vix_info = vix.info
-    vix_price = round(vix_info.get('regularMarketPrice', 17.19), 2)
+    try:
+        vix = yf.Ticker("^VIX")
+        vix_info = vix.info
+        vix_price = round(vix_info.get('regularMarketPrice', 17.19), 2)
+    except Exception as e:
+        print(f"获取VIX失败: {e}")
+        vix_price = 17.19
     
     print("正在获取美股ETF数据...")
     us_etfs = fetch_us_etfs()
     
     print("正在获取场外基金数据...")
-    off_funds = fetch_off_funds()
+    off_funds = fetch_off_funds(sp500_pe, nasdaq100_pe)
 
     score = calculate_score(sp500_pe, vix_price)
     nasdaq_score = calculate_score(nasdaq100_pe, vix_price)
@@ -44,6 +60,7 @@ def fetch_data():
             "changePercent": sp500_change,
             "score": score,
             "pe": sp500_pe,
+            "peTTM": sp500_pe,
             "vix": vix_price
         },
         "nasdaq100": {
@@ -51,6 +68,7 @@ def fetch_data():
             "changePercent": nasdaq100_change,
             "score": nasdaq_score,
             "pe": nasdaq100_pe,
+            "peTTM": nasdaq100_pe,
             "vix": vix_price
         },
         "vix": {
@@ -110,7 +128,7 @@ def fetch_us_etfs():
 
     return us_etfs
 
-def fetch_off_funds():
+def fetch_off_funds(sp500_pe, nasdaq_pe):
     """获取场外QDII基金数据（标普500和纳指100联接基金）"""
     off_funds = []
 
@@ -161,6 +179,7 @@ def fetch_off_funds():
 
     for fund in all_funds:
         try:
+            # 尝试从yfinance获取数据
             ticker = yf.Ticker(fund['code'] + ".OF")
             info = ticker.info
             
@@ -174,6 +193,9 @@ def fetch_off_funds():
             
             alipay_fee = get_alipay_fee(fund['classType'], expense_ratio)
             ttjj_fee = get_ttjj_fee(fund['classType'], expense_ratio)
+            
+            # 根据基金类型设置PE
+            fund_pe = sp500_pe if '标普' in fund['name'] else nasdaq_pe
             
             off_funds.append({
                 'code': fund['code'],
@@ -190,12 +212,16 @@ def fetch_off_funds():
                 'ttjjFee': ttjj_fee,
                 'totalAlipayFee': round(expense_ratio + alipay_fee, 2),
                 'totalTtjjFee': round(expense_ratio + ttjj_fee, 2),
-                'pe': 22.6 if '标普' in fund['name'] else 28.5,
+                'pe': fund_pe,
+                'peTTM': fund_pe,
+                'vix': sp500_pe if '标普' in fund['name'] else nasdaq_pe,
                 'limitStatus': 'normal',
                 'limitAmount': None
             })
         except Exception as e:
             print(f"获取 {fund['name']}({fund['code']}) 失败: {e}")
+            # 失败时用默认数据
+            fund_pe = sp500_pe if '标普' in fund['name'] else nasdaq_pe
             expense_ratio = 0.60
             alipay_fee = get_alipay_fee(fund['classType'], expense_ratio)
             ttjj_fee = get_ttjj_fee(fund['classType'], expense_ratio)
@@ -214,7 +240,9 @@ def fetch_off_funds():
                 'ttjjFee': ttjj_fee,
                 'totalAlipayFee': round(expense_ratio + alipay_fee, 2),
                 'totalTtjjFee': round(expense_ratio + ttjj_fee, 2),
-                'pe': 22.6 if '标普' in fund['name'] else 28.5,
+                'pe': fund_pe,
+                'peTTM': fund_pe,
+                'vix': sp500_pe if '标普' in fund['name'] else nasdaq_pe,
                 'limitStatus': 'normal',
                 'limitAmount': None
             })

@@ -1,6 +1,4 @@
 # 自动数据生成工作流
-# 每天在指定时间运行，自动生成最新市场数据
-
 name: Update Market Data
 
 on:
@@ -16,15 +14,11 @@ jobs:
       contents: write
     
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout代码
+        uses: actions/checkout@v4
       
-      - name: 设置 Python 环境
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-          
       - name: 生成市场数据
-        run: python scripts/fetch_data.py
+        run: python3 scripts/fetch_data.py
           
       - name: 提交更新
         uses: EndBug/add-and-commit@v9

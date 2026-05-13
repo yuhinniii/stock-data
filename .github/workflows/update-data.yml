@@ -15,21 +15,31 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
 
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.11'
+        cache: 'pip'
 
     - name: Install dependencies
-      run: pip install akshare pandas
+      run: pip install -r requirements.txt
 
     - name: Fetch data
+      id: fetch
       run: python scripts/fetch_data.py
 
     - name: Commit and push changes
-      uses: EndBug/add-and-commit@v9
-      with:
-        author_name: github-actions[bot]
-        author_email: github-actions[bot]@users.noreply.github.com
-        message: 'Update market data'
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add data/market-data.json
+        git status
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "自动更新市场数据"
+          git push
+        fi

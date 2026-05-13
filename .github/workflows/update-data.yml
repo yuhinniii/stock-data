@@ -1,39 +1,35 @@
-# 自动数据抓取工作流
-# 每天在指定时间运行，自动获取最新市场数据
-
 name: Update Market Data
 
 on:
   schedule:
     # 每天北京时间 8:00、12:00、18:00、22:00 运行
     - cron: '0 0,4,10,14 * * *'
-  workflow_dispatch:  # 允许手动触发
+  workflow_dispatch:
 
 jobs:
   update-data:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    
+
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      
-      - name: 设置 Python 环境
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-          
-      - name: 安装依赖
-        run: pip install yfinance requests
-          
-      - name: 获取市场数据
-        run: python scripts/fetch_data.py
-          
-      - name: 提交更新
-        uses: EndBug/add-and-commit@v9
-        with:
-          author_name: github-actions[bot]
-          author_email: github-actions[bot]@users.noreply.github.com
-          message: "自动更新市场数据"
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: pip install akshare pandas  # 这里改成 akshare 和 pandas
+
+    - name: Fetch data
+      run: python scripts/fetch_data.py
+
+    - name: Commit and push changes
+      uses: EndBug/add-and-commit@v9
+      with:
+        author_name: github-actions[bot]
+        author_email: github-actions[bot]@users.noreply.github.com
+        message: 'Update market data'

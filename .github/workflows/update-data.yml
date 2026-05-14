@@ -1,9 +1,7 @@
-# 最简单、最可靠的工作流
 name: Update Market Data
-
 on:
   schedule:
-    - cron: '0 0,4,10,14 * * *'
+    - cron: "0 10 * * *"
   workflow_dispatch:
 
 jobs:
@@ -11,17 +9,24 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    
     steps:
       - uses: actions/checkout@v4
-      
-      - name: 运行脚本
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run fetch script
         run: python scripts/fetch_data.py
-      
-      - name: 提交
+
+      - name: Commit & Push
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/market-data.json
-          git commit -m "自动更新数据" || true
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add market-data.json
+          git commit -m "Auto update fund index data" || true
           git push

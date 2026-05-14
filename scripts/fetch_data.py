@@ -1,9 +1,10 @@
 import akshare as ak
 import json
 from datetime import datetime
+import pandas as pd  # 提前导入，避免运行时报错
 
 def main():
-    # 1. 固定基金代码列表（和你JSON里off_funds一一对应）
+    # 固定基金代码列表
     fund_list = [
         {"code":"050025","name":"博时标普500ETF联接A","type":"sp500"},
         {"code":"050026","name":"博时标普500ETF联接C","type":"sp500"},
@@ -44,7 +45,7 @@ def main():
         {"code":"519151","name":"万家纳斯达克100指数C","type":"nasdaq"}
     ]
 
-    # 2. 基础结构（沿用你现成JSON模板）
+    # 基础结构
     data = {
         "updateTime": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "sp500": {"price": 0, "changePercent": 0, "score": 0, "pe": 22.6, "vix": 0},
@@ -60,15 +61,25 @@ def main():
         "off_funds": []
     }
 
-    # 3. 抓取基金净值、日涨幅
-    fund_est = ak.fund_estimate_em()
+    # 抓取基金数据（增加异常处理）
+    try:
+        fund_est = ak.fund_estimate_em()
+    except Exception as e:
+        print(f"⚠️  抓取基金列表失败，使用空数据：{e}")
+        fund_est = pd.DataFrame()
+
     for item in fund_list:
         code = item["code"]
         try:
-            row = fund_est[fund_est["基金代码"]==code].iloc[0]
-            nav = float(row["估算净值"]) if not pd.isna(row["估算净值"]) else 1.0
-            dr = float(row["估算涨跌幅"]) if not pd.isna(row["估算涨跌幅"]) else 0.0
-        except:
+            if not fund_est.empty and code in fund_est["基金代码"].values:
+                row = fund_est[fund_est["基金代码"]==code].iloc[0]
+                nav = float(row["估算净值"]) if not pd.isna(row["估算净值"]) else 1.0
+                dr = float(row["估算涨跌幅"]) if not pd.isna(row["估算涨跌幅"]) else 0.0
+            else:
+                nav = 1.0
+                dr = 0.0
+        except Exception as e:
+            print(f"⚠️  抓取 {code} 失败：{e}")
             nav = 1.0
             dr = 0.0
 
@@ -93,12 +104,11 @@ def main():
         }
         data["off_funds"].append(fund_item)
 
-    # 4. 保存到根目录 market-data.json
-    with open("market-data.json", "w", encoding="utf-8") as f:
+    # 保存文件
+    with open("data/market-data.json", "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
-    print("✅ 已生成最新 market-data.json")
+    print("✅ 已生成最新 data/market-data.json")
 
 if __name__ == "__main__":
-    import pandas as pd
     main()

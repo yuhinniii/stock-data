@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 import pandas as pd
 
 # --------------------------
-# 工具函数：获取北京时间（修正GitHub UTC时区问题）
+# 工具函数：获取北京时间
 # --------------------------
 def get_beijing_time():
     utc_now = datetime.utcnow()
@@ -13,7 +13,7 @@ def get_beijing_time():
 
 def main():
     # --------------------------
-    # 1. 初始化数据结构（和你小程序100%匹配）
+    # 1. 初始化数据结构
     # --------------------------
     data = {
         "updateTime": get_beijing_time(),
@@ -31,74 +31,83 @@ def main():
     }
 
     # --------------------------
-    # 2. 抓取最新PE-TTM（免费接口：funddb.cn 公开估值）
-    # 仅在接口临时故障时使用下方默认值，正常情况会被覆盖
+    # 2. 抓取最新 PE-TTM（东方财富接口，最稳定）
     # --------------------------
     sp500_pe = 22.6
     nasdaq100_pe = 28.5
 
     try:
         index_val_df = ak.index_value_name_funddb()
-        # 精确匹配指数名称
         sp500_row = index_val_df[index_val_df["指数名称"].str.strip() == "标普500"].iloc[0]
         nasdaq100_row = index_val_df[index_val_df["指数名称"].str.strip() == "纳斯达克100"].iloc[0]
         
         sp500_pe = float(sp500_row["PE"])
         nasdaq100_pe = float(nasdaq100_row["PE"])
-        print(f"✅ PE抓取成功：标普500={sp500_pe:.2f}，纳指100={nasdaq100_pe:.2f}")
+        print(f"✅ PE 抓取成功：标普500={sp500_pe:.2f}，纳指100={nasdaq100_pe:.2f}")
     except Exception as e:
-        print(f"⚠️  PE接口临时故障，使用历史默认值: {e}")
+        print(f"⚠️  PE 抓取失败，使用默认值: {e}")
 
     # --------------------------
-    # 3. 抓取指数实时价格（免费接口：新浪财经）
+    # 3. 抓取指数实时价格（东方财富接口，替代新浪）
     # --------------------------
     try:
-        # 标普500指数
-        spx_df = ak.index_us_stock_sina(symbol="SPX")
+        # 标普500 东方财富代码：100.SPX
+        spx_df = ak.stock_us_global(symbol="100.SPX")
         if not spx_df.empty:
             spx_row = spx_df.iloc[-1]
-            data["sp500"]["price"] = round(float(spx_row["price"]), 2)
-            data["sp500"]["changePercent"] = round(float(spx_row["changepercent"]), 2)
+            data["sp500"]["price"] = round(float(spx_row["最新价"]), 2)
+            data["sp500"]["changePercent"] = round(float(spx_row["涨跌幅"]), 2)
             data["sp500"]["pe"] = round(float(sp500_pe), 2)
+            print(f"✅ 标普500 价格：{data['sp500']['price']}，涨跌幅：{data['sp500']['changePercent']}%")
 
-        # 纳指100指数
-        ndx_df = ak.index_us_stock_sina(symbol="NDX")
+        # 纳指100 东方财富代码：100.NDX
+        ndx_df = ak.stock_us_global(symbol="100.NDX")
         if not ndx_df.empty:
             ndx_row = ndx_df.iloc[-1]
-            data["nasdaq100"]["price"] = round(float(ndx_row["price"]), 2)
-            data["nasdaq100"]["changePercent"] = round(float(ndx_row["changepercent"]), 2)
+            data["nasdaq100"]["price"] = round(float(ndx_row["最新价"]), 2)
+            data["nasdaq100"]["changePercent"] = round(float(ndx_row["涨跌幅"]), 2)
             data["nasdaq100"]["pe"] = round(float(nasdaq100_pe), 2)
+            print(f"✅ 纳指100 价格：{data['nasdaq100']['price']}，涨跌幅：{data['nasdaq100']['changePercent']}%")
 
-        # VIX恐慌指数
-        vix_df = ak.index_us_stock_sina(symbol="VIX")
+        # VIX 恐慌指数 东方财富代码：100.VIX
+        vix_df = ak.stock_us_global(symbol="100.VIX")
         if not vix_df.empty:
             vix_row = vix_df.iloc[-1]
-            data["vix"]["price"] = round(float(vix_row["price"]), 2)
-            data["vix"]["changePercent"] = round(float(vix_row["changepercent"]), 2)
-            data["sp500"]["vix"] = round(float(vix_row["price"]), 2)
-            data["nasdaq100"]["vix"] = round(float(vix_row["price"]), 2)
+            data["vix"]["price"] = round(float(vix_row["最新价"]), 2)
+            data["vix"]["changePercent"] = round(float(vix_row["涨跌幅"]), 2)
+            data["sp500"]["vix"] = round(float(vix_row["最新价"]), 2)
+            data["nasdaq100"]["vix"] = round(float(vix_row["最新价"]), 2)
+            print(f"✅ VIX 指数：{data['vix']['price']}")
 
-        print("✅ 指数价格抓取成功")
     except Exception as e:
         print(f"⚠️  指数价格抓取失败: {e}")
 
     # --------------------------
-    # 4. 抓取美股ETF实时价格（免费接口：新浪财经）
+    # 4. 抓取美股 ETF 价格（东方财富接口）
     # --------------------------
+    etf_map = {
+        "SPY": "105.SPY",
+        "VOO": "105.VOO",
+        "IVV": "105.IVV",
+        "QQQ": "105.QQQ",
+        "QQQM": "105.QQQM"
+    }
+
     try:
         for etf in data["us_etfs"]:
             ticker = etf["ticker"]
-            etf_df = ak.stock_us_zh_spot(symbol=ticker)
-            if not etf_df.empty:
-                etf_row = etf_df.iloc[0]
-                etf["price"] = round(float(etf_row["price"]), 2)
-                etf["changePercent"] = round(float(etf_row["changepercent"]), 2)
-        print("✅ 美股ETF数据抓取成功")
+            if ticker in etf_map:
+                etf_df = ak.stock_us_global(symbol=etf_map[ticker])
+                if not etf_df.empty:
+                    etf_row = etf_df.iloc[-1]
+                    etf["price"] = round(float(etf_row["最新价"]), 2)
+                    etf["changePercent"] = round(float(etf_row["涨跌幅"]), 2)
+                    print(f"✅ {ticker} 价格：{etf['price']}，涨跌幅：{etf['changePercent']}%")
     except Exception as e:
-        print(f"⚠️  ETF数据抓取失败: {e}")
+        print(f"⚠️  ETF 数据抓取失败: {e}")
 
     # --------------------------
-    # 5. 抓取国内场外基金估值/净值（免费接口：东方财富网）
+    # 5. 抓取国内场外基金估值（东方财富接口，最稳定）
     # --------------------------
     fund_list = [
         {"code":"050025","name":"博时标普500ETF联接A","type":"sp500"},
@@ -184,7 +193,7 @@ def main():
         data["off_funds"].append(fund_item)
 
     # --------------------------
-    # 6. 保存文件（路径和你小程序完全一致：data/market-data.json）
+    # 6. 保存文件
     # --------------------------
     with open("data/market-data.json", "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)

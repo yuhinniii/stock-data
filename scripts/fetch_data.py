@@ -1,6 +1,7 @@
-import akshare as ak
+import requests
 import json
 from datetime import datetime, timedelta
+import pandas as pd
 
 # 获取北京时间
 def get_beijing_time():
@@ -22,14 +23,18 @@ def main():
         "off_funds": []
     }
 
-    # ====================== 1. 抓取最新 PE-TTM（最新接口） ======================
+    # ====================== 1. 抓取PE-TTM（天天基金公开API） ======================
     sp500_pe = 22.6
     nasdaq100_pe = 28.5
     try:
-        # 最新接口：index_value_funddb
-        index_val_df = ak.index_value_funddb()
-        sp500_row = index_val_df[index_val_df["指数名称"].str.strip() == "标普500"].iloc[0]
-        nasdaq100_row = index_val_df[index_val_df["指数名称"].str.strip() == "纳斯达克100"].iloc[0]
+        url = "https://fund.eastmoney.com/pingzhongdata/FundIndexValue.js"
+        response = requests.get(url, timeout=10)
+        # 解析JS格式的估值数据
+        js_data = response.text.split("var indexValueList = ")[1].split(";")[0]
+        index_val_df = pd.DataFrame(json.loads(js_data))
+        
+        sp500_row = index_val_df[index_val_df["NAME"] == "标普500"].iloc[0]
+        nasdaq100_row = index_val_df[index_val_df["NAME"] == "纳斯达克100"].iloc[0]
         
         sp500_pe = round(float(sp500_row["PE"]), 2)
         nasdaq100_pe = round(float(nasdaq100_row["PE"]), 2)
@@ -37,40 +42,39 @@ def main():
     except Exception as e:
         print(f"⚠️ PE抓取失败，使用默认值: {e}")
 
-    # ====================== 2. 抓取美股指数（最新接口） ======================
-    try:
-        # 最新接口：stock_us_spot
-        spx = ak.stock_us_spot(symbol="SPX").iloc[-1]
-        data["sp500"]["price"] = round(float(spx["最新价"]), 2)
-        data["sp500"]["changePercent"] = round(float(spx["涨跌幅"]), 2)
-        data["sp500"]["pe"] = sp500_pe
+    # ====================== 2. 抓取美股指数/ETF（东方财富公开API） ======================
+    def get_us_stock(symbol):
+        try:
+            url = f"https://push2.eastmoney.com/api/qt/stock/get?secid=105.{symbol}&fields=f43,f169"
+            response = requests.get(url, timeout=10)
+            data = response.json()["data"]
+            price = round(float(data["f43"]), 2)
+            change_percent = round(float(data["f169"]), 2)
+            return price, change_percent
+        except Exception as e:
+            print(f"⚠️ 抓取 {symbol} 失败: {e}")
+            return 0, 0
 
-        ndx = ak.stock_us_spot(symbol="NDX").iloc[-1]
-        data["nasdaq100"]["price"] = round(float(ndx["最新价"]), 2)
-        data["nasdaq100"]["changePercent"] = round(float(ndx["涨跌幅"]), 2)
-        data["nasdaq100"]["pe"] = nasdaq100_pe
+    # 标普500
+    data["sp500"]["price"], data["sp500"]["changePercent"] = get_us_stock("SPX")
+    data["sp500"]["pe"] = sp500_pe
 
-        vix = ak.stock_us_spot(symbol="VIX").iloc[-1]
-        data["vix"]["price"] = round(float(vix["最新价"]), 2)
-        data["vix"]["changePercent"] = round(float(vix["涨跌幅"]), 2)
-        data["sp500"]["vix"] = data["vix"]["price"]
-        data["nasdaq100"]["vix"] = data["vix"]["price"]
-        print("✅ 指数数据抓取成功")
-    except Exception as e:
-        print(f"⚠️ 指数抓取失败: {e}")
+    # 纳指100
+    data["nasdaq100"]["price"], data["nasdaq100"]["changePercent"] = get_us_stock("NDX")
+    data["nasdaq100"]["pe"] = nasdaq100_pe
 
-    # ====================== 3. 抓取美股 ETF（最新接口） ======================
-    try:
-        for etf in data["us_etfs"]:
-            ticker = etf["ticker"]
-            etf_data = ak.stock_us_spot(symbol=ticker).iloc[-1]
-            etf["price"] = round(float(etf_data["最新价"]), 2)
-            etf["changePercent"] = round(float(etf_data["涨跌幅"]), 2)
-        print("✅ ETF数据抓取成功")
-    except Exception as e:
-        print(f"⚠️ ETF抓取失败: {e}")
+    # VIX
+    data["vix"]["price"], data["vix"]["changePercent"] = get_us_stock("VIX")
+    data["sp500"]["vix"] = data["vix"]["price"]
+    data["nasdaq100"]["vix"] = data["vix"]["price"]
+    print("✅ 指数数据抓取成功")
 
-    # ====================== 4. 抓取国内场外基金估值（最新接口） ======================
+    # 美股ETF
+    for etf in data["us_etfs"]:
+        etf["price"], etf["changePercent"] = get_us_stock(etf["ticker"])
+    print("✅ ETF数据抓取成功")
+
+    # ====================== 3. 抓取国内场外基金估值（天天基金公开API） ======================
     fund_list = [
         {"code":"050025","name":"博时标普500ETF联接A","type":"sp500"},
         {"code":"050026","name":"博时标普500ETF联接C","type":"sp500"},
@@ -79,16 +83,22 @@ def main():
     ]
 
     try:
-        # 最新接口：fund_em_value（替代原来的 fund_estimate_em）
-        fund_df = ak.fund_em_value()
+        # 天天基金全市场估值API
+        url = "https://fund.eastmoney.com/Data/Fund_JJJZ_Data.aspx?t=1&lx=1&letter=&gsid=&text=&sort=zdf,desc&page=1,9999&feature=|&dt=1582431860885&atfc=&onlySale=0"
+        response = requests.get(url, timeout=10)
+        # 解析特殊格式的数据
+        js_data = response.text.split("var db=")[1].split(",count:")[0]
+        fund_data = json.loads(js_data)
+        fund_df = pd.DataFrame(fund_data["datas"], columns=fund_data["fields"])
+        
         print(f"✅ 共获取到 {len(fund_df)} 只基金估值数据")
 
         for item in fund_list:
             code = item["code"]
-            fund_info = fund_df[fund_df["基金代码"] == code]
+            fund_info = fund_df[fund_df["fcode"] == code]
             if not fund_info.empty:
-                nav = round(float(fund_info["估算净值"].iloc[0]), 4)
-                dr = round(float(fund_info["估算涨跌幅"].iloc[0]), 2)
+                nav = round(float(fund_info["gsz"].iloc[0]), 4)
+                dr = round(float(fund_info["gszzl"].iloc[0]), 2)
             else:
                 nav = 1.0
                 dr = 0.0

@@ -29,26 +29,26 @@ def safe_float(value, default=0.0):
         return default
 
 def fetch_sp500_data():
-    """获取标普500数据"""
+    """获取标普500数据 - 直接获取真实指数"""
     try:
         print("[1/4] 获取标普500数据...")
         if HAS_YFINANCE:
-            # 尝试用yfinance获取SPY ETF
-            spy = yf.Ticker("SPY")
-            hist = spy.history(period="5d")
+            # 直接获取标普500指数 ^GSPC
+            sp500 = yf.Ticker("^GSPC")
+            hist = sp500.history(period="5d")
             if len(hist) > 0:
                 current_price = safe_float(hist['Close'].iloc[-1])
                 prev_price = safe_float(hist['Close'].iloc[-2]) if len(hist) > 1 else current_price
                 change_pct = ((current_price - prev_price) / prev_price) * 100 if prev_price > 0 else 0
                 return {
-                    "price": round(current_price * 10.35, 2),  # SPY价格 ×10.35 估算标普500指数
+                    "price": round(current_price, 2),
                     "changePercent": round(change_pct, 2),
                     "pe": 22.6 + random.uniform(-1, 1)
                 }
     except Exception as e:
         print(f"⚠️ 标普500获取失败: {e}")
     
-    # 备用方案：智能模拟
+    # 备用方案：智能模拟（基于近期真实值范围）
     base_price = 5200.50
     change = random.uniform(-0.5, 1.5)
     return {
@@ -58,18 +58,19 @@ def fetch_sp500_data():
     }
 
 def fetch_nasdaq100_data():
-    """获取纳指100数据"""
+    """获取纳指100数据 - 直接获取真实指数"""
     try:
         print("[2/4] 获取纳指100数据...")
         if HAS_YFINANCE:
-            qqq = yf.Ticker("QQQ")
-            hist = qqq.history(period="5d")
+            # 直接获取纳指100指数 ^NDX
+            nasdaq100 = yf.Ticker("^NDX")
+            hist = nasdaq100.history(period="5d")
             if len(hist) > 0:
                 current_price = safe_float(hist['Close'].iloc[-1])
                 prev_price = safe_float(hist['Close'].iloc[-2]) if len(hist) > 1 else current_price
                 change_pct = ((current_price - prev_price) / prev_price) * 100 if prev_price > 0 else 0
                 return {
-                    "price": round(current_price * 42.2, 2),  # QQQ价格 ×42.2 估算纳指100
+                    "price": round(current_price, 2),
                     "changePercent": round(change_pct, 2),
                     "pe": 28.5 + random.uniform(-1, 1)
                 }
@@ -86,7 +87,7 @@ def fetch_nasdaq100_data():
     }
 
 def fetch_vix_data():
-    """获取VIX数据"""
+    """获取VIX数据 - 直接获取真实指数"""
     try:
         print("[3/4] 获取VIX数据...")
         if HAS_YFINANCE:
@@ -94,9 +95,11 @@ def fetch_vix_data():
             hist = vix.history(period="5d")
             if len(hist) > 0:
                 current_price = safe_float(hist['Close'].iloc[-1])
+                prev_price = safe_float(hist['Close'].iloc[-2]) if len(hist) > 1 else current_price
+                change_pct = ((current_price - prev_price) / prev_price) * 100 if prev_price > 0 else 0
                 return {
                     "price": round(current_price, 2),
-                    "changePercent": 0
+                    "changePercent": round(change_pct, 2)
                 }
     except Exception as e:
         print(f"⚠️ VIX获取失败: {e}")
@@ -107,7 +110,7 @@ def fetch_vix_data():
     }
 
 def fetch_us_etfs():
-    """获取美股ETF数据"""
+    """获取美股ETF数据 - 获取真实价格"""
     etf_list = [
         {"ticker": "SPY", "name": "SPY", "fullName": "SPDR 标普500 ETF", "type": "sp500"},
         {"ticker": "VOO", "name": "VOO", "fullName": "Vanguard 标普500 ETF", "type": "sp500"},
@@ -338,7 +341,7 @@ def fetch_data():
     print(f"✅ 数据更新完成！时间: {data['updateTime']}")
     print(f"📊 标普500: {data['sp500']['price']} (涨跌幅: {data['sp500']['changePercent']}%)")
     print(f"📊 纳指100: {data['nasdaq100']['price']} (涨跌幅: {data['nasdaq100']['changePercent']}%)")
-    print(f"📊 VIX: {data['vix']['price']}")
+    print(f"📊 VIX: {data['vix']['price']} (涨跌幅: {data['vix']['changePercent']}%)")
     print(f"📈 美股ETF数量: {len(data['us_etfs'])}")
     print(f"📈 基金数量: {len(data['off_funds'])}")
     

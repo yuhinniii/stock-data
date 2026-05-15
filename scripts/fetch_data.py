@@ -1,6 +1,6 @@
 import json
 import random
-from datetime import datetime
+from datetime import datetime, timedelta
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -29,13 +29,34 @@ def safe_float(value, default=0.0):
         return default
 
 def fetch_sp500_data():
-    """获取标普500数据 - 直接获取真实指数"""
+    """获取标普500数据 - 获取最新数据"""
     try:
         print("[1/4] 获取标普500数据...")
         if HAS_YFINANCE:
-            # 直接获取标普500指数 ^GSPC
             sp500 = yf.Ticker("^GSPC")
-            hist = sp500.history(period="5d")
+            # 尝试获取最近1天的1分钟数据（更实时）
+            try:
+                hist = sp500.history(period="1d", interval="1m")
+                if len(hist) > 0:
+                    current_price = safe_float(hist['Close'].iloc[-1])
+                    # 获取前一天收盘价
+                    hist_prev = sp500.history(period="2d", interval="1d")
+                    if len(hist_prev) >= 2:
+                        prev_price = safe_float(hist_prev['Close'].iloc[-2])
+                    else:
+                        prev_price = current_price
+                    change_pct = ((current_price - prev_price) / prev_price) * 100 if prev_price > 0 else 0
+                    print(f"  ✅ 获取到最新价格: {current_price:.2f}")
+                    return {
+                        "price": round(current_price, 2),
+                        "changePercent": round(change_pct, 2),
+                        "pe": 22.6 + random.uniform(-1, 1)
+                    }
+            except Exception as e:
+                print(f"  ⚠️ 1分钟数据获取失败，尝试日线: {e}")
+            
+            # 备用：获取日线数据
+            hist = sp500.history(period="5d", interval="1d")
             if len(hist) > 0:
                 current_price = safe_float(hist['Close'].iloc[-1])
                 prev_price = safe_float(hist['Close'].iloc[-2]) if len(hist) > 1 else current_price
@@ -58,13 +79,34 @@ def fetch_sp500_data():
     }
 
 def fetch_nasdaq100_data():
-    """获取纳指100数据 - 直接获取真实指数"""
+    """获取纳指100数据 - 获取最新数据"""
     try:
         print("[2/4] 获取纳指100数据...")
         if HAS_YFINANCE:
-            # 直接获取纳指100指数 ^NDX
             nasdaq100 = yf.Ticker("^NDX")
-            hist = nasdaq100.history(period="5d")
+            # 尝试获取最近1天的1分钟数据
+            try:
+                hist = nasdaq100.history(period="1d", interval="1m")
+                if len(hist) > 0:
+                    current_price = safe_float(hist['Close'].iloc[-1])
+                    # 获取前一天收盘价
+                    hist_prev = nasdaq100.history(period="2d", interval="1d")
+                    if len(hist_prev) >= 2:
+                        prev_price = safe_float(hist_prev['Close'].iloc[-2])
+                    else:
+                        prev_price = current_price
+                    change_pct = ((current_price - prev_price) / prev_price) * 100 if prev_price > 0 else 0
+                    print(f"  ✅ 获取到最新价格: {current_price:.2f}")
+                    return {
+                        "price": round(current_price, 2),
+                        "changePercent": round(change_pct, 2),
+                        "pe": 28.5 + random.uniform(-1, 1)
+                    }
+            except Exception as e:
+                print(f"  ⚠️ 1分钟数据获取失败，尝试日线: {e}")
+            
+            # 备用：获取日线数据
+            hist = nasdaq100.history(period="5d", interval="1d")
             if len(hist) > 0:
                 current_price = safe_float(hist['Close'].iloc[-1])
                 prev_price = safe_float(hist['Close'].iloc[-2]) if len(hist) > 1 else current_price
@@ -81,18 +123,39 @@ def fetch_nasdaq100_data():
     base_price = 18500.80
     change = random.uniform(-0.8, 2.0)
     return {
-        "price": round(base_price * (1 + change / 100), 2),
+        "price": round(base_price * (1 + change / 100)), 2),
         "changePercent": round(change, 2),
         "pe": 28.5 + random.uniform(-0.8, 0.8)
     }
 
 def fetch_vix_data():
-    """获取VIX数据 - 直接获取真实指数"""
+    """获取VIX数据 - 获取最新数据"""
     try:
         print("[3/4] 获取VIX数据...")
         if HAS_YFINANCE:
             vix = yf.Ticker("^VIX")
-            hist = vix.history(period="5d")
+            # 尝试获取最近1天的1分钟数据
+            try:
+                hist = vix.history(period="1d", interval="1m")
+                if len(hist) > 0:
+                    current_price = safe_float(hist['Close'].iloc[-1])
+                    # 获取前一天收盘价
+                    hist_prev = vix.history(period="2d", interval="1d")
+                    if len(hist_prev) >= 2:
+                        prev_price = safe_float(hist_prev['Close'].iloc[-2])
+                    else:
+                        prev_price = current_price
+                    change_pct = ((current_price - prev_price) / prev_price) * 100 if prev_price > 0 else 0
+                    print(f"  ✅ 获取到最新价格: {current_price:.2f}")
+                    return {
+                        "price": round(current_price, 2),
+                        "changePercent": round(change_pct, 2)
+                    }
+            except Exception as e:
+                print(f"  ⚠️ 1分钟数据获取失败，尝试日线: {e}")
+            
+            # 备用：获取日线数据
+            hist = vix.history(period="5d", interval="1d")
             if len(hist) > 0:
                 current_price = safe_float(hist['Close'].iloc[-1])
                 prev_price = safe_float(hist['Close'].iloc[-2]) if len(hist) > 1 else current_price
@@ -105,12 +168,12 @@ def fetch_vix_data():
         print(f"⚠️ VIX获取失败: {e}")
     
     return {
-        "price": round(17.19 + random.uniform(-2, 2), 2),
+        "price": round(17.19 + random.uniform(-2, 2)), 2),
         "changePercent": 0
     }
 
 def fetch_us_etfs():
-    """获取美股ETF数据 - 获取真实价格"""
+    """获取美股ETF数据 - 获取最新价格"""
     etf_list = [
         {"ticker": "SPY", "name": "SPY", "fullName": "SPDR 标普500 ETF", "type": "sp500"},
         {"ticker": "VOO", "name": "VOO", "fullName": "Vanguard 标普500 ETF", "type": "sp500"},
@@ -127,7 +190,32 @@ def fetch_us_etfs():
         try:
             if HAS_YFINANCE:
                 etf = yf.Ticker(etf_info["ticker"])
-                hist = etf.history(period="5d")
+                # 尝试获取最近1天的1分钟数据
+                try:
+                    hist = etf.history(period="1d", interval="1m")
+                    if len(hist) > 0:
+                        price = safe_float(hist['Close'].iloc[-1])
+                        # 获取前一天收盘价
+                        hist_prev = etf.history(period="2d", interval="1d")
+                        if len(hist_prev) >= 2:
+                            prev_price = safe_float(hist_prev['Close'].iloc[-2])
+                        else:
+                            prev_price = price
+                        change = ((price - prev_price) / prev_price) * 100 if prev_price > 0 else 0
+                        us_etfs.append({
+                            "ticker": etf_info["ticker"],
+                            "name": etf_info["name"],
+                            "fullName": etf_info["fullName"],
+                            "price": round(price, 2),
+                            "changePercent": round(change, 2),
+                            "type": etf_info["type"]
+                        })
+                        continue
+                except Exception as e:
+                    print(f"  ⚠️ {etf_info['ticker']} 1分钟数据获取失败: {e}")
+                
+                # 备用：日线数据
+                hist = etf.history(period="5d", interval="1d")
                 if len(hist) > 0:
                     price = safe_float(hist['Close'].iloc[-1])
                     prev_price = safe_float(hist['Close'].iloc[-2]) if len(hist) > 1 else price
@@ -158,7 +246,7 @@ def fetch_us_etfs():
             "ticker": etf_info["ticker"],
             "name": etf_info["name"],
             "fullName": etf_info["fullName"],
-            "price": round(base_price * (1 + base_change / 100), 2),
+            "price": round(base_price * (1 + base_change / 100)), 2),
             "changePercent": round(base_change, 2),
             "type": etf_info["type"]
         })
@@ -166,67 +254,68 @@ def fetch_us_etfs():
     return us_etfs
 
 def fetch_off_funds():
-    """获取场外基金数据"""
+    """获取场外基金数据 - 动态获取真实QDII基金列表"""
     print("[4/4] 获取基金数据...")
     
-    sp500_funds = [
-        {"code": "050025", "name": "博时标普500ETF联接A", "manager": "博时基金", "classType": "A"},
-        {"code": "050026", "name": "博时标普500ETF联接C", "manager": "博时基金", "classType": "C"},
-        {"code": "202021", "name": "南方标普500ETF联接A", "manager": "南方基金", "classType": "A"},
-        {"code": "202022", "name": "南方标普500ETF联接C", "manager": "南方基金", "classType": "C"},
-        {"code": "160213", "name": "国泰标普500ETF联接", "manager": "国泰基金", "classType": "A"},
-        {"code": "000076", "name": "华夏标普500ETF发起式联接A", "manager": "华夏基金", "classType": "A"},
-        {"code": "000077", "name": "华夏标普500ETF发起式联接C", "manager": "华夏基金", "classType": "C"},
-        {"code": "161125", "name": "易方达标普500指数", "manager": "易方达基金", "classType": "A"},
-        {"code": "090010", "name": "大成标普500等权重指数A", "manager": "大成基金", "classType": "A"},
-        {"code": "091010", "name": "大成标普500等权重指数C", "manager": "大成基金", "classType": "C"},
-        {"code": "160626", "name": "摩根标普500指数", "manager": "摩根士丹利华鑫基金", "classType": "A"},
-        {"code": "001629", "name": "天弘标普500发起式指数A", "manager": "天弘基金", "classType": "A"},
-        {"code": "001630", "name": "天弘标普500发起式指数C", "manager": "天弘基金", "classType": "C"}
-    ]
-
-    nasdaq_funds = [
-        {"code": "160213", "name": "国泰纳斯达克100指数", "manager": "国泰基金", "classType": "A"},
-        {"code": "000075", "name": "华夏纳斯达克100ETF发起式联接A", "manager": "华夏基金", "classType": "A"},
-        {"code": "000078", "name": "华夏纳斯达克100ETF发起式联接C", "manager": "华夏基金", "classType": "C"},
-        {"code": "270042", "name": "广发纳斯达克100ETF联接A", "manager": "广发基金", "classType": "A"},
-        {"code": "270043", "name": "广发纳斯达克100ETF联接C", "manager": "广发基金", "classType": "C"},
-        {"code": "040046", "name": "华安纳斯达克100ETF联接A", "manager": "华安基金", "classType": "A"},
-        {"code": "040047", "name": "华安纳斯达克100ETF联接C", "manager": "华安基金", "classType": "C"},
-        {"code": "000074", "name": "招商纳斯达克100ETF联接A", "manager": "招商基金", "classType": "A"},
-        {"code": "000073", "name": "招商纳斯达克100ETF联接C", "manager": "招商基金", "classType": "C"},
-        {"code": "470068", "name": "汇添富纳斯达克100ETF联接A", "manager": "汇添富基金", "classType": "A"},
-        {"code": "470069", "name": "汇添富纳斯达克100ETF联接C", "manager": "汇添富基金", "classType": "C"},
-        {"code": "000834", "name": "大成纳斯达克100ETF联接A", "manager": "大成基金", "classType": "A"},
-        {"code": "000835", "name": "大成纳斯达克100ETF联接C", "manager": "大成基金", "classType": "C"},
-        {"code": "160131", "name": "南方纳斯达克100指数A", "manager": "南方基金", "classType": "A"},
-        {"code": "160132", "name": "南方纳斯达克100指数C", "manager": "南方基金", "classType": "C"},
-        {"code": "160632", "name": "摩根纳斯达克100指数", "manager": "摩根士丹利华鑫基金", "classType": "A"},
-        {"code": "001595", "name": "天弘纳斯达克100指数A", "manager": "天弘基金", "classType": "A"},
-        {"code": "001596", "name": "天弘纳斯达克100指数C", "manager": "天弘基金", "classType": "C"},
-        {"code": "001075", "name": "宝盈纳斯达克100指数A", "manager": "宝盈基金", "classType": "A"},
-        {"code": "001076", "name": "宝盈纳斯达克100指数C", "manager": "宝盈基金", "classType": "C"},
-        {"code": "000966", "name": "建信纳斯达克100指数A", "manager": "建信基金", "classType": "A"},
-        {"code": "000967", "name": "建信纳斯达克100指数C", "manager": "建信基金", "classType": "C"},
-        {"code": "519150", "name": "万家纳斯达克100指数A", "manager": "万家基金", "classType": "A"},
-        {"code": "519151", "name": "万家纳斯达克100指数C", "manager": "万家基金", "classType": "C"}
-    ]
-
-    all_funds = sp500_funds + nasdaq_funds
-    off_funds = []
+    all_funds = []
     
+    # 第一步：尝试从AKShare获取真实的QDII基金列表
+    if HAS_AKSHARE:
+        try:
+            print("  正在获取基金列表...")
+            # 获取所有开放式基金
+            fund_list = ak.fund_open_fund_info_em()
+            print(f"  成功获取{len(fund_list)}只基金，正在筛选标普500和纳指100相关基金...")
+            
+            # 筛选QDII基金且名称包含"标普500"或"纳斯达克100"或"纳指100"
+            for _, row in fund_list.iterrows():
+                name = str(row.get("基金简称", ""))
+                if ("标普500" in name or "纳斯达克100" in name or "纳指100" in name) and ("联接" in name or "ETF" in name):
+                    fund_code = str(row.get("基金代码", ""))
+                    fund_type = "sp500" if "标普" in name else "nasdaq"
+                    class_type = "C" if "C" in name[-1] or "C" in name[-2:] else "A"
+                    all_funds.append({
+                        "code": fund_code,
+                        "name": name,
+                        "manager": str(row.get("基金管理人", "未知")),
+                        "classType": class_type,
+                        "type": fund_type
+                    })
+            print(f"  筛选出{len(all_funds)}只相关基金")
+        except Exception as e:
+            print(f"  获取基金列表失败: {e}")
+            all_funds = []
+    
+    # 如果没有获取到真实基金列表，用备用的真实常见基金列表
+    if len(all_funds) == 0:
+        print("  使用备用基金列表...")
+        all_funds = [
+            # 标普500
+            {"code": "050025", "name": "博时标普500ETF联接A", "manager": "博时基金", "classType": "A", "type": "sp500"},
+            {"code": "050026", "name": "博时标普500ETF联接C", "manager": "博时基金", "classType": "C", "type": "sp500"},
+            {"code": "161125", "name": "易方达标普500指数A", "manager": "易方达基金", "classType": "A", "type": "sp500"},
+            # 纳指100
+            {"code": "160213", "name": "国泰纳斯达克100指数", "manager": "国泰基金", "classType": "A", "type": "nasdaq"},
+            {"code": "270042", "name": "广发纳斯达克100ETF联接A", "manager": "广发基金", "classType": "A", "type": "nasdaq"},
+            {"code": "270043", "name": "广发纳斯达克100ETF联接C", "manager": "广发基金", "classType": "C", "type": "nasdaq"},
+            {"code": "040046", "name": "华安纳斯达克100ETF联接A", "manager": "华安基金", "classType": "A", "type": "nasdaq"},
+            {"code": "040047", "name": "华安纳斯达克100ETF联接C", "manager": "华安基金", "classType": "C", "type": "nasdaq"},
+        ]
+    
+    off_funds = []
     fund_data_cache = None
-    # 尝试获取真实基金数据
+    
+    # 尝试获取真实基金净值数据
     if HAS_AKSHARE:
         try:
             print("  正在获取基金净值数据...")
             fund_data_cache = ak.fund_open_fund_daily_em()
-            print(f"  成功获取{len(fund_data_cache)}只基金数据")
+            print(f"  成功获取{len(fund_data_cache)}只基金的净值数据")
         except Exception as e:
-            print(f"  获取基金数据失败: {e}")
+            print(f"  获取基金净值失败: {e}")
     
     for fund in all_funds:
-        fund_type = "sp500" if "标普" in fund["name"] else "nasdaq"
+        fund_type = fund["type"]
         base_nav = 1.5 if fund_type == "sp500" else 2.0
         
         nav = base_nav
@@ -248,9 +337,9 @@ def fetch_off_funds():
         if nav == base_nav and prev_nav == base_nav:
             nav_change = random.uniform(-0.02, 0.03)
             nav = round(base_nav * (1 + nav_change), 4)
-            day_return = round(nav_change * 100, 2)
+            day_return = round(nav_change * 100), 2)
         elif prev_nav > 0 and nav != prev_nav:
-            day_return = round(((nav - prev_nav) / prev_nav) * 100, 2)
+            day_return = round(((nav - prev_nav) / prev_nav) * 100), 2)
         
         # 费率设置
         expense_ratio = 0.80 if fund["classType"] == "A" else 0.40
@@ -270,9 +359,9 @@ def fetch_off_funds():
             "managementFee": 0.50,
             "alipayFee": alipay_fee,
             "ttjjFee": ttjj_fee,
-            "totalAlipayFee": round(expense_ratio + alipay_fee, 2),
-            "totalTtjjFee": round(expense_ratio + ttjj_fee, 2),
-            "pe": round(22.6 + random.uniform(-0.5, 0.5), 1) if fund_type == "sp500" else round(28.5 + random.uniform(-0.8, 0.8), 1),
+            "totalAlipayFee": round(expense_ratio + alipay_fee), 2),
+            "totalTtjjFee": round(expense_ratio + ttjj_fee), 2),
+            "pe": round(22.6 + random.uniform(-0.5, 0.5)), 1) if fund_type == "sp500" else round(28.5 + random.uniform(-0.8, 0.8)), 1),
             "limitStatus": "正常",
             "limitAmount": None
         })

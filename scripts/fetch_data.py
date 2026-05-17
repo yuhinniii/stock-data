@@ -145,9 +145,9 @@ def fetch_us_etfs():
     return result
 
 def get_fund_list():
-    """获取真实的基金列表（包含用户补充的纳指基金）"""
+    """获取真实的基金列表（完全根据用户给的信息更新）"""
     return [
-        # 标普500基金（原有保留）
+        # 标普500基金（保留原有的不变）
         {"code": "050025", "name": "博时标普500ETF联接A", "manager": "博时基金", "classType": "A", "type": "sp500"},
         {"code": "050026", "name": "博时标普500ETF联接C", "manager": "博时基金", "classType": "C", "type": "sp500"},
         {"code": "161125", "name": "易方达标普500指数A", "manager": "易方达基金", "classType": "A", "type": "sp500"},
@@ -155,31 +155,27 @@ def get_fund_list():
         {"code": "000077", "name": "华夏标普500ETF发起式联接C", "manager": "华夏基金", "classType": "C", "type": "sp500"},
         {"code": "160213", "name": "国泰标普500ETF联接", "manager": "国泰基金", "classType": "A", "type": "sp500"},
         
-        # 纳指100基金（用户补充，A/C类合并到名称）
+        # 纳指100基金（完全根据用户给的信息更新）
         {"code": "016452", "name": "南方纳斯达克100指数发起(QDII)A", "manager": "南方基金", "classType": "A", "type": "nasdaq"},
-        {"code": "016533", "name": "南方纳斯达克100指数发起(QDII)C", "manager": "南方基金", "classType": "C", "type": "nasdaq"},
-        {"code": "016533", "name": "嘉实纳斯达克100ETF联接(QDII)A", "manager": "嘉实基金", "classType": "A", "type": "nasdaq"},
-        {"code": "006479", "name": "广发纳斯达克100ETF联接(QDII)A", "manager": "广发基金", "classType": "A", "type": "nasdaq"},
-        {"code": "004006", "name": "广发纳斯达克100ETF联接(QDII)C", "manager": "广发基金", "classType": "C", "type": "nasdaq"},
+        {"code": "016453", "name": "南方纳斯达克100指数发起(QDII)C", "manager": "南方基金", "classType": "C", "type": "nasdaq"},
+        {"code": "016532", "name": "嘉实纳斯达克100ETF联接(QDII)A", "manager": "嘉实基金", "classType": "A", "type": "nasdaq"},
+        {"code": "016533", "name": "嘉实纳斯达克100ETF联接(QDII)C", "manager": "嘉实基金", "classType": "C", "type": "nasdaq"},
+        {"code": "270042", "name": "广发纳斯达克100ETF联接(QDII)A", "manager": "广发基金", "classType": "A", "type": "nasdaq"},
+        {"code": "006479", "name": "广发纳斯达克100ETF联接(QDII)C", "manager": "广发基金", "classType": "C", "type": "nasdaq"},
         {"code": "040046", "name": "华安纳斯达克100ETF联接(QDII)A", "manager": "华安基金", "classType": "A", "type": "nasdaq"},
-        {"code": "040047", "name": "华安纳斯达克100ETF联接(QDII)C", "manager": "华安基金", "classType": "C", "type": "nasdaq"},
-        {"code": "014978", "name": "招商纳斯达克100ETF发起联接(QDII)A", "manager": "招商基金", "classType": "A", "type": "nasdaq"},
+        {"code": "014978", "name": "华安纳斯达克100ETF联接(QDII)C", "manager": "华安基金", "classType": "C", "type": "nasdaq"},
+        {"code": "019547", "name": "招商纳斯达克100ETF发起联接(QDII)A", "manager": "招商基金", "classType": "A", "type": "nasdaq"},
         {"code": "019548", "name": "招商纳斯达克100ETF发起联接(QDII)C", "manager": "招商基金", "classType": "C", "type": "nasdaq"},
-        {"code": "000075", "name": "华夏纳斯达克100ETF发起式联接A", "manager": "华夏基金", "classType": "A", "type": "nasdaq"},
-        {"code": "000078", "name": "华夏纳斯达克100ETF发起式联接C", "manager": "华夏基金", "classType": "C", "type": "nasdaq"},
-        {"code": "000074", "name": "招商纳斯达克100ETF联接A", "manager": "招商基金", "classType": "A", "type": "nasdaq"},
-        {"code": "000073", "name": "招商纳斯达克100ETF联接C", "manager": "招商基金", "classType": "C", "type": "nasdaq"},
-        {"code": "470068", "name": "汇添富纳斯达克100ETF联接A", "manager": "汇添富基金", "classType": "A", "type": "nasdaq"},
-        {"code": "470069", "name": "汇添富纳斯达克100ETF联接C", "manager": "汇添富基金", "classType": "C", "type": "nasdaq"},
-        {"code": "000834", "name": "大成纳斯达克100ETF联接A", "manager": "大成基金", "classType": "A", "type": "nasdaq"},
-        {"code": "000835", "name": "大成纳斯达克100ETF联接C", "manager": "大成基金", "classType": "C", "type": "nasdaq"},
-        {"code": "00834", "name": "博时纳斯达克100ETF发起联接(QDII)A", "manager": "博时基金", "classType": "A", "type": "nasdaq"},
-        {"code": "016055", "name": "博时纳斯达克100ETF发起联接(QDII)C", "manager": "博时基金", "classType": "C", "type": "nasdaq"},
-        {"code": "016057", "name": "华夏柏瑞纳斯达克100指数发起(QDII)A", "manager": "华夏基金", "classType": "A", "type": "nasdaq"},
-        {"code": "018043", "name": "摩根纳斯达克100指数(QDII)A", "manager": "摩根基金", "classType": "A", "type": "nasdaq"},
-        {"code": "539001", "name": "信诚纳斯达克100指数(QDII)A", "manager": "中信保诚基金", "classType": "A", "type": "nasdaq"},
-        {"code": "00834", "name": "大成纳斯达克100ETF联接A", "manager": "大成基金", "classType": "A", "type": "nasdaq"},
-        {"code": "000835", "name": "大成纳斯达克100ETF联接C", "manager": "大成基金", "classType": "C", "type": "nasdaq"},
+        {"code": "018966", "name": "汇添富纳斯达克100ETF联接(QDII)A", "manager": "汇添富基金", "classType": "A", "type": "nasdaq"},
+        {"code": "018967", "name": "汇添富纳斯达克100ETF联接(QDII)C", "manager": "汇添富基金", "classType": "C", "type": "nasdaq"},
+        {"code": "016055", "name": "博时纳斯达克100ETF发起联接(QDII)A", "manager": "博时基金", "classType": "A", "type": "nasdaq"},
+        {"code": "016057", "name": "博时纳斯达克100ETF发起联接(QDII)C", "manager": "博时基金", "classType": "C", "type": "nasdaq"},
+        {"code": "019549", "name": "华泰柏瑞纳斯达克100ETF联接(QDII)A", "manager": "华泰柏瑞基金", "classType": "A", "type": "nasdaq"},
+        {"code": "019525", "name": "华泰柏瑞纳斯达克100ETF联接(QDII)C", "manager": "华泰柏瑞基金", "classType": "C", "type": "nasdaq"},
+        {"code": "018043", "name": "天弘纳斯达克100指数发起(QDII)A", "manager": "天弘基金", "classType": "A", "type": "nasdaq"},
+        {"code": "019172", "name": "摩根纳斯达克100指数(QDII)A", "manager": "摩根基金", "classType": "A", "type": "nasdaq"},
+        {"code": "539001", "name": "建信纳斯达克100指数(QDII)A", "manager": "建信基金", "classType": "A", "type": "nasdaq"},
+        {"code": "000834", "name": "大成纳斯达克100ETF联接(QDII)A", "manager": "大成基金", "classType": "A", "type": "nasdaq"},
         {"code": "019736", "name": "宝盈纳斯达克100指数(QDII)A", "manager": "宝盈基金", "classType": "A", "type": "nasdaq"},
         {"code": "019441", "name": "万家纳斯达克100指数(QDII)A", "manager": "万家基金", "classType": "A", "type": "nasdaq"},
     ]

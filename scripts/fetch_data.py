@@ -264,16 +264,15 @@ def get_fund_list():
         {"code": "161724", "name": "招商标普500指数A", "manager": "招商基金", "classType": "A", "type": "sp500"},
         {"code": "003721", "name": "招商标普500指数C", "manager": "招商基金", "classType": "C", "type": "sp500"},
         
-        # 纳指100基金（用户提供的22只）
+        # 纳指100基金（修正后的正确代码）
         {"code": "160213", "name": "国泰纳斯达克100指数", "manager": "国泰基金", "classType": "A", "type": "nasdaq"},
         {"code": "161130", "name": "易方达纳斯达克100指数", "manager": "易方达基金", "classType": "A", "type": "nasdaq"},
         {"code": "270042", "name": "广发纳斯达克100ETF联接A", "manager": "广发基金", "classType": "A", "type": "nasdaq"},
-        {"code": "270043", "name": "广发纳斯达克100ETF联接C", "manager": "广发基金", "classType": "C", "type": "nasdaq"},
+        {"code": "006479", "name": "广发纳斯达克100ETF联接C", "manager": "广发基金", "classType": "C", "type": "nasdaq"},
         {"code": "040046", "name": "华安纳斯达克100ETF联接A", "manager": "华安基金", "classType": "A", "type": "nasdaq"},
         {"code": "040047", "name": "华安纳斯达克100ETF联接C", "manager": "华安基金", "classType": "C", "type": "nasdaq"},
         {"code": "159941", "name": "广发纳指100ETF", "manager": "广发基金", "classType": "A", "type": "nasdaq"},
         {"code": "513100", "name": "国泰纳指100ETF", "manager": "国泰基金", "classType": "A", "type": "nasdaq"},
-        {"code": "003721", "name": "国泰纳斯达克100ETF联接C", "manager": "国泰基金", "classType": "C", "type": "nasdaq"},
         {"code": "320018", "name": "诺安纳斯达克100指数A", "manager": "诺安基金", "classType": "A", "type": "nasdaq"},
         {"code": "320019", "name": "诺安纳斯达克100指数C", "manager": "诺安基金", "classType": "C", "type": "nasdaq"},
         {"code": "513300", "name": "华夏纳斯达克100ETF", "manager": "华夏基金", "classType": "A", "type": "nasdaq"},
@@ -297,43 +296,40 @@ def fetch_off_funds():
     print(f"  使用用户指定的{len(all_funds)}只基金列表")
     
     off_funds = []
-    fund_data_cache = None
-    
-    # 尝试获取真实基金净值数据
-    if HAS_AKSHARE:
-        try:
-            print("  正在获取基金净值数据...")
-            fund_data_cache = ak.fund_open_fund_daily_em()
-            print(f"  成功获取{len(fund_data_cache)}只基金的净值数据")
-        except Exception as e:
-            print(f"  获取基金净值失败: {e}")
+    failed_funds = []
     
     for fund in all_funds:
         fund_type = fund["type"]
-        base_nav = 1.5 if fund_type == "sp500" else 2.0
         
-        nav = base_nav
-        prev_nav = base_nav
-        day_return = 0
+        nav = None
+        day_return = None
+        nav_date = None
+        data_source = None
         
-        # 尝试从真实数据中获取
-        if fund_data_cache is not None:
+        # 只使用真实的历史净值数据
+        if HAS_AKSHARE:
             try:
-                fund_row = fund_data_cache[fund_data_cache["基金代码"] == fund["code"]]
-                if len(fund_row) > 0:
-                    nav = safe_float(fund_row.iloc[0]["单位净值"], base_nav)
-                    prev_nav = safe_float(fund_row.iloc[0]["前交易日-单位净值"], base_nav)
-                    day_return = safe_float(fund_row.iloc[0]["日增长率"], 0)
-            except Exception:
-                pass
+                print(f"  [{len(off_funds)+1}/{len(all_funds)}] 正在获取 {fund['name']} ({fund['code']}) 历史数据...")
+                fund_history = ak.fund_open_fund_info_em(symbol=fund['code'])
+                if len(fund_history) > 0:
+                    # 取最新的一条数据（数据是倒序排列的，最后一条是最新的）
+                    latest_row = fund_history.iloc[-1]
+                    nav = safe_float(latest_row.get('单位净值'))
+                    day_return = safe_float(latest_row.get('日增长率'))
+                    nav_date = latest_row.get('净值日期')
+                    data_source = "东方财富历史净值"
+                    print(f"    ✅ 成功 - 日期: {nav_date}, 净值: {nav}, 增长率: {day_return}%")
+            except Exception as e:
+                print(f"    ❌ 失败: {e}")
         
-        # 如果没有真实数据或获取失败，使用智能模拟
-        if nav == base_nav and prev_nav == base_nav:
-            nav_change = random.uniform(-0.02, 0.03)
-            nav = round(base_nav * (1 + nav_change), 4)
-            day_return = round(nav_change * 100, 2)
-        elif prev_nav > 0 and nav != prev_nav:
-            day_return = round(((nav - prev_nav) / prev_nav) * 100, 2)
+        # 如果获取失败，记录下来
+        if nav is None or nav == 0:
+            failed_funds.append({
+                "code": fund["code"],
+                "name": fund["name"]
+            })
+            print(f"    ⚠️ 跳过 {fund['name']} - 无法获取真实数据")
+            continue
         
         # 费率设置
         expense_ratio = 0.80 if fund["classType"] == "A" else 0.40
@@ -349,6 +345,8 @@ def fetch_off_funds():
             "nav": round(nav, 4),
             "price": round(nav, 4),
             "dayReturn": day_return,
+            "navDate": nav_date,
+            "dataSource": data_source,
             "expenseRatio": expense_ratio,
             "managementFee": 0.50,
             "alipayFee": alipay_fee,
@@ -359,7 +357,12 @@ def fetch_off_funds():
             "limitStatus": "正常",
             "limitAmount": None
         })
-        print(f"  ✅ {fund['name']}")
+    
+    # 打印失败的基金
+    if failed_funds:
+        print(f"\n  ⚠️ 以下 {len(failed_funds)} 只基金无法获取数据:")
+        for f in failed_funds:
+            print(f"    - {f['name']} ({f['code']})")
     
     return off_funds
 

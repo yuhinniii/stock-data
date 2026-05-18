@@ -298,12 +298,16 @@ def fetch_off_funds():
     off_funds = []
     failed_funds = []
     
+    # 计算日期筛选阈值（只保留最近2个月的数据）
+    today = datetime.now()
+    date_threshold = today - timedelta(days=60)
+    
     for fund in all_funds:
         fund_type = fund["type"]
         
         nav = None
         day_return = None
-        nav_date = None
+        nav_date_str = None
         data_source = None
         
         # 只使用真实的历史净值数据
@@ -316,9 +320,30 @@ def fetch_off_funds():
                     latest_row = fund_history.iloc[-1]
                     nav = safe_float(latest_row.get('单位净值'))
                     day_return = safe_float(latest_row.get('日增长率'))
-                    nav_date = latest_row.get('净值日期')
+                    
+                    # 处理日期，确保是字符串
+                    raw_nav_date = latest_row.get('净值日期')
+                    if hasattr(raw_nav_date, 'strftime'):
+                        nav_date_str = raw_nav_date.strftime("%Y-%m-%d")
+                    else:
+                        nav_date_str = str(raw_nav_date)
+                    
+                    # 检查日期是否太旧
+                    try:
+                        fund_date = datetime.strptime(nav_date_str, "%Y-%m-%d")
+                        if fund_date < date_threshold:
+                            print(f"    ⚠️ 跳过 {fund['name']} - 数据太旧 (日期: {nav_date_str})")
+                            failed_funds.append({
+                                "code": fund["code"],
+                                "name": fund["name"],
+                                "reason": f"数据太旧 ({nav_date_str})"
+                            })
+                            continue
+                    except:
+                        pass
+                    
                     data_source = "东方财富历史净值"
-                    print(f"    ✅ 成功 - 日期: {nav_date}, 净值: {nav}, 增长率: {day_return}%")
+                    print(f"    ✅ 成功 - 日期: {nav_date_str}, 净值: {nav}, 增长率: {day_return}%")
             except Exception as e:
                 print(f"    ❌ 失败: {e}")
         
@@ -326,7 +351,8 @@ def fetch_off_funds():
         if nav is None or nav == 0:
             failed_funds.append({
                 "code": fund["code"],
-                "name": fund["name"]
+                "name": fund["name"],
+                "reason": "获取失败"
             })
             print(f"    ⚠️ 跳过 {fund['name']} - 无法获取真实数据")
             continue
@@ -345,7 +371,7 @@ def fetch_off_funds():
             "nav": round(nav, 4),
             "price": round(nav, 4),
             "dayReturn": day_return,
-            "navDate": nav_date,
+            "navDate": nav_date_str,  # 确保是字符串
             "dataSource": data_source,
             "expenseRatio": expense_ratio,
             "managementFee": 0.50,
@@ -360,9 +386,10 @@ def fetch_off_funds():
     
     # 打印失败的基金
     if failed_funds:
-        print(f"\n  ⚠️ 以下 {len(failed_funds)} 只基金无法获取数据:")
+        print(f"\n  ⚠️ 以下 {len(failed_funds)} 只基金被跳过:")
         for f in failed_funds:
-            print(f"    - {f['name']} ({f['code']})")
+            reason = f.get("reason", "未知原因")
+            print(f"    - {f['name']} ({f['code']}) - {reason}")
     
     return off_funds
 

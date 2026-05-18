@@ -1,62 +1,62 @@
 {
-  "updateTime": "2026-05-19 03:19:28",
+  "updateTime": "2026-05-19 07:47:41",
   "sp500": {
-    "price": 7377.2,
-    "changePercent": -0.42,
+    "price": 7403.1,
+    "changePercent": -0.07,
     "score": 6.0,
-    "pe": 21.972029939081185,
-    "vix": 18.36
+    "pe": 22.891557445396742,
+    "vix": 17.81
   },
   "nasdaq100": {
-    "price": 28831.44,
-    "changePercent": -1.01,
-    "score": 8.5,
-    "pe": 29.32415620196792,
-    "vix": 18.36
+    "price": 28994.22,
+    "changePercent": -0.45,
+    "score": 7.5,
+    "pe": 27.66025688507692,
+    "vix": 17.81
   },
   "vix": {
-    "price": 18.36,
-    "changePercent": -0.38
+    "price": 17.81,
+    "changePercent": -3.36
   },
   "us_etfs": [
     {
       "ticker": "SPY",
       "name": "SPY",
       "fullName": "SPDR 标普500 ETF",
-      "price": 735.89,
-      "changePercent": -0.44,
+      "price": 738.56,
+      "changePercent": -0.08,
       "type": "sp500"
     },
     {
       "ticker": "VOO",
       "name": "VOO",
       "fullName": "Vanguard 标普500 ETF",
-      "price": 676.41,
-      "changePercent": -0.45,
+      "price": 678.88,
+      "changePercent": -0.08,
       "type": "sp500"
     },
     {
       "ticker": "IVV",
       "name": "IVV",
       "fullName": "iShares 标普500 ETF",
-      "price": 739.28,
-      "changePercent": -0.43,
+      "price": 741.86,
+      "changePercent": -0.08,
       "type": "sp500"
     },
     {
       "ticker": "QQQ",
       "name": "QQQ",
       "fullName": "Invesco 纳指100 ETF",
-      "price": 701.82,
-      "changePercent": -1.0,
+      "price": 705.7,
+      "changePercent": -0.46,
       "type": "nasdaq"
     },
     {
       "ticker": "QQQM",
       "name": "QQQM",
       "fullName": "Invesco 纳指100迷你 ETF",
-      "price": 288.86,
-      "changePercent": -1.04,
+      "price": 290.55,
+      "changePercent": -0.46,
       "type": "nasdaq"
     }
   ],
@@ -99,7 +99,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.4,
       "totalTtjjFee": 0.4,
-      "pe": 22.2,
+      "pe": 22.5,
       "limitStatus": "正常",
       "limitAmount": null
     },
@@ -120,7 +120,7 @@
       "ttjjFee": 0.1,
       "totalAlipayFee": 0.92,
       "totalTtjjFee": 0.9,
-      "pe": 22.2,
+      "pe": 23.0,
       "limitStatus": "正常",
       "limitAmount": null
     },
@@ -141,7 +141,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.4,
       "totalTtjjFee": 0.4,
-      "pe": 22.4,
+      "pe": 23.0,
       "limitStatus": "正常",
       "limitAmount": null
     },
@@ -162,7 +162,7 @@
       "ttjjFee": 0.1,
       "totalAlipayFee": 0.92,
       "totalTtjjFee": 0.9,
-      "pe": 22.2,
+      "pe": 22.9,
       "limitStatus": "正常",
       "limitAmount": null
     },
@@ -183,7 +183,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.4,
       "totalTtjjFee": 0.4,
-      "pe": 22.9,
+      "pe": 22.7,
       "limitStatus": "正常",
       "limitAmount": null
     },
@@ -204,7 +204,7 @@
       "ttjjFee": 0.1,
       "totalAlipayFee": 0.92,
       "totalTtjjFee": 0.9,
-      "pe": 29.1,
+      "pe": 27.9,
       "limitStatus": "正常",
       "limitAmount": null
     },
@@ -246,7 +246,7 @@
       "ttjjFee": 0.1,
       "totalAlipayFee": 0.92,
       "totalTtjjFee": 0.9,
-      "pe": 29.2,
+      "pe": 28.8,
       "limitStatus": "正常",
       "limitAmount": null
     },
@@ -267,7 +267,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.4,
       "totalTtjjFee": 0.4,
-      "pe": 28.8,
+      "pe": 28.3,
       "limitStatus": "正常",
       "limitAmount": null
     },
@@ -309,7 +309,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.4,
       "totalTtjjFee": 0.4,
-      "pe": 28.3,
+      "pe": 28.9,
       "limitStatus": "正常",
       "limitAmount": null
     },
@@ -330,7 +330,7 @@
       "ttjjFee": 0.1,
       "totalAlipayFee": 0.92,
       "totalTtjjFee": 0.9,
-      "pe": 27.8,
+      "pe": 28.5,
       "limitStatus": "正常",
       "limitAmount": null
     },
@@ -351,7 +351,7 @@
       "ttjjFee": 0.1,
       "totalAlipayFee": 0.92,
       "totalTtjjFee": 0.9,
-      "pe": 28.2,
+      "pe": 28.1,
       "limitStatus": "正常",
       "limitAmount": null
     },
@@ -372,7 +372,7 @@
       "ttjjFee": 0.1,
       "totalAlipayFee": 0.92,
       "totalTtjjFee": 0.9,
-      "pe": 28.2,
+      "pe": 28.6,
       "limitStatus": "正常",
       "limitAmount": null
     },
@@ -393,7 +393,7 @@
       "ttjjFee": 0.1,
       "totalAlipayFee": 0.92,
       "totalTtjjFee": 0.9,
-      "pe": 28.0,
+      "pe": 28.3,
       "limitStatus": "正常",
       "limitAmount": null
     },
@@ -414,7 +414,7 @@
       "ttjjFee": 0.1,
       "totalAlipayFee": 0.92,
       "totalTtjjFee": 0.9,
-      "pe": 27.9,
+      "pe": 28.9,
       "limitStatus": "正常",
       "limitAmount": null
     },
@@ -435,7 +435,7 @@
       "ttjjFee": 0.1,
       "totalAlipayFee": 0.92,
       "totalTtjjFee": 0.9,
-      "pe": 27.7,
+      "pe": 28.6,
       "limitStatus": "正常",
       "limitAmount": null
     },
@@ -456,7 +456,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.4,
       "totalTtjjFee": 0.4,
-      "pe": 28.6,
+      "pe": 28.8,
       "limitStatus": "正常",
       "limitAmount": null
     },
@@ -477,7 +477,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.4,
       "totalTtjjFee": 0.4,
-      "pe": 27.9,
+      "pe": 28.7,
       "limitStatus": "正常",
       "limitAmount": null
     },
@@ -498,7 +498,7 @@
       "ttjjFee": 0.1,
       "totalAlipayFee": 0.92,
       "totalTtjjFee": 0.9,
-      "pe": 27.8,
+      "pe": 28.9,
       "limitStatus": "正常",
       "limitAmount": null
     },
@@ -519,7 +519,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.4,
       "totalTtjjFee": 0.4,
-      "pe": 29.0,
+      "pe": 27.9,
       "limitStatus": "正常",
       "limitAmount": null
     },
@@ -540,7 +540,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.4,
       "totalTtjjFee": 0.4,
-      "pe": 27.7,
+      "pe": 28.1,
       "limitStatus": "正常",
       "limitAmount": null
     },
@@ -561,7 +561,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.4,
       "totalTtjjFee": 0.4,
-      "pe": 28.7,
+      "pe": 28.8,
       "limitStatus": "正常",
       "limitAmount": null
     }

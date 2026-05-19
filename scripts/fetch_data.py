@@ -254,7 +254,7 @@ def fetch_us_etfs():
     return us_etfs
 
 def get_fund_list():
-    """获取用户指定的基金列表"""
+    """获取用户指定的基金列表（来自支付宝数据）"""
     return [
         # 标普500基金（保留原有）
         {"code": "050025", "name": "博时标普500ETF联接A", "manager": "博时基金", "classType": "A", "type": "sp500"},
@@ -264,28 +264,44 @@ def get_fund_list():
         {"code": "161724", "name": "招商标普500指数A", "manager": "招商基金", "classType": "A", "type": "sp500"},
         {"code": "003721", "name": "招商标普500指数C", "manager": "招商基金", "classType": "C", "type": "sp500"},
         
-        # 纳指100基金（修正后的正确代码）
-        {"code": "160213", "name": "国泰纳斯达克100指数", "manager": "国泰基金", "classType": "A", "type": "nasdaq"},
-        {"code": "161130", "name": "易方达纳斯达克100指数", "manager": "易方达基金", "classType": "A", "type": "nasdaq"},
-        {"code": "270042", "name": "广发纳斯达克100ETF联接A", "manager": "广发基金", "classType": "A", "type": "nasdaq"},
-        {"code": "006479", "name": "广发纳斯达克100ETF联接C", "manager": "广发基金", "classType": "C", "type": "nasdaq"},
-        {"code": "040046", "name": "华安纳斯达克100ETF联接A", "manager": "华安基金", "classType": "A", "type": "nasdaq"},
-        {"code": "040047", "name": "华安纳斯达克100ETF联接C", "manager": "华安基金", "classType": "C", "type": "nasdaq"},
-        {"code": "159941", "name": "广发纳指100ETF", "manager": "广发基金", "classType": "A", "type": "nasdaq"},
-        {"code": "513100", "name": "国泰纳指100ETF", "manager": "国泰基金", "classType": "A", "type": "nasdaq"},
-        {"code": "320018", "name": "诺安纳斯达克100指数A", "manager": "诺安基金", "classType": "A", "type": "nasdaq"},
-        {"code": "320019", "name": "诺安纳斯达克100指数C", "manager": "诺安基金", "classType": "C", "type": "nasdaq"},
-        {"code": "513300", "name": "华夏纳斯达克100ETF", "manager": "华夏基金", "classType": "A", "type": "nasdaq"},
-        {"code": "161725", "name": "招商纳斯达克100指数A", "manager": "招商基金", "classType": "A", "type": "nasdaq"},
-        {"code": "004798", "name": "招商纳斯达克100指数C", "manager": "招商基金", "classType": "C", "type": "nasdaq"},
-        {"code": "000834", "name": "大成纳斯达克100指数A", "manager": "大成基金", "classType": "A", "type": "nasdaq"},
-        {"code": "000835", "name": "大成纳斯达克100指数C", "manager": "大成基金", "classType": "C", "type": "nasdaq"},
-        {"code": "007822", "name": "南方纳斯达克100指数A", "manager": "南方基金", "classType": "A", "type": "nasdaq"},
-        {"code": "007823", "name": "南方纳斯达克100指数C", "manager": "南方基金", "classType": "C", "type": "nasdaq"},
-        {"code": "008973", "name": "博时纳斯达克100指数A", "manager": "博时基金", "classType": "A", "type": "nasdaq"},
-        {"code": "008974", "name": "博时纳斯达克100指数C", "manager": "博时基金", "classType": "C", "type": "nasdaq"},
-        {"code": "012768", "name": "华安纳斯达克100ETF联接C", "manager": "华安基金", "classType": "C", "type": "nasdaq"},
-        {"code": "013308", "name": "国泰纳斯达克100ETF联接C", "manager": "国泰基金", "classType": "C", "type": "nasdaq"},
+        # 纳指100基金（来自支付宝数据）
+        {"code": "016452", "name": "南方纳斯达克100指数发起(QDII)A", "manager": "南方基金", "classType": "A", "type": "nasdaq", "managementFee": 0.45, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "限大额", "limitAmount": 200},
+        {"code": "016453", "name": "南方纳斯达克100指数发起(QDII)C", "manager": "南方基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.55, "limitStatus": "限大额", "limitAmount": 200},
+        {"code": "016532", "name": "嘉实纳斯达克100ETF联接(QDII)A", "manager": "嘉实基金", "classType": "A", "type": "nasdaq", "managementFee": 0.40, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "暂停申购", "limitAmount": 0},
+        {"code": "016533", "name": "嘉实纳斯达克100ETF联接(QDII)C", "manager": "嘉实基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.55, "limitStatus": "暂停申购", "limitAmount": 0},
+        {"code": "270042", "name": "广发纳斯达克100ETF联接(QDII)A", "manager": "广发基金", "classType": "A", "type": "nasdaq", "managementFee": 0.80, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "限大额", "limitAmount": 10},
+        {"code": "006479", "name": "广发纳斯达克100ETF联接(QDII)C", "manager": "广发基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 1.00, "limitStatus": "限大额", "limitAmount": 10},
+        {"code": "040046", "name": "华安纳斯达克100ETF联接(QDII)A", "manager": "华安基金", "classType": "A", "type": "nasdaq", "managementFee": 0.60, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "限大额", "limitAmount": 10},
+        {"code": "014978", "name": "华安纳斯达克100ETF联接(QDII)C", "manager": "华安基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.80, "limitStatus": "限大额", "limitAmount": 10},
+        {"code": "019547", "name": "招商纳斯达克100ETF发起联接(QDII)A", "manager": "招商基金", "classType": "A", "type": "nasdaq", "managementFee": 0.45, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "限大额", "limitAmount": 100},
+        {"code": "019548", "name": "招商纳斯达克100ETF发起联接(QDII)C", "manager": "招商基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.85, "limitStatus": "限大额", "limitAmount": 100},
+        {"code": "018966", "name": "汇添富纳斯达克100ETF联接(QDII)A", "manager": "汇添富基金", "classType": "A", "type": "nasdaq", "managementFee": 0.45, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "限大额", "limitAmount": 100},
+        {"code": "018967", "name": "汇添富纳斯达克100ETF联接(QDII)C", "manager": "汇添富基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.85, "limitStatus": "限大额", "limitAmount": 100},
+        {"code": "021773", "name": "汇添富纳斯达克100ETF联接(QDII)E", "manager": "汇添富基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.55, "limitStatus": "限大额", "limitAmount": 100},
+        {"code": "016055", "name": "博时纳斯达克100ETF发起联接(QDII)A", "manager": "博时基金", "classType": "A", "type": "nasdaq", "managementFee": 0.45, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "暂停申购", "limitAmount": 0},
+        {"code": "016057", "name": "博时纳斯达克100ETF发起联接(QDII)C", "manager": "博时基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.75, "limitStatus": "暂停申购", "limitAmount": 0},
+        {"code": "019524", "name": "华泰柏瑞纳斯达克100ETF联接(QDII)A", "manager": "华泰柏瑞基金", "classType": "A", "type": "nasdaq", "managementFee": 0.45, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "限大额", "limitAmount": 10},
+        {"code": "019525", "name": "华泰柏瑞纳斯达克100ETF联接(QDII)C", "manager": "华泰柏瑞基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.70, "limitStatus": "限大额", "limitAmount": 10},
+        {"code": "022664", "name": "华泰柏瑞纳斯达克100ETF联接(QDII)I", "manager": "华泰柏瑞基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.55, "limitStatus": "限大额", "limitAmount": 10},
+        {"code": "018043", "name": "天弘纳斯达克100指数(QDII)A", "manager": "天弘基金", "classType": "A", "type": "nasdaq", "managementFee": 0.40, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "限大额", "limitAmount": 100},
+        {"code": "018044", "name": "天弘纳斯达克100指数(QDII)C", "manager": "天弘基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.50, "limitStatus": "限大额", "limitAmount": 100},
+        {"code": "022525", "name": "天弘纳斯达克100指数(QDII)D", "manager": "天弘基金", "classType": "A", "type": "nasdaq", "managementFee": 0.60, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "暂停申购", "limitAmount": 0},
+        {"code": "019172", "name": "摩根纳斯达克100指数(QDII)A", "manager": "摩根基金", "classType": "A", "type": "nasdaq", "managementFee": 0.40, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "限大额", "limitAmount": 100},
+        {"code": "019173", "name": "摩根纳斯达克100指数(QDII)C", "manager": "摩根基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.70, "limitStatus": "限大额", "limitAmount": 100},
+        {"code": "539001", "name": "建信纳斯达克100指数(QDII)A", "manager": "建信基金", "classType": "A", "type": "nasdaq", "managementFee": 0.80, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "限大额", "limitAmount": 100},
+        {"code": "012752", "name": "建信纳斯达克100指数(QDII)C", "manager": "建信基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 1.10, "limitStatus": "限大额", "limitAmount": 100},
+        {"code": "023422", "name": "建信纳斯达克100指数(QDII)D", "manager": "建信基金", "classType": "A", "type": "nasdaq", "managementFee": 0.80, "custodyFee": 0.20, "salesServiceFee": 0.30, "limitStatus": "暂停申购", "limitAmount": 0},
+        {"code": "000834", "name": "大成纳斯达克100ETF联接(QDII)A", "manager": "大成基金", "classType": "A", "type": "nasdaq", "managementFee": 0.80, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "限大额", "limitAmount": 500},
+        {"code": "008971", "name": "大成纳斯达克100ETF联接(QDII)C", "manager": "大成基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 1.10, "limitStatus": "限大额", "limitAmount": 500},
+        {"code": "019736", "name": "宝盈纳斯达克100指数(QDII)A", "manager": "宝盈基金", "classType": "A", "type": "nasdaq", "managementFee": 0.45, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "限大额", "limitAmount": 100},
+        {"code": "019737", "name": "宝盈纳斯达克100指数(QDII)C", "manager": "宝盈基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.70, "limitStatus": "限大额", "limitAmount": 100},
+        {"code": "019441", "name": "万家纳斯达克100指数(QDII)A", "manager": "万家基金", "classType": "A", "type": "nasdaq", "managementFee": 0.45, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "限大额", "limitAmount": 50},
+        {"code": "019442", "name": "万家纳斯达克100指数(QDII)C", "manager": "万家基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.65, "limitStatus": "限大额", "limitAmount": 50},
+        {"code": "161130", "name": "易方达纳斯达克100指数(QDII-LOF)A", "manager": "易方达基金", "classType": "A", "type": "nasdaq", "managementFee": 0.40, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "暂停申购", "limitAmount": 0},
+        {"code": "012870", "name": "易方达纳斯达克100指数(QDII-LOF)C", "manager": "易方达基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.70, "limitStatus": "暂停申购", "limitAmount": 0},
+        {"code": "015299", "name": "华夏纳斯达克100指数(QDII)A", "manager": "华夏基金", "classType": "A", "type": "nasdaq", "managementFee": 0.60, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "暂停申购", "limitAmount": 0},
+        {"code": "015300", "name": "华夏纳斯达克100指数(QDII)C", "manager": "华夏基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.90, "limitStatus": "暂停申购", "limitAmount": 0},
+        {"code": "160213", "name": "国泰纳斯达克100指数(QDII)", "manager": "国泰基金", "classType": "A", "type": "nasdaq", "managementFee": 0.80, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "暂停申购", "limitAmount": 0},
     ]
 
 def fetch_off_funds():
@@ -295,12 +311,18 @@ def fetch_off_funds():
     all_funds = get_fund_list()
     print(f"  使用用户指定的{len(all_funds)}只基金列表")
     
+    # 先一次性获取所有基金的当日数据（包含申购状态和手续费）
+    daily_funds_cache = None
+    if HAS_AKSHARE:
+        try:
+            print("  正在获取所有基金的当日数据...")
+            daily_funds_cache = ak.fund_open_fund_daily_em()
+            print(f"  成功获取 {len(daily_funds_cache)} 只基金的当日数据")
+        except Exception as e:
+            print(f"  ⚠️ 获取当日基金数据失败: {e}")
+    
     off_funds = []
     failed_funds = []
-    
-    # 计算日期筛选阈值（只保留最近2个月的数据）
-    today = datetime.now()
-    date_threshold = today - timedelta(days=60)
     
     for fund in all_funds:
         fund_type = fund["type"]
@@ -309,43 +331,73 @@ def fetch_off_funds():
         day_return = None
         nav_date_str = None
         data_source = None
+        purchase_status = "未知"
+        redeem_status = "未知"
+        purchase_fee = 0.0
+        limit_status = "正常"
+        limit_amount = None
         
-        # 只使用真实的历史净值数据
+        print(f"  [{len(off_funds)+1}/{len(all_funds)}] 正在获取 {fund['name']} ({fund['code']})...")
+        
         if HAS_AKSHARE:
+            # 优先获取历史数据（有完整的净值和日增长率）
             try:
-                print(f"  [{len(off_funds)+1}/{len(all_funds)}] 正在获取 {fund['name']} ({fund['code']}) 历史数据...")
                 fund_history = ak.fund_open_fund_info_em(symbol=fund['code'])
                 if len(fund_history) > 0:
-                    # 取最新的一条数据（数据是倒序排列的，最后一条是最新的）
                     latest_row = fund_history.iloc[-1]
                     nav = safe_float(latest_row.get('单位净值'))
                     day_return = safe_float(latest_row.get('日增长率'))
                     
-                    # 处理日期，确保是字符串
                     raw_nav_date = latest_row.get('净值日期')
                     if hasattr(raw_nav_date, 'strftime'):
                         nav_date_str = raw_nav_date.strftime("%Y-%m-%d")
                     else:
                         nav_date_str = str(raw_nav_date)
                     
-                    # 检查日期是否太旧
-                    try:
-                        fund_date = datetime.strptime(nav_date_str, "%Y-%m-%d")
-                        if fund_date < date_threshold:
-                            print(f"    ⚠️ 跳过 {fund['name']} - 数据太旧 (日期: {nav_date_str})")
-                            failed_funds.append({
-                                "code": fund["code"],
-                                "name": fund["name"],
-                                "reason": f"数据太旧 ({nav_date_str})"
-                            })
-                            continue
-                    except:
-                        pass
-                    
                     data_source = "东方财富历史净值"
-                    print(f"    ✅ 成功 - 日期: {nav_date_str}, 净值: {nav}, 增长率: {day_return}%")
             except Exception as e:
-                print(f"    ❌ 失败: {e}")
+                print(f"    ⚠️ 历史数据获取失败: {e}")
+            
+            # 然后从当日数据获取状态和手续费
+            if daily_funds_cache is not None:
+                try:
+                    match = daily_funds_cache[daily_funds_cache['基金代码'] == fund['code']]
+                    if len(match) > 0:
+                        row = match.iloc[0]
+                        fund_name = str(row.get('基金简称', ''))
+                        
+                        # 检查名称匹配
+                        expected_name = fund['name']
+                        name_match = False
+                        if any(keyword in fund_name or keyword in expected_name for keyword in ['纳斯达克', '纳指', '标普']):
+                            name_match = True
+                        elif any(company in fund_name and company in expected_name for company in ['博时', '易方达', '广发', '华安', '国泰', '诺安', '华夏', '招商', '大成', '南方']):
+                            name_match = True
+                        
+                        if name_match:
+                            # 获取状态和手续费
+                            purchase_status = str(row.get('申购状态', '未知'))
+                            redeem_status = str(row.get('赎回状态', '未知'))
+                            
+                            # 处理申购费
+                            fee_str = str(row.get('手续费', ''))
+                            if '%' in fee_str:
+                                purchase_fee = safe_float(fee_str.replace('%', '').strip())
+                            else:
+                                purchase_fee = safe_float(fee_str)
+                            
+                            # 根据申购状态判断限购情况
+                            if '限大额' in purchase_status:
+                                limit_status = "限大额"
+                                limit_amount = purchase_status  # 直接用原文显示
+                            elif '暂停' in purchase_status:
+                                limit_status = "暂停申购"
+                                limit_amount = 0
+                            else:
+                                limit_status = "正常"
+                                limit_amount = None
+                except Exception as e:
+                    pass
         
         # 如果获取失败，记录下来
         if nav is None or nav == 0:
@@ -357,10 +409,34 @@ def fetch_off_funds():
             print(f"    ⚠️ 跳过 {fund['name']} - 无法获取真实数据")
             continue
         
-        # 费率设置
-        expense_ratio = 0.80 if fund["classType"] == "A" else 0.40
-        alipay_fee = 0.12 if fund["classType"] == "A" else 0.00
-        ttjj_fee = 0.10 if fund["classType"] == "A" else 0.00
+        # 计算综合费率（不包含买入费率）
+        # 优先使用基金列表中配置的自定义费率，如果没有则使用默认费率
+        if "managementFee" in fund and fund["managementFee"] is not None:
+            management_fee = fund["managementFee"]
+        else:
+            management_fee = 0.80 if fund["classType"] == "A" else 0.00  # 默认管理费
+        
+        if "custodyFee" in fund and fund["custodyFee"] is not None:
+            custody_fee = fund["custodyFee"]
+        else:
+            custody_fee = 0.20  # 默认托管费
+        
+        if "salesServiceFee" in fund and fund["salesServiceFee"] is not None:
+            sales_service_fee = fund["salesServiceFee"]
+        else:
+            sales_service_fee = 0.00 if fund["classType"] == "A" else 0.40  # 默认销售服务费
+        
+        # 综合费率 = 管理费 + 托管费 + 销售服务费（不包含买入费率）
+        total_fee = management_fee + custody_fee + sales_service_fee
+        
+        # 优先使用配置的限购信息，如果没有则使用从东方财富获取的
+        if "limitStatus" in fund and fund["limitStatus"] is not None:
+            limit_status = fund["limitStatus"]
+            limit_amount = fund.get("limitAmount", None)
+            purchase_status = limit_status  # 使用配置的状态
+        # 如果没有配置，保留从东方财富获取的状态
+        
+        print(f"    ✅ 成功 - 净值:{nav}, 增长:{day_return}%, 买入费:{purchase_fee}%, 综合费:{total_fee}%, 限购:{limit_status}")
         
         off_funds.append({
             "code": fund["code"],
@@ -371,17 +447,26 @@ def fetch_off_funds():
             "nav": round(nav, 4),
             "price": round(nav, 4),
             "dayReturn": day_return,
-            "navDate": nav_date_str,  # 确保是字符串
+            "navDate": nav_date_str,
             "dataSource": data_source,
-            "expenseRatio": expense_ratio,
-            "managementFee": 0.50,
-            "alipayFee": alipay_fee,
-            "ttjjFee": ttjj_fee,
-            "totalAlipayFee": round(expense_ratio + alipay_fee, 2),
-            "totalTtjjFee": round(expense_ratio + ttjj_fee, 2),
-            "pe": round(22.6 + random.uniform(-0.5, 0.5), 1) if fund_type == "sp500" else round(28.5 + random.uniform(-0.8, 0.8), 1),
-            "limitStatus": "正常",
-            "limitAmount": None
+            # 费率信息
+            "purchaseFee": purchase_fee,  # 买入费率
+            "totalFee": total_fee,       # 综合费率
+            "managementFee": management_fee,
+            "custodyFee": custody_fee,
+            "salesServiceFee": sales_service_fee,
+            # 限购信息
+            "purchaseStatus": purchase_status,
+            "redeemStatus": redeem_status,
+            "limitStatus": limit_status,
+            "limitAmount": limit_amount,
+            # 其他原有字段（保留兼容性）
+            "expenseRatio": management_fee,
+            "alipayFee": purchase_fee,
+            "ttjjFee": purchase_fee,
+            "totalAlipayFee": total_fee,
+            "totalTtjjFee": total_fee,
+            "pe": round(22.6 + random.uniform(-0.5, 0.5), 1) if fund_type == "sp500" else round(28.5 + random.uniform(-0.8, 0.8), 1)
         })
     
     # 打印失败的基金

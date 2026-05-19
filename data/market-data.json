@@ -1,62 +1,62 @@
 {
-  "updateTime": "2026-05-19 19:45:38",
+  "updateTime": "2026-05-19 22:45:50",
   "sp500": {
-    "price": 7403.1,
-    "changePercent": -0.07,
+    "price": 7347.01,
+    "changePercent": -0.76,
     "score": 6.0,
-    "pe": 22.61376086207205,
-    "vix": 18.05
+    "pe": 22.229915984534365,
+    "vix": 18.06
   },
   "nasdaq100": {
-    "price": 28994.22,
-    "changePercent": -0.45,
+    "price": 28658.18,
+    "changePercent": -1.16,
     "score": 8.5,
-    "pe": 29.42352762630956,
-    "vix": 18.05
+    "pe": 29.051352907613044,
+    "vix": 18.06
   },
   "vix": {
-    "price": 18.05,
-    "changePercent": 1.29
+    "price": 18.06,
+    "changePercent": 1.35
   },
   "us_etfs": [
     {
       "ticker": "SPY",
       "name": "SPY",
       "fullName": "SPDR 标普500 ETF",
-      "price": 738.56,
-      "changePercent": -0.08,
+      "price": 732.87,
+      "changePercent": -0.78,
       "type": "sp500"
     },
     {
       "ticker": "VOO",
       "name": "VOO",
       "fullName": "Vanguard 标普500 ETF",
-      "price": 678.88,
-      "changePercent": -0.08,
+      "price": 673.77,
+      "changePercent": -0.76,
       "type": "sp500"
     },
     {
       "ticker": "IVV",
       "name": "IVV",
       "fullName": "iShares 标普500 ETF",
-      "price": 741.86,
-      "changePercent": -0.08,
+      "price": 736.33,
+      "changePercent": -0.75,
       "type": "sp500"
     },
     {
       "ticker": "QQQ",
       "name": "QQQ",
       "fullName": "Invesco 纳指100 ETF",
-      "price": 705.7,
-      "changePercent": -0.46,
+      "price": 697.5,
+      "changePercent": -1.19,
       "type": "nasdaq"
     },
     {
       "ticker": "QQQM",
       "name": "QQQM",
       "fullName": "Invesco 纳指100迷你 ETF",
-      "price": 290.55,
-      "changePercent": -0.46,
+      "price": 287.15,
+      "changePercent": -1.2,
       "type": "nasdaq"
     }
   ],
@@ -67,10 +67,10 @@
       "manager": "博时基金",
       "classType": "A",
       "type": "sp500",
-      "nav": 5.454,
-      "price": 5.454,
-      "dayReturn": -1.14,
-      "navDate": "2026-05-15",
+      "nav": 5.4508,
+      "price": 5.4508,
+      "dayReturn": -0.06,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.12,
       "totalFee": 1.0,
@@ -86,7 +86,7 @@
       "ttjjFee": 0.12,
       "totalAlipayFee": 1.0,
       "totalTtjjFee": 1.0,
-      "pe": 22.2
+      "pe": 22.7
     },
     {
       "code": "050026",
@@ -94,13 +94,13 @@
       "manager": "博时基金",
       "classType": "C",
       "type": "sp500",
-      "nav": 2.355,
-      "price": 2.355,
-      "dayReturn": -1.63,
-      "navDate": "2026-05-18",
+      "nav": 2.363,
+      "price": 2.363,
+      "dayReturn": 0.34,
+      "navDate": "2026-05-19",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.15,
-      "totalFee": 0.6000000000000001,
+      "totalFee": 0.6,
       "managementFee": 0.0,
       "custodyFee": 0.2,
       "salesServiceFee": 0.4,
@@ -111,9 +111,9 @@
       "expenseRatio": 0.0,
       "alipayFee": 0.15,
       "ttjjFee": 0.15,
-      "totalAlipayFee": 0.6000000000000001,
-      "totalTtjjFee": 0.6000000000000001,
-      "pe": 22.2
+      "totalAlipayFee": 0.6,
+      "totalTtjjFee": 0.6,
+      "pe": 23.0
     },
     {
       "code": "161125",
@@ -140,7 +140,7 @@
       "ttjjFee": 0.12,
       "totalAlipayFee": 1.0,
       "totalTtjjFee": 1.0,
-      "pe": 22.8
+      "pe": 22.9
     },
     {
       "code": "006075",
@@ -154,7 +154,7 @@
       "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
-      "totalFee": 0.6000000000000001,
+      "totalFee": 0.6,
       "managementFee": 0.0,
       "custodyFee": 0.2,
       "salesServiceFee": 0.4,
@@ -165,9 +165,9 @@
       "expenseRatio": 0.0,
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
-      "totalAlipayFee": 0.6000000000000001,
-      "totalTtjjFee": 0.6000000000000001,
-      "pe": 22.6
+      "totalAlipayFee": 0.6,
+      "totalTtjjFee": 0.6,
+      "pe": 22.9
     },
     {
       "code": "161724",
@@ -175,10 +175,10 @@
       "manager": "招商基金",
       "classType": "A",
       "type": "sp500",
-      "nav": 2.3512,
-      "price": 2.3512,
-      "dayReturn": 1.4,
-      "navDate": "2026-05-18",
+      "nav": 2.3555,
+      "price": 2.3555,
+      "dayReturn": 0.18,
+      "navDate": "2026-05-19",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.1,
       "totalFee": 1.0,
@@ -194,7 +194,7 @@
       "ttjjFee": 0.1,
       "totalAlipayFee": 1.0,
       "totalTtjjFee": 1.0,
-      "pe": 22.6
+      "pe": 22.3
     },
     {
       "code": "003721",
@@ -208,7 +208,7 @@
       "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.12,
-      "totalFee": 0.6000000000000001,
+      "totalFee": 0.6,
       "managementFee": 0.0,
       "custodyFee": 0.2,
       "salesServiceFee": 0.4,
@@ -219,9 +219,9 @@
       "expenseRatio": 0.0,
       "alipayFee": 0.12,
       "ttjjFee": 0.12,
-      "totalAlipayFee": 0.6000000000000001,
-      "totalTtjjFee": 0.6000000000000001,
-      "pe": 22.8
+      "totalAlipayFee": 0.6,
+      "totalTtjjFee": 0.6,
+      "pe": 22.1
     },
     {
       "code": "016452",
@@ -229,10 +229,10 @@
       "manager": "南方基金",
       "classType": "A",
       "type": "nasdaq",
-      "nav": 2.2847,
-      "price": 2.2847,
-      "dayReturn": -1.41,
-      "navDate": "2026-05-15",
+      "nav": 2.2762,
+      "price": 2.2762,
+      "dayReturn": -0.37,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.12,
       "totalFee": 0.65,
@@ -248,7 +248,7 @@
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.65,
       "totalTtjjFee": 0.65,
-      "pe": 29.1
+      "pe": 28.8
     },
     {
       "code": "016453",
@@ -256,10 +256,10 @@
       "manager": "南方基金",
       "classType": "C",
       "type": "nasdaq",
-      "nav": 2.2752,
-      "price": 2.2752,
-      "dayReturn": -1.41,
-      "navDate": "2026-05-15",
+      "nav": 2.2667,
+      "price": 2.2667,
+      "dayReturn": -0.37,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
       "totalFee": 0.75,
@@ -275,7 +275,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.75,
       "totalTtjjFee": 0.75,
-      "pe": 28.3
+      "pe": 27.9
     },
     {
       "code": "016532",
@@ -289,7 +289,7 @@
       "navDate": "2026-05-15",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.1,
-      "totalFee": 0.6000000000000001,
+      "totalFee": 0.6,
       "managementFee": 0.4,
       "custodyFee": 0.2,
       "salesServiceFee": 0.0,
@@ -300,9 +300,9 @@
       "expenseRatio": 0.4,
       "alipayFee": 0.1,
       "ttjjFee": 0.1,
-      "totalAlipayFee": 0.6000000000000001,
-      "totalTtjjFee": 0.6000000000000001,
-      "pe": 29.0
+      "totalAlipayFee": 0.6,
+      "totalTtjjFee": 0.6,
+      "pe": 28.9
     },
     {
       "code": "016533",
@@ -329,7 +329,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.75,
       "totalTtjjFee": 0.75,
-      "pe": 28.4
+      "pe": 28.5
     },
     {
       "code": "270042",
@@ -337,10 +337,10 @@
       "manager": "广发基金",
       "classType": "A",
       "type": "nasdaq",
-      "nav": 8.1939,
-      "price": 8.1939,
-      "dayReturn": -1.5,
-      "navDate": "2026-05-15",
+      "nav": 8.1598,
+      "price": 8.1598,
+      "dayReturn": -0.42,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.13,
       "totalFee": 1.0,
@@ -356,7 +356,7 @@
       "ttjjFee": 0.13,
       "totalAlipayFee": 1.0,
       "totalTtjjFee": 1.0,
-      "pe": 28.9
+      "pe": 27.7
     },
     {
       "code": "006479",
@@ -383,7 +383,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.2,
       "totalTtjjFee": 1.2,
-      "pe": 28.6
+      "pe": 29.2
     },
     {
       "code": "040046",
@@ -391,10 +391,10 @@
       "manager": "华安基金",
       "classType": "A",
       "type": "nasdaq",
-      "nav": 8.2194,
-      "price": 8.2194,
-      "dayReturn": -1.51,
-      "navDate": "2026-05-15",
+      "nav": 8.186,
+      "price": 8.186,
+      "dayReturn": -0.41,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.12,
       "totalFee": 0.8,
@@ -410,7 +410,7 @@
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.8,
       "totalTtjjFee": 0.8,
-      "pe": 28.2
+      "pe": 28.9
     },
     {
       "code": "014978",
@@ -418,10 +418,10 @@
       "manager": "华安基金",
       "classType": "C",
       "type": "nasdaq",
-      "nav": 8.0546,
-      "price": 8.0546,
-      "dayReturn": -1.51,
-      "navDate": "2026-05-15",
+      "nav": 8.0217,
+      "price": 8.0217,
+      "dayReturn": -0.41,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
       "totalFee": 1.0,
@@ -437,7 +437,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.0,
       "totalTtjjFee": 1.0,
-      "pe": 27.7
+      "pe": 28.4
     },
     {
       "code": "019547",
@@ -445,10 +445,10 @@
       "manager": "招商基金",
       "classType": "A",
       "type": "nasdaq",
-      "nav": 1.5636,
-      "price": 1.5636,
-      "dayReturn": -1.44,
-      "navDate": "2026-05-15",
+      "nav": 1.5578,
+      "price": 1.5578,
+      "dayReturn": -0.37,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.12,
       "totalFee": 0.65,
@@ -464,7 +464,7 @@
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.65,
       "totalTtjjFee": 0.65,
-      "pe": 28.1
+      "pe": 29.0
     },
     {
       "code": "019548",
@@ -472,10 +472,10 @@
       "manager": "招商基金",
       "classType": "C",
       "type": "nasdaq",
-      "nav": 1.5486,
-      "price": 1.5486,
-      "dayReturn": -1.43,
-      "navDate": "2026-05-15",
+      "nav": 1.5427,
+      "price": 1.5427,
+      "dayReturn": -0.38,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
       "totalFee": 1.05,
@@ -491,7 +491,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.05,
       "totalTtjjFee": 1.05,
-      "pe": 28.7
+      "pe": 28.8
     },
     {
       "code": "018966",
@@ -499,10 +499,10 @@
       "manager": "汇添富基金",
       "classType": "A",
       "type": "nasdaq",
-      "nav": 1.6416,
-      "price": 1.6416,
-      "dayReturn": -1.42,
-      "navDate": "2026-05-15",
+      "nav": 1.6351,
+      "price": 1.6351,
+      "dayReturn": -0.4,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.12,
       "totalFee": 0.65,
@@ -518,7 +518,7 @@
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.65,
       "totalTtjjFee": 0.65,
-      "pe": 27.9
+      "pe": 27.7
     },
     {
       "code": "018967",
@@ -526,10 +526,10 @@
       "manager": "汇添富基金",
       "classType": "C",
       "type": "nasdaq",
-      "nav": 1.6237,
-      "price": 1.6237,
-      "dayReturn": -1.43,
-      "navDate": "2026-05-15",
+      "nav": 1.6172,
+      "price": 1.6172,
+      "dayReturn": -0.4,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
       "totalFee": 1.05,
@@ -545,7 +545,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.05,
       "totalTtjjFee": 1.05,
-      "pe": 29.0
+      "pe": 27.8
     },
     {
       "code": "021773",
@@ -553,10 +553,10 @@
       "manager": "汇添富基金",
       "classType": "C",
       "type": "nasdaq",
-      "nav": 1.6386,
-      "price": 1.6386,
-      "dayReturn": -1.43,
-      "navDate": "2026-05-15",
+      "nav": 1.6322,
+      "price": 1.6322,
+      "dayReturn": -0.39,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
       "totalFee": 0.75,
@@ -572,7 +572,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.75,
       "totalTtjjFee": 0.75,
-      "pe": 27.8
+      "pe": 28.8
     },
     {
       "code": "016055",
@@ -580,10 +580,10 @@
       "manager": "博时基金",
       "classType": "A",
       "type": "nasdaq",
-      "nav": 2.106,
-      "price": 2.106,
-      "dayReturn": -1.43,
-      "navDate": "2026-05-15",
+      "nav": 2.098,
+      "price": 2.098,
+      "dayReturn": -0.38,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.1,
       "totalFee": 0.65,
@@ -599,7 +599,7 @@
       "ttjjFee": 0.1,
       "totalAlipayFee": 0.65,
       "totalTtjjFee": 0.65,
-      "pe": 29.2
+      "pe": 28.2
     },
     {
       "code": "016057",
@@ -607,10 +607,10 @@
       "manager": "博时基金",
       "classType": "C",
       "type": "nasdaq",
-      "nav": 2.0804,
-      "price": 2.0804,
-      "dayReturn": -1.43,
-      "navDate": "2026-05-15",
+      "nav": 2.0724,
+      "price": 2.0724,
+      "dayReturn": -0.38,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
       "totalFee": 0.95,
@@ -626,7 +626,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.95,
       "totalTtjjFee": 0.95,
-      "pe": 28.2
+      "pe": 27.8
     },
     {
       "code": "019524",
@@ -634,10 +634,10 @@
       "manager": "华泰柏瑞基金",
       "classType": "A",
       "type": "nasdaq",
-      "nav": 1.6412,
-      "price": 1.6412,
-      "dayReturn": -1.42,
-      "navDate": "2026-05-15",
+      "nav": 1.6348,
+      "price": 1.6348,
+      "dayReturn": -0.39,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.12,
       "totalFee": 0.65,
@@ -653,7 +653,7 @@
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.65,
       "totalTtjjFee": 0.65,
-      "pe": 28.4
+      "pe": 29.0
     },
     {
       "code": "019525",
@@ -661,13 +661,13 @@
       "manager": "华泰柏瑞基金",
       "classType": "C",
       "type": "nasdaq",
-      "nav": 1.6286,
-      "price": 1.6286,
-      "dayReturn": -1.42,
-      "navDate": "2026-05-15",
+      "nav": 1.6222,
+      "price": 1.6222,
+      "dayReturn": -0.39,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
-      "totalFee": 0.8999999999999999,
+      "totalFee": 0.9,
       "managementFee": 0.0,
       "custodyFee": 0.2,
       "salesServiceFee": 0.7,
@@ -678,9 +678,9 @@
       "expenseRatio": 0.0,
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
-      "totalAlipayFee": 0.8999999999999999,
-      "totalTtjjFee": 0.8999999999999999,
-      "pe": 28.6
+      "totalAlipayFee": 0.9,
+      "totalTtjjFee": 0.9,
+      "pe": 28.2
     },
     {
       "code": "022664",
@@ -688,10 +688,10 @@
       "manager": "华泰柏瑞基金",
       "classType": "C",
       "type": "nasdaq",
-      "nav": 1.6396,
-      "price": 1.6396,
-      "dayReturn": -1.42,
-      "navDate": "2026-05-15",
+      "nav": 1.6331,
+      "price": 1.6331,
+      "dayReturn": -0.4,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
       "totalFee": 0.75,
@@ -707,7 +707,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.75,
       "totalTtjjFee": 0.75,
-      "pe": 28.4
+      "pe": 28.2
     },
     {
       "code": "018043",
@@ -715,13 +715,13 @@
       "manager": "天弘基金",
       "classType": "A",
       "type": "nasdaq",
-      "nav": 2.0282,
-      "price": 2.0282,
-      "dayReturn": -1.43,
-      "navDate": "2026-05-15",
+      "nav": 2.0205,
+      "price": 2.0205,
+      "dayReturn": -0.38,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.1,
-      "totalFee": 0.6000000000000001,
+      "totalFee": 0.6,
       "managementFee": 0.4,
       "custodyFee": 0.2,
       "salesServiceFee": 0.0,
@@ -732,8 +732,8 @@
       "expenseRatio": 0.4,
       "alipayFee": 0.1,
       "ttjjFee": 0.1,
-      "totalAlipayFee": 0.6000000000000001,
-      "totalTtjjFee": 0.6000000000000001,
+      "totalAlipayFee": 0.6,
+      "totalTtjjFee": 0.6,
       "pe": 28.6
     },
     {
@@ -742,10 +742,10 @@
       "manager": "天弘基金",
       "classType": "C",
       "type": "nasdaq",
-      "nav": 2.0123,
-      "price": 2.0123,
-      "dayReturn": -1.43,
-      "navDate": "2026-05-15",
+      "nav": 2.0046,
+      "price": 2.0046,
+      "dayReturn": -0.38,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
       "totalFee": 0.7,
@@ -761,7 +761,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.7,
       "totalTtjjFee": 0.7,
-      "pe": 29.2
+      "pe": 28.7
     },
     {
       "code": "022525",
@@ -769,10 +769,10 @@
       "manager": "天弘基金",
       "classType": "A",
       "type": "nasdaq",
-      "nav": 2.0082,
-      "price": 2.0082,
-      "dayReturn": -1.43,
-      "navDate": "2026-05-15",
+      "nav": 2.0006,
+      "price": 2.0006,
+      "dayReturn": -0.38,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
       "totalFee": 0.8,
@@ -796,13 +796,13 @@
       "manager": "摩根基金",
       "classType": "A",
       "type": "nasdaq",
-      "nav": 1.7439,
-      "price": 1.7439,
-      "dayReturn": -1.41,
-      "navDate": "2026-05-15",
+      "nav": 1.7374,
+      "price": 1.7374,
+      "dayReturn": -0.37,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.12,
-      "totalFee": 0.6000000000000001,
+      "totalFee": 0.6,
       "managementFee": 0.4,
       "custodyFee": 0.2,
       "salesServiceFee": 0.0,
@@ -813,9 +813,9 @@
       "expenseRatio": 0.4,
       "alipayFee": 0.12,
       "ttjjFee": 0.12,
-      "totalAlipayFee": 0.6000000000000001,
-      "totalTtjjFee": 0.6000000000000001,
-      "pe": 27.8
+      "totalAlipayFee": 0.6,
+      "totalTtjjFee": 0.6,
+      "pe": 29.1
     },
     {
       "code": "019173",
@@ -823,13 +823,13 @@
       "manager": "摩根基金",
       "classType": "C",
       "type": "nasdaq",
-      "nav": 1.7294,
-      "price": 1.7294,
-      "dayReturn": -1.41,
-      "navDate": "2026-05-15",
+      "nav": 1.7229,
+      "price": 1.7229,
+      "dayReturn": -0.38,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
-      "totalFee": 0.8999999999999999,
+      "totalFee": 0.9,
       "managementFee": 0.0,
       "custodyFee": 0.2,
       "salesServiceFee": 0.7,
@@ -840,9 +840,9 @@
       "expenseRatio": 0.0,
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
-      "totalAlipayFee": 0.8999999999999999,
-      "totalTtjjFee": 0.8999999999999999,
-      "pe": 29.1
+      "totalAlipayFee": 0.9,
+      "totalTtjjFee": 0.9,
+      "pe": 28.2
     },
     {
       "code": "539001",
@@ -850,10 +850,10 @@
       "manager": "建信基金",
       "classType": "A",
       "type": "nasdaq",
-      "nav": 3.4356,
-      "price": 3.4356,
-      "dayReturn": -1.5,
-      "navDate": "2026-05-15",
+      "nav": 3.4224,
+      "price": 3.4224,
+      "dayReturn": -0.38,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.12,
       "totalFee": 1.0,
@@ -869,7 +869,7 @@
       "ttjjFee": 0.12,
       "totalAlipayFee": 1.0,
       "totalTtjjFee": 1.0,
-      "pe": 28.6
+      "pe": 28.3
     },
     {
       "code": "012752",
@@ -877,10 +877,10 @@
       "manager": "建信基金",
       "classType": "C",
       "type": "nasdaq",
-      "nav": 3.3273,
-      "price": 3.3273,
-      "dayReturn": -1.5,
-      "navDate": "2026-05-15",
+      "nav": 3.3143,
+      "price": 3.3143,
+      "dayReturn": -0.39,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
       "totalFee": 1.3,
@@ -896,7 +896,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.3,
       "totalTtjjFee": 1.3,
-      "pe": 28.1
+      "pe": 28.2
     },
     {
       "code": "023422",
@@ -904,10 +904,10 @@
       "manager": "建信基金",
       "classType": "A",
       "type": "nasdaq",
-      "nav": 3.3431,
-      "price": 3.3431,
-      "dayReturn": -1.49,
-      "navDate": "2026-05-15",
+      "nav": 3.3301,
+      "price": 3.3301,
+      "dayReturn": -0.39,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
       "totalFee": 1.3,
@@ -923,7 +923,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.3,
       "totalTtjjFee": 1.3,
-      "pe": 28.8
+      "pe": 28.3
     },
     {
       "code": "000834",
@@ -931,10 +931,10 @@
       "manager": "大成基金",
       "classType": "A",
       "type": "nasdaq",
-      "nav": 6.3283,
-      "price": 6.3283,
-      "dayReturn": -1.57,
-      "navDate": "2026-05-15",
+      "nav": 6.3022,
+      "price": 6.3022,
+      "dayReturn": -0.41,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.12,
       "totalFee": 1.0,
@@ -950,7 +950,7 @@
       "ttjjFee": 0.12,
       "totalAlipayFee": 1.0,
       "totalTtjjFee": 1.0,
-      "pe": 28.0
+      "pe": 28.6
     },
     {
       "code": "008971",
@@ -977,7 +977,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.3,
       "totalTtjjFee": 1.3,
-      "pe": 28.1
+      "pe": 28.6
     },
     {
       "code": "019736",
@@ -985,10 +985,10 @@
       "manager": "宝盈基金",
       "classType": "A",
       "type": "nasdaq",
-      "nav": 1.4824,
-      "price": 1.4824,
-      "dayReturn": -1.43,
-      "navDate": "2026-05-15",
+      "nav": 1.4768,
+      "price": 1.4768,
+      "dayReturn": -0.38,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.12,
       "totalFee": 0.65,
@@ -1004,7 +1004,7 @@
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.65,
       "totalTtjjFee": 0.65,
-      "pe": 28.9
+      "pe": 27.7
     },
     {
       "code": "019737",
@@ -1012,13 +1012,13 @@
       "manager": "宝盈基金",
       "classType": "C",
       "type": "nasdaq",
-      "nav": 1.4732,
-      "price": 1.4732,
-      "dayReturn": -1.43,
-      "navDate": "2026-05-15",
+      "nav": 1.4677,
+      "price": 1.4677,
+      "dayReturn": -0.37,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
-      "totalFee": 0.8999999999999999,
+      "totalFee": 0.9,
       "managementFee": 0.0,
       "custodyFee": 0.2,
       "salesServiceFee": 0.7,
@@ -1029,9 +1029,9 @@
       "expenseRatio": 0.0,
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
-      "totalAlipayFee": 0.8999999999999999,
-      "totalTtjjFee": 0.8999999999999999,
-      "pe": 29.0
+      "totalAlipayFee": 0.9,
+      "totalTtjjFee": 0.9,
+      "pe": 27.9
     },
     {
       "code": "019441",
@@ -1039,10 +1039,10 @@
       "manager": "万家基金",
       "classType": "A",
       "type": "nasdaq",
-      "nav": 1.6701,
-      "price": 1.6701,
-      "dayReturn": -1.42,
-      "navDate": "2026-05-15",
+      "nav": 1.6639,
+      "price": 1.6639,
+      "dayReturn": -0.37,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.1,
       "totalFee": 0.65,
@@ -1058,7 +1058,7 @@
       "ttjjFee": 0.1,
       "totalAlipayFee": 0.65,
       "totalTtjjFee": 0.65,
-      "pe": 27.7
+      "pe": 28.9
     },
     {
       "code": "019442",
@@ -1066,13 +1066,13 @@
       "manager": "万家基金",
       "classType": "C",
       "type": "nasdaq",
-      "nav": 1.6601,
-      "price": 1.6601,
-      "dayReturn": -1.43,
-      "navDate": "2026-05-15",
+      "nav": 1.6539,
+      "price": 1.6539,
+      "dayReturn": -0.37,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
-      "totalFee": 0.8500000000000001,
+      "totalFee": 0.85,
       "managementFee": 0.0,
       "custodyFee": 0.2,
       "salesServiceFee": 0.65,
@@ -1083,9 +1083,9 @@
       "expenseRatio": 0.0,
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
-      "totalAlipayFee": 0.8500000000000001,
-      "totalTtjjFee": 0.8500000000000001,
-      "pe": 28.5
+      "totalAlipayFee": 0.85,
+      "totalTtjjFee": 0.85,
+      "pe": 29.1
     },
     {
       "code": "161130",
@@ -1099,7 +1099,7 @@
       "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.12,
-      "totalFee": 0.6000000000000001,
+      "totalFee": 0.6,
       "managementFee": 0.4,
       "custodyFee": 0.2,
       "salesServiceFee": 0.0,
@@ -1110,9 +1110,9 @@
       "expenseRatio": 0.4,
       "alipayFee": 0.12,
       "ttjjFee": 0.12,
-      "totalAlipayFee": 0.6000000000000001,
-      "totalTtjjFee": 0.6000000000000001,
-      "pe": 28.0
+      "totalAlipayFee": 0.6,
+      "totalTtjjFee": 0.6,
+      "pe": 28.1
     },
     {
       "code": "012870",
@@ -1126,7 +1126,7 @@
       "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
-      "totalFee": 0.8999999999999999,
+      "totalFee": 0.9,
       "managementFee": 0.0,
       "custodyFee": 0.2,
       "salesServiceFee": 0.7,
@@ -1137,9 +1137,9 @@
       "expenseRatio": 0.0,
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
-      "totalAlipayFee": 0.8999999999999999,
-      "totalTtjjFee": 0.8999999999999999,
-      "pe": 28.9
+      "totalAlipayFee": 0.9,
+      "totalTtjjFee": 0.9,
+      "pe": 28.4
     },
     {
       "code": "015299",
@@ -1147,10 +1147,10 @@
       "manager": "华夏基金",
       "classType": "A",
       "type": "nasdaq",
-      "nav": 2.0212,
-      "price": 2.0212,
-      "dayReturn": -1.23,
-      "navDate": "2026-05-15",
+      "nav": 2.0123,
+      "price": 2.0123,
+      "dayReturn": -0.44,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.12,
       "totalFee": 0.8,
@@ -1166,7 +1166,7 @@
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.8,
       "totalTtjjFee": 0.8,
-      "pe": 28.2
+      "pe": 27.9
     },
     {
       "code": "015300",
@@ -1174,10 +1174,10 @@
       "manager": "华夏基金",
       "classType": "C",
       "type": "nasdaq",
-      "nav": 1.9966,
-      "price": 1.9966,
-      "dayReturn": -1.23,
-      "navDate": "2026-05-15",
+      "nav": 1.9877,
+      "price": 1.9877,
+      "dayReturn": -0.45,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
       "totalFee": 1.1,
@@ -1193,7 +1193,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.1,
       "totalTtjjFee": 1.1,
-      "pe": 28.5
+      "pe": 27.8
     },
     {
       "code": "160213",
@@ -1201,10 +1201,10 @@
       "manager": "国泰基金",
       "classType": "A",
       "type": "nasdaq",
-      "nav": 4.457,
-      "price": 4.457,
-      "dayReturn": -1.5,
-      "navDate": "2026-05-15",
+      "nav": 4.438,
+      "price": 4.438,
+      "dayReturn": -0.43,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.15,
       "totalFee": 1.0,
@@ -1220,7 +1220,7 @@
       "ttjjFee": 0.15,
       "totalAlipayFee": 1.0,
       "totalTtjjFee": 1.0,
-      "pe": 28.7
+      "pe": 28.9
     }
   ]
 }

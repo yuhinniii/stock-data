@@ -1,62 +1,62 @@
 {
-  "updateTime": "2026-05-19 22:45:50",
+  "updateTime": "2026-05-20 02:29:37",
   "sp500": {
-    "price": 7347.01,
-    "changePercent": -0.76,
+    "price": 7380.07,
+    "changePercent": -0.31,
     "score": 6.0,
-    "pe": 22.229915984534365,
-    "vix": 18.06
+    "pe": 22.614490531653352,
+    "vix": 17.89
   },
   "nasdaq100": {
-    "price": 28658.18,
-    "changePercent": -1.16,
+    "price": 28939.43,
+    "changePercent": -0.19,
     "score": 8.5,
-    "pe": 29.051352907613044,
-    "vix": 18.06
+    "pe": 28.918057775515567,
+    "vix": 17.89
   },
   "vix": {
-    "price": 18.06,
-    "changePercent": 1.35
+    "price": 17.89,
+    "changePercent": 0.39
   },
   "us_etfs": [
     {
       "ticker": "SPY",
       "name": "SPY",
       "fullName": "SPDR 标普500 ETF",
-      "price": 732.87,
-      "changePercent": -0.78,
+      "price": 736.04,
+      "changePercent": -0.35,
       "type": "sp500"
     },
     {
       "ticker": "VOO",
       "name": "VOO",
       "fullName": "Vanguard 标普500 ETF",
-      "price": 673.77,
-      "changePercent": -0.76,
+      "price": 676.66,
+      "changePercent": -0.33,
       "type": "sp500"
     },
     {
       "ticker": "IVV",
       "name": "IVV",
       "fullName": "iShares 标普500 ETF",
-      "price": 736.33,
-      "changePercent": -0.75,
+      "price": 739.5,
+      "changePercent": -0.32,
       "type": "sp500"
     },
     {
       "ticker": "QQQ",
       "name": "QQQ",
       "fullName": "Invesco 纳指100 ETF",
-      "price": 697.5,
-      "changePercent": -1.19,
+      "price": 704.03,
+      "changePercent": -0.26,
       "type": "nasdaq"
     },
     {
       "ticker": "QQQM",
       "name": "QQQM",
       "fullName": "Invesco 纳指100迷你 ETF",
-      "price": 287.15,
-      "changePercent": -1.2,
+      "price": 290.0,
+      "changePercent": -0.22,
       "type": "nasdaq"
     }
   ],
@@ -86,7 +86,7 @@
       "ttjjFee": 0.12,
       "totalAlipayFee": 1.0,
       "totalTtjjFee": 1.0,
-      "pe": 22.7
+      "pe": 23.1
     },
     {
       "code": "050026",
@@ -113,7 +113,7 @@
       "ttjjFee": 0.15,
       "totalAlipayFee": 0.6,
       "totalTtjjFee": 0.6,
-      "pe": 23.0
+      "pe": 22.6
     },
     {
       "code": "161125",
@@ -140,7 +140,7 @@
       "ttjjFee": 0.12,
       "totalAlipayFee": 1.0,
       "totalTtjjFee": 1.0,
-      "pe": 22.9
+      "pe": 22.4
     },
     {
       "code": "006075",
@@ -167,7 +167,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.6,
       "totalTtjjFee": 0.6,
-      "pe": 22.9
+      "pe": 23.0
     },
     {
       "code": "161724",
@@ -194,7 +194,7 @@
       "ttjjFee": 0.1,
       "totalAlipayFee": 1.0,
       "totalTtjjFee": 1.0,
-      "pe": 22.3
+      "pe": 22.5
     },
     {
       "code": "003721",
@@ -221,7 +221,7 @@
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.6,
       "totalTtjjFee": 0.6,
-      "pe": 22.1
+      "pe": 22.3
     },
     {
       "code": "016452",
@@ -248,7 +248,7 @@
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.65,
       "totalTtjjFee": 0.65,
-      "pe": 28.8
+      "pe": 27.8
     },
     {
       "code": "016453",
@@ -275,7 +275,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.75,
       "totalTtjjFee": 0.75,
-      "pe": 27.9
+      "pe": 29.0
     },
     {
       "code": "016532",
@@ -283,10 +283,10 @@
       "manager": "嘉实基金",
       "classType": "A",
       "type": "nasdaq",
-      "nav": 2.1558,
-      "price": 2.1558,
-      "dayReturn": -1.41,
-      "navDate": "2026-05-15",
+      "nav": 2.1471,
+      "price": 2.1471,
+      "dayReturn": -0.4,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.1,
       "totalFee": 0.6,
@@ -302,7 +302,7 @@
       "ttjjFee": 0.1,
       "totalAlipayFee": 0.6,
       "totalTtjjFee": 0.6,
-      "pe": 28.9
+      "pe": 27.8
     },
     {
       "code": "016533",
@@ -310,10 +310,10 @@
       "manager": "嘉实基金",
       "classType": "C",
       "type": "nasdaq",
-      "nav": 2.1329,
-      "price": 2.1329,
-      "dayReturn": -1.42,
-      "navDate": "2026-05-15",
+      "nav": 2.1243,
+      "price": 2.1243,
+      "dayReturn": -0.4,
+      "navDate": "2026-05-18",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
       "totalFee": 0.75,
@@ -329,7 +329,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.75,
       "totalTtjjFee": 0.75,
-      "pe": 28.5
+      "pe": 29.1
     },
     {
       "code": "270042",
@@ -356,7 +356,7 @@
       "ttjjFee": 0.13,
       "totalAlipayFee": 1.0,
       "totalTtjjFee": 1.0,
-      "pe": 27.7
+      "pe": 29.1
     },
     {
       "code": "006479",
@@ -383,7 +383,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.2,
       "totalTtjjFee": 1.2,
-      "pe": 29.2
+      "pe": 28.1
     },
     {
       "code": "040046",
@@ -410,7 +410,7 @@
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.8,
       "totalTtjjFee": 0.8,
-      "pe": 28.9
+      "pe": 28.3
     },
     {
       "code": "014978",
@@ -437,7 +437,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.0,
       "totalTtjjFee": 1.0,
-      "pe": 28.4
+      "pe": 28.0
     },
     {
       "code": "019547",
@@ -464,7 +464,7 @@
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.65,
       "totalTtjjFee": 0.65,
-      "pe": 29.0
+      "pe": 28.1
     },
     {
       "code": "019548",
@@ -491,7 +491,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.05,
       "totalTtjjFee": 1.05,
-      "pe": 28.8
+      "pe": 28.0
     },
     {
       "code": "018966",
@@ -518,7 +518,7 @@
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.65,
       "totalTtjjFee": 0.65,
-      "pe": 27.7
+      "pe": 28.6
     },
     {
       "code": "018967",
@@ -545,7 +545,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.05,
       "totalTtjjFee": 1.05,
-      "pe": 27.8
+      "pe": 29.2
     },
     {
       "code": "021773",
@@ -572,7 +572,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.75,
       "totalTtjjFee": 0.75,
-      "pe": 28.8
+      "pe": 28.2
     },
     {
       "code": "016055",
@@ -599,7 +599,7 @@
       "ttjjFee": 0.1,
       "totalAlipayFee": 0.65,
       "totalTtjjFee": 0.65,
-      "pe": 28.2
+      "pe": 28.1
     },
     {
       "code": "016057",
@@ -626,7 +626,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.95,
       "totalTtjjFee": 0.95,
-      "pe": 27.8
+      "pe": 29.2
     },
     {
       "code": "019524",
@@ -653,7 +653,7 @@
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.65,
       "totalTtjjFee": 0.65,
-      "pe": 29.0
+      "pe": 28.2
     },
     {
       "code": "019525",
@@ -680,7 +680,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.9,
       "totalTtjjFee": 0.9,
-      "pe": 28.2
+      "pe": 27.7
     },
     {
       "code": "022664",
@@ -707,7 +707,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.75,
       "totalTtjjFee": 0.75,
-      "pe": 28.2
+      "pe": 29.0
     },
     {
       "code": "018043",
@@ -734,7 +734,7 @@
       "ttjjFee": 0.1,
       "totalAlipayFee": 0.6,
       "totalTtjjFee": 0.6,
-      "pe": 28.6
+      "pe": 29.2
     },
     {
       "code": "018044",
@@ -761,7 +761,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.7,
       "totalTtjjFee": 0.7,
-      "pe": 28.7
+      "pe": 29.3
     },
     {
       "code": "022525",
@@ -842,7 +842,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.9,
       "totalTtjjFee": 0.9,
-      "pe": 28.2
+      "pe": 28.0
     },
     {
       "code": "539001",
@@ -896,7 +896,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.3,
       "totalTtjjFee": 1.3,
-      "pe": 28.2
+      "pe": 28.3
     },
     {
       "code": "023422",
@@ -923,7 +923,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.3,
       "totalTtjjFee": 1.3,
-      "pe": 28.3
+      "pe": 29.3
     },
     {
       "code": "000834",
@@ -950,7 +950,7 @@
       "ttjjFee": 0.12,
       "totalAlipayFee": 1.0,
       "totalTtjjFee": 1.0,
-      "pe": 28.6
+      "pe": 29.0
     },
     {
       "code": "008971",
@@ -977,7 +977,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.3,
       "totalTtjjFee": 1.3,
-      "pe": 28.6
+      "pe": 28.1
     },
     {
       "code": "019736",
@@ -1004,7 +1004,7 @@
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.65,
       "totalTtjjFee": 0.65,
-      "pe": 27.7
+      "pe": 28.2
     },
     {
       "code": "019737",
@@ -1031,7 +1031,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.9,
       "totalTtjjFee": 0.9,
-      "pe": 27.9
+      "pe": 28.3
     },
     {
       "code": "019441",
@@ -1058,7 +1058,7 @@
       "ttjjFee": 0.1,
       "totalAlipayFee": 0.65,
       "totalTtjjFee": 0.65,
-      "pe": 28.9
+      "pe": 28.3
     },
     {
       "code": "019442",
@@ -1085,7 +1085,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.85,
       "totalTtjjFee": 0.85,
-      "pe": 29.1
+      "pe": 28.1
     },
     {
       "code": "161130",
@@ -1112,7 +1112,7 @@
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.6,
       "totalTtjjFee": 0.6,
-      "pe": 28.1
+      "pe": 28.5
     },
     {
       "code": "012870",
@@ -1139,7 +1139,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.9,
       "totalTtjjFee": 0.9,
-      "pe": 28.4
+      "pe": 27.8
     },
     {
       "code": "015299",
@@ -1166,7 +1166,7 @@
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.8,
       "totalTtjjFee": 0.8,
-      "pe": 27.9
+      "pe": 28.4
     },
     {
       "code": "015300",
@@ -1193,7 +1193,7 @@
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.1,
       "totalTtjjFee": 1.1,
-      "pe": 27.8
+      "pe": 28.9
     },
     {
       "code": "160213",
@@ -1220,7 +1220,7 @@
       "ttjjFee": 0.15,
       "totalAlipayFee": 1.0,
       "totalTtjjFee": 1.0,
-      "pe": 28.9
+      "pe": 29.1
     }
   ]
 }

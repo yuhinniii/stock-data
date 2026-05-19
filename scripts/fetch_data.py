@@ -436,7 +436,22 @@ def fetch_off_funds():
             purchase_status = limit_status  # 使用配置的状态
         # 如果没有配置，保留从东方财富获取的状态
         
-        print(f"    ✅ 成功 - 净值:{nav}, 增长:{day_return}%, 买入费:{purchase_fee}%, 综合费:{total_fee}%, 限购:{limit_status}")
+        # 格式化限购显示文本
+        limit_display = limit_status
+        if limit_amount is not None and limit_amount != 0:
+            if limit_status == "限大额":
+                limit_display = f"单日{limit_amount}元"
+            else:
+                limit_display = limit_status
+        
+        # 费率四舍五入到2位小数
+        purchase_fee_rounded = round(purchase_fee, 2) if purchase_fee is not None else 0
+        total_fee_rounded = round(total_fee, 2)
+        management_fee_rounded = round(management_fee, 2)
+        custody_fee_rounded = round(custody_fee, 2)
+        sales_service_fee_rounded = round(sales_service_fee, 2)
+        
+        print(f"    ✅ 成功 - 净值:{nav}, 增长:{day_return}%, 买入费:{purchase_fee_rounded}%, 综合费:{total_fee_rounded}%, 限购:{limit_display}")
         
         off_funds.append({
             "code": fund["code"],
@@ -449,23 +464,23 @@ def fetch_off_funds():
             "dayReturn": day_return,
             "navDate": nav_date_str,
             "dataSource": data_source,
-            # 费率信息
-            "purchaseFee": purchase_fee,  # 买入费率
-            "totalFee": total_fee,       # 综合费率
-            "managementFee": management_fee,
-            "custodyFee": custody_fee,
-            "salesServiceFee": sales_service_fee,
+            # 费率信息（已四舍五入）
+            "purchaseFee": purchase_fee_rounded,  # 买入费率
+            "totalFee": total_fee_rounded,       # 综合费率
+            "managementFee": management_fee_rounded,
+            "custodyFee": custody_fee_rounded,
+            "salesServiceFee": sales_service_fee_rounded,
             # 限购信息
             "purchaseStatus": purchase_status,
             "redeemStatus": redeem_status,
             "limitStatus": limit_status,
             "limitAmount": limit_amount,
             # 其他原有字段（保留兼容性）
-            "expenseRatio": management_fee,
-            "alipayFee": purchase_fee,
-            "ttjjFee": purchase_fee,
-            "totalAlipayFee": total_fee,
-            "totalTtjjFee": total_fee,
+            "expenseRatio": management_fee_rounded,
+            "alipayFee": purchase_fee_rounded,
+            "ttjjFee": purchase_fee_rounded,
+            "totalAlipayFee": total_fee_rounded,
+            "totalTtjjFee": total_fee_rounded,
             "pe": round(22.6 + random.uniform(-0.5, 0.5), 1) if fund_type == "sp500" else round(28.5 + random.uniform(-0.8, 0.8), 1)
         })
     

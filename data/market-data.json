@@ -1,46 +1,49 @@
 {
-  "updateTime": "2026-05-20 14:34:30",
+  "updateTime": "2026-05-20 15:46:23",
   "sp500": {
     "price": 7354.96,
     "changePercent": -0.65,
-    "score": 6.0,
-    "pe": 23.589938492211108,
-    "vix": 18.07
+    "score": 7.5,
+    "pe": 27.6,
+    "vix": 18.09
   },
   "nasdaq100": {
     "price": 28822.53,
     "changePercent": -0.59,
-    "score": 8.5,
-    "pe": 28.89274675432532,
-    "vix": 18.07
+    "score": 9.5,
+    "pe": 34.2,
+    "vix": 18.09
   },
   "vix": {
-    "price": 18.07,
-    "changePercent": 1.4
+    "price": 18.09,
+    "changePercent": 0.17
   },
   "us_etfs": [
     {
       "ticker": "SPY",
       "name": "SPY",
       "fullName": "SPDR 标普500 ETF",
-      "price": 733.79,
-      "changePercent": -0.66,
+      "price": 733.73,
+      "changePercent": -0.67,
+      "premium": 0.03,
       "type": "sp500"
     },
     {
       "ticker": "VOO",
       "name": "VOO",
       "fullName": "Vanguard 标普500 ETF",
-      "price": 674.61,
-      "changePercent": -0.63,
+      "price": 674.59,
+      "changePercent": -0.64,
+      "premium": 0.04,
       "type": "sp500"
     },
     {
       "ticker": "IVV",
       "name": "IVV",
       "fullName": "iShares 标普500 ETF",
-      "price": 737.15,
+      "price": 737.19,
       "changePercent": -0.64,
+      "premium": 0.04,
       "type": "sp500"
     },
     {
@@ -49,14 +52,16 @@
       "fullName": "Invesco 纳指100 ETF",
       "price": 701.53,
       "changePercent": -0.62,
+      "premium": 0.03,
       "type": "nasdaq"
     },
     {
       "ticker": "QQQM",
       "name": "QQQM",
       "fullName": "Invesco 纳指100迷你 ETF",
-      "price": 288.83,
+      "price": 288.84,
       "changePercent": -0.62,
+      "premium": 0.03,
       "type": "nasdaq"
     }
   ],
@@ -85,8 +90,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.05,
-      "totalTtjjFee": 1.05,
-      "pe": 22.5
+      "totalTtjjFee": 1.05
     },
     {
       "code": "018064",
@@ -112,8 +116,7 @@
       "alipayFee": 0.12,
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.75,
-      "totalTtjjFee": 0.75,
-      "pe": 22.4
+      "totalTtjjFee": 0.75
     },
     {
       "code": "006075",
@@ -139,8 +142,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.15,
-      "totalTtjjFee": 1.15,
-      "pe": 22.7
+      "totalTtjjFee": 1.15
     },
     {
       "code": "050025",
@@ -166,8 +168,7 @@
       "alipayFee": 0.12,
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.8,
-      "totalTtjjFee": 0.8,
-      "pe": 22.2
+      "totalTtjjFee": 0.8
     },
     {
       "code": "017641",
@@ -193,8 +194,7 @@
       "alipayFee": 0.12,
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.65,
-      "totalTtjjFee": 0.65,
-      "pe": 22.5
+      "totalTtjjFee": 0.65
     },
     {
       "code": "019305",
@@ -220,8 +220,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.95,
-      "totalTtjjFee": 0.95,
-      "pe": 23.0
+      "totalTtjjFee": 0.95
     },
     {
       "code": "161125",
@@ -247,8 +246,7 @@
       "alipayFee": 0.12,
       "ttjjFee": 0.12,
       "totalAlipayFee": 1.0,
-      "totalTtjjFee": 1.0,
-      "pe": 22.5
+      "totalTtjjFee": 1.0
     },
     {
       "code": "012860",
@@ -274,8 +272,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.35,
-      "totalTtjjFee": 1.35,
-      "pe": 22.3
+      "totalTtjjFee": 1.35
     },
     {
       "code": "007721",
@@ -301,8 +298,7 @@
       "alipayFee": 0.1,
       "ttjjFee": 0.1,
       "totalAlipayFee": 0.8,
-      "totalTtjjFee": 0.8,
-      "pe": 22.4
+      "totalTtjjFee": 0.8
     },
     {
       "code": "007722",
@@ -328,8 +324,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.05,
-      "totalTtjjFee": 1.05,
-      "pe": 22.7
+      "totalTtjjFee": 1.05
     },
     {
       "code": "022523",
@@ -355,8 +350,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.05,
-      "totalTtjjFee": 1.05,
-      "pe": 23.0
+      "totalTtjjFee": 1.05
     },
     {
       "code": "096001",
@@ -382,8 +376,7 @@
       "alipayFee": 0.15,
       "ttjjFee": 0.15,
       "totalAlipayFee": 1.2,
-      "totalTtjjFee": 1.2,
-      "pe": 22.9
+      "totalTtjjFee": 1.2
     },
     {
       "code": "008401",
@@ -409,8 +402,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.5,
-      "totalTtjjFee": 1.5,
-      "pe": 22.9
+      "totalTtjjFee": 1.5
     },
     {
       "code": "017028",
@@ -436,8 +428,7 @@
       "alipayFee": 0.1,
       "ttjjFee": 0.1,
       "totalAlipayFee": 0.75,
-      "totalTtjjFee": 0.75,
-      "pe": 22.4
+      "totalTtjjFee": 0.75
     },
     {
       "code": "017030",
@@ -463,8 +454,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.05,
-      "totalTtjjFee": 1.05,
-      "pe": 22.3
+      "totalTtjjFee": 1.05
     },
     {
       "code": "016452",
@@ -490,8 +480,7 @@
       "alipayFee": 0.12,
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.65,
-      "totalTtjjFee": 0.65,
-      "pe": 28.2
+      "totalTtjjFee": 0.65
     },
     {
       "code": "016453",
@@ -517,8 +506,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.75,
-      "totalTtjjFee": 0.75,
-      "pe": 29.0
+      "totalTtjjFee": 0.75
     },
     {
       "code": "016532",
@@ -544,8 +532,7 @@
       "alipayFee": 0.1,
       "ttjjFee": 0.1,
       "totalAlipayFee": 0.6,
-      "totalTtjjFee": 0.6,
-      "pe": 29.3
+      "totalTtjjFee": 0.6
     },
     {
       "code": "016533",
@@ -571,8 +558,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.75,
-      "totalTtjjFee": 0.75,
-      "pe": 29.3
+      "totalTtjjFee": 0.75
     },
     {
       "code": "270042",
@@ -598,8 +584,7 @@
       "alipayFee": 0.13,
       "ttjjFee": 0.13,
       "totalAlipayFee": 1.0,
-      "totalTtjjFee": 1.0,
-      "pe": 28.3
+      "totalTtjjFee": 1.0
     },
     {
       "code": "006479",
@@ -625,8 +610,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.2,
-      "totalTtjjFee": 1.2,
-      "pe": 29.1
+      "totalTtjjFee": 1.2
     },
     {
       "code": "040046",
@@ -652,8 +636,7 @@
       "alipayFee": 0.12,
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.8,
-      "totalTtjjFee": 0.8,
-      "pe": 28.2
+      "totalTtjjFee": 0.8
     },
     {
       "code": "014978",
@@ -679,8 +662,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.0,
-      "totalTtjjFee": 1.0,
-      "pe": 28.4
+      "totalTtjjFee": 1.0
     },
     {
       "code": "019547",
@@ -706,8 +688,7 @@
       "alipayFee": 0.12,
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.65,
-      "totalTtjjFee": 0.65,
-      "pe": 28.1
+      "totalTtjjFee": 0.65
     },
     {
       "code": "019548",
@@ -733,8 +714,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.05,
-      "totalTtjjFee": 1.05,
-      "pe": 29.0
+      "totalTtjjFee": 1.05
     },
     {
       "code": "018966",
@@ -760,8 +740,7 @@
       "alipayFee": 0.12,
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.65,
-      "totalTtjjFee": 0.65,
-      "pe": 28.9
+      "totalTtjjFee": 0.65
     },
     {
       "code": "018967",
@@ -787,8 +766,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.05,
-      "totalTtjjFee": 1.05,
-      "pe": 27.8
+      "totalTtjjFee": 1.05
     },
     {
       "code": "021773",
@@ -814,8 +792,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.75,
-      "totalTtjjFee": 0.75,
-      "pe": 27.7
+      "totalTtjjFee": 0.75
     },
     {
       "code": "016055",
@@ -841,8 +818,7 @@
       "alipayFee": 0.1,
       "ttjjFee": 0.1,
       "totalAlipayFee": 0.65,
-      "totalTtjjFee": 0.65,
-      "pe": 28.3
+      "totalTtjjFee": 0.65
     },
     {
       "code": "016057",
@@ -868,8 +844,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.95,
-      "totalTtjjFee": 0.95,
-      "pe": 28.9
+      "totalTtjjFee": 0.95
     },
     {
       "code": "019524",
@@ -895,8 +870,7 @@
       "alipayFee": 0.12,
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.65,
-      "totalTtjjFee": 0.65,
-      "pe": 28.2
+      "totalTtjjFee": 0.65
     },
     {
       "code": "019525",
@@ -922,8 +896,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.9,
-      "totalTtjjFee": 0.9,
-      "pe": 27.9
+      "totalTtjjFee": 0.9
     },
     {
       "code": "022664",
@@ -949,8 +922,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.75,
-      "totalTtjjFee": 0.75,
-      "pe": 28.8
+      "totalTtjjFee": 0.75
     },
     {
       "code": "018043",
@@ -976,8 +948,7 @@
       "alipayFee": 0.1,
       "ttjjFee": 0.1,
       "totalAlipayFee": 0.6,
-      "totalTtjjFee": 0.6,
-      "pe": 29.2
+      "totalTtjjFee": 0.6
     },
     {
       "code": "018044",
@@ -1003,8 +974,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.7,
-      "totalTtjjFee": 0.7,
-      "pe": 28.6
+      "totalTtjjFee": 0.7
     },
     {
       "code": "022525",
@@ -1030,8 +1000,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.8,
-      "totalTtjjFee": 0.8,
-      "pe": 28.9
+      "totalTtjjFee": 0.8
     },
     {
       "code": "019172",
@@ -1057,8 +1026,7 @@
       "alipayFee": 0.12,
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.6,
-      "totalTtjjFee": 0.6,
-      "pe": 28.0
+      "totalTtjjFee": 0.6
     },
     {
       "code": "019173",
@@ -1084,8 +1052,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.9,
-      "totalTtjjFee": 0.9,
-      "pe": 28.6
+      "totalTtjjFee": 0.9
     },
     {
       "code": "539001",
@@ -1111,8 +1078,7 @@
       "alipayFee": 0.12,
       "ttjjFee": 0.12,
       "totalAlipayFee": 1.0,
-      "totalTtjjFee": 1.0,
-      "pe": 28.2
+      "totalTtjjFee": 1.0
     },
     {
       "code": "012752",
@@ -1138,8 +1104,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.3,
-      "totalTtjjFee": 1.3,
-      "pe": 28.4
+      "totalTtjjFee": 1.3
     },
     {
       "code": "023422",
@@ -1165,8 +1130,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.3,
-      "totalTtjjFee": 1.3,
-      "pe": 28.7
+      "totalTtjjFee": 1.3
     },
     {
       "code": "000834",
@@ -1192,8 +1156,7 @@
       "alipayFee": 0.12,
       "ttjjFee": 0.12,
       "totalAlipayFee": 1.0,
-      "totalTtjjFee": 1.0,
-      "pe": 28.3
+      "totalTtjjFee": 1.0
     },
     {
       "code": "008971",
@@ -1219,8 +1182,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.3,
-      "totalTtjjFee": 1.3,
-      "pe": 28.8
+      "totalTtjjFee": 1.3
     },
     {
       "code": "019736",
@@ -1246,8 +1208,7 @@
       "alipayFee": 0.12,
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.65,
-      "totalTtjjFee": 0.65,
-      "pe": 28.8
+      "totalTtjjFee": 0.65
     },
     {
       "code": "019737",
@@ -1273,8 +1234,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.9,
-      "totalTtjjFee": 0.9,
-      "pe": 28.3
+      "totalTtjjFee": 0.9
     },
     {
       "code": "019441",
@@ -1300,8 +1260,7 @@
       "alipayFee": 0.1,
       "ttjjFee": 0.1,
       "totalAlipayFee": 0.65,
-      "totalTtjjFee": 0.65,
-      "pe": 27.9
+      "totalTtjjFee": 0.65
     },
     {
       "code": "019442",
@@ -1327,8 +1286,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.85,
-      "totalTtjjFee": 0.85,
-      "pe": 28.6
+      "totalTtjjFee": 0.85
     },
     {
       "code": "161130",
@@ -1354,8 +1312,7 @@
       "alipayFee": 0.12,
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.6,
-      "totalTtjjFee": 0.6,
-      "pe": 28.3
+      "totalTtjjFee": 0.6
     },
     {
       "code": "012870",
@@ -1381,8 +1338,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 0.9,
-      "totalTtjjFee": 0.9,
-      "pe": 27.7
+      "totalTtjjFee": 0.9
     },
     {
       "code": "015299",
@@ -1408,8 +1364,7 @@
       "alipayFee": 0.12,
       "ttjjFee": 0.12,
       "totalAlipayFee": 0.8,
-      "totalTtjjFee": 0.8,
-      "pe": 28.7
+      "totalTtjjFee": 0.8
     },
     {
       "code": "015300",
@@ -1435,8 +1390,7 @@
       "alipayFee": 0.0,
       "ttjjFee": 0.0,
       "totalAlipayFee": 1.1,
-      "totalTtjjFee": 1.1,
-      "pe": 28.0
+      "totalTtjjFee": 1.1
     },
     {
       "code": "160213",
@@ -1462,8 +1416,7 @@
       "alipayFee": 0.15,
       "ttjjFee": 0.15,
       "totalAlipayFee": 1.0,
-      "totalTtjjFee": 1.0,
-      "pe": 27.9
+      "totalTtjjFee": 1.0
     }
   ]
 }

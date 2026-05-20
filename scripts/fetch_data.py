@@ -256,13 +256,22 @@ def fetch_us_etfs():
 def get_fund_list():
     """获取用户指定的基金列表（来自支付宝数据）"""
     return [
-        # 标普500基金（保留原有）
-        {"code": "050025", "name": "博时标普500ETF联接A", "manager": "博时基金", "classType": "A", "type": "sp500"},
-        {"code": "050026", "name": "博时标普500ETF联接C", "manager": "博时基金", "classType": "C", "type": "sp500"},
-        {"code": "161125", "name": "易方达标普500指数A", "manager": "易方达基金", "classType": "A", "type": "sp500"},
-        {"code": "006075", "name": "易方达标普500指数C", "manager": "易方达基金", "classType": "C", "type": "sp500"},
-        {"code": "161724", "name": "招商标普500指数A", "manager": "招商基金", "classType": "A", "type": "sp500"},
-        {"code": "003721", "name": "招商标普500指数C", "manager": "招商基金", "classType": "C", "type": "sp500"},
+        # 标普500基金（来自支付宝数据）
+        {"code": "018065", "name": "华夏标普500ETF联接（QDII）C", "manager": "华夏基金", "classType": "C", "type": "sp500", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.85, "limitStatus": "暂停申购", "limitAmount": 0},
+        {"code": "018064", "name": "华夏标普500ETF联接（QDII）A", "manager": "华夏基金", "classType": "A", "type": "sp500", "managementFee": 0.55, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "暂停申购", "limitAmount": 0},
+        {"code": "006075", "name": "博时标普500ETF联接（QDII）C", "manager": "博时基金", "classType": "C", "type": "sp500", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.95, "limitStatus": "暂停申购", "limitAmount": 0},
+        {"code": "050025", "name": "博时标普500ETF联接（QDII）A", "manager": "博时基金", "classType": "A", "type": "sp500", "managementFee": 0.60, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "暂停申购", "limitAmount": 0},
+        {"code": "017641", "name": "摩根标普500指数（QDII）A", "manager": "摩根基金", "classType": "A", "type": "sp500", "managementFee": 0.45, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "限大额", "limitAmount": 100},
+        {"code": "019305", "name": "摩根标普500指数（QDII）C", "manager": "摩根基金", "classType": "C", "type": "sp500", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.75, "limitStatus": "限大额", "limitAmount": 100},
+        {"code": "161125", "name": "易方达标普500指数（QDII-LOF）A", "manager": "易方达基金", "classType": "A", "type": "sp500", "managementFee": 0.80, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "暂停申购", "limitAmount": 0},
+        {"code": "012860", "name": "易方达标普500指数（QDII-LOF）C", "manager": "易方达基金", "classType": "C", "type": "sp500", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 1.15, "limitStatus": "暂停申购", "limitAmount": 0},
+        {"code": "007721", "name": "天弘标普500（QDII-FOF）A", "manager": "天弘基金", "classType": "A", "type": "sp500", "managementFee": 0.60, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "限大额", "limitAmount": 100},
+        {"code": "007722", "name": "天弘标普500（QDII-FOF）C", "manager": "天弘基金", "classType": "C", "type": "sp500", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.85, "limitStatus": "限大额", "limitAmount": 100},
+        {"code": "022523", "name": "天弘标普500（QDII-FOF）D", "manager": "天弘基金", "classType": "A", "type": "sp500", "managementFee": 0.60, "custodyFee": 0.20, "salesServiceFee": 0.25, "limitStatus": "暂停申购", "limitAmount": 0},
+        {"code": "096001", "name": "大成标普500等权重指数（QDII）A", "manager": "大成基金", "classType": "A", "type": "sp500", "managementFee": 1.00, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "限大额", "limitAmount": 1000},
+        {"code": "008401", "name": "大成标普500等权重指数（QDII）C", "manager": "大成基金", "classType": "C", "type": "sp500", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 1.30, "limitStatus": "限大额", "limitAmount": 1000},
+        {"code": "017028", "name": "国泰标普500 ETF联接（QDII）A", "manager": "国泰基金", "classType": "A", "type": "sp500", "managementFee": 0.55, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "暂停申购", "limitAmount": 0},
+        {"code": "017030", "name": "国泰标普500 ETF联接（QDII）C", "manager": "国泰基金", "classType": "C", "type": "sp500", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.85, "limitStatus": "暂停申购", "limitAmount": 0},
         
         # 纳指100基金（来自支付宝数据）
         {"code": "016452", "name": "南方纳斯达克100指数发起(QDII)A", "manager": "南方基金", "classType": "A", "type": "nasdaq", "managementFee": 0.45, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "限大额", "limitAmount": 200},

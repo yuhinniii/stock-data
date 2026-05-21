@@ -234,15 +234,38 @@ def fetch_us_etfs():
     for etf_info in etf_list:
         try:
             etf = yf.Ticker(etf_info["ticker"])
-            time.sleep(0.3)
-            hist = etf.history(period="5d", interval="1d")
-            if len(hist) == 0:
-                raise RuntimeError(f"无法获取{etf_info['ticker']}历史数据")
+            time.sleep(0.5)
             
-            price = safe_float(hist['Close'].iloc[-1])
-            prev_price = safe_float(hist['Close'].iloc[-2]) if len(hist) > 1 else price
+            price = None
+            prev_price = None
+            
+            # 尝试从info中获取最新价格
+            try:
+                info = etf.info
+                if "regularMarketPrice" in info and info["regularMarketPrice"]:
+                    price = safe_float(info["regularMarketPrice"])
+                    print(f"   📊 {etf_info['ticker']} 从info获取价格: {price}")
+                if "regularMarketPreviousClose" in info and info["regularMarketPreviousClose"]:
+                    prev_price = safe_float(info["regularMarketPreviousClose"])
+                    print(f"   📊 {etf_info['ticker']} 从info获取前收盘价: {prev_price}")
+            except Exception as e:
+                print(f"   ⚠️ 从info获取数据失败: {e}")
+            
+            # 如果info中没有数据，从历史数据获取
+            if price is None or price == 0:
+                hist = etf.history(period="5d", interval="1d")
+                if len(hist) > 0:
+                    price = safe_float(hist['Close'].iloc[-1])
+                    prev_price = safe_float(hist['Close'].iloc[-2]) if len(hist) > 1 else price
+                    print(f"   📊 {etf_info['ticker']} 从历史数据获取价格: {price}")
+            
+            if price is None or price == 0:
+                raise RuntimeError(f"无法获取{etf_info['ticker']}价格数据")
+            
+            if prev_price is None or prev_price == 0:
+                prev_price = price
+            
             change = ((price - prev_price) / prev_price) * 100 if prev_price > 0 else 0
-            
             premium = random.uniform(-0.3, 0.3)
             
             us_etfs.append({
@@ -319,20 +342,13 @@ def fetch_off_funds():
     print("[5/5] 获取场外基金数据...")
     if not HAS_AKSHARE:
         print("  ⚠️ akshare未安装，跳过基金数据获取")
-        return []
+        return [], None
     
     all_funds = get_fund_list()
     print(f"  使用用户指定的{len(all_funds)}只基金列表")
     
-    daily_funds_cache = None
-    try:
-        print("  正在获取所有基金的当日数据...")
-        daily_funds_cache = ak.fund_open_fund_daily_em()
-        print(f"  成功获取 {len(daily_funds_cache)} 只基金的当日数据")
-    except Exception as e:
-        print(f"  ⚠️ 获取当日基金数据失败: {e}")
-    
     off_funds = []
+    global_latest_nav_date = None  # 记录所有基金中最新的估值日期
     
     for fund in all_funds:
         fund_type = fund["type"]
@@ -349,6 +365,7 @@ def fetch_off_funds():
         
         print(f"  [{len(off_funds)+1}/{len(all_funds)}] 正在获取 {fund['name']} ({fund['code']})...")
         
+        # 尝试历史净值数据
         try:
             fund_history = ak.fund_open_fund_info_em(symbol=fund['code'])
             if len(fund_history) > 0:
@@ -363,47 +380,18 @@ def fetch_off_funds():
                     nav_date_str = str(raw_nav_date)
                 
                 data_source = "东方财富历史净值"
+                print(f"    ✅ 使用历史净值数据")
         except Exception as e:
             print(f"    ⚠️ 历史数据获取失败: {e}")
-        
-        if daily_funds_cache is not None:
-            try:
-                match = daily_funds_cache[daily_funds_cache['基金代码'] == fund['code']]
-                if len(match) > 0:
-                    row = match.iloc[0]
-                    fund_name = str(row.get('基金简称', ''))
-                    
-                    name_match = False
-                    if any(keyword in fund_name or keyword in fund['name'] for keyword in ['纳斯达克', '纳指', '标普']):
-                        name_match = True
-                    elif any(company in fund_name and company in fund['name'] for company in ['博时', '易方达', '广发', '华安', '国泰', '诺安', '华夏', '招商', '大成', '南方']):
-                        name_match = True
-                    
-                    if name_match:
-                        purchase_status = str(row.get('申购状态', '未知'))
-                        redeem_status = str(row.get('赎回状态', '未知'))
-                        
-                        fee_str = str(row.get('手续费', ''))
-                        if '%' in fee_str:
-                            purchase_fee = safe_float(fee_str.replace('%', '').strip())
-                        else:
-                            purchase_fee = safe_float(fee_str)
-                        
-                        if '限大额' in purchase_status:
-                            limit_status = "限大额"
-                            limit_amount = purchase_status
-                        elif '暂停' in purchase_status:
-                            limit_status = "暂停申购"
-                            limit_amount = 0
-                        else:
-                            limit_status = "正常"
-                            limit_amount = None
-            except Exception as e:
-                pass
         
         if nav is None or nav == 0:
             print(f"    ⚠️ 跳过 {fund['name']} - 无法获取真实数据")
             continue
+        
+        # 更新全局最新估值日期
+        if nav_date_str:
+            if global_latest_nav_date is None or nav_date_str > global_latest_nav_date:
+                global_latest_nav_date = nav_date_str
         
         if "managementFee" in fund and fund["managementFee"] is not None:
             management_fee = fund["managementFee"]
@@ -447,7 +435,7 @@ def fetch_off_funds():
         custody_fee_rounded = round(custody_fee, 2)
         sales_service_fee_rounded = round(sales_service_fee, 2)
         
-        print(f"    ✅ 成功 - 净值:{nav}, 增长:{day_return}%, 买入费:{purchase_fee_rounded}%, 综合费:{total_fee_rounded}%, 限购:{limit_display}")
+        print(f"    ✅ 成功 - 净值:{nav}, 增长:{day_return}%, 日期:{nav_date_str}, 买入费:{purchase_fee_rounded}%, 综合费:{total_fee_rounded}%, 限购:{limit_display}")
         
         off_funds.append({
             "code": fund["code"],
@@ -476,7 +464,7 @@ def fetch_off_funds():
             "totalTtjjFee": total_fee_rounded
         })
     
-    return off_funds
+    return off_funds, global_latest_nav_date
 
 def calculate_score(pe, vix):
     """计算投资评分"""
@@ -504,15 +492,22 @@ def fetch_data():
         nasdaq100_data = fetch_nasdaq100_data()
         vix_data = fetch_vix_data()
         us_etfs = fetch_us_etfs()
-        off_funds = fetch_off_funds()
+        off_funds, global_latest_nav_date = fetch_off_funds()
         
         score = calculate_score(sp500_data["pe"], vix_data["price"])
         nasdaq_score = calculate_score(nasdaq100_data["pe"], vix_data["price"])
         
-        utc_now = datetime.utcnow()
-        beijing_now = utc_now + timedelta(hours=8)
+        # 确定最终的更新时间：优先使用基金估值时间，如果没有则使用当前时间
+        final_update_time = None
+        if global_latest_nav_date:
+            final_update_time = f"{global_latest_nav_date}"
+        else:
+            utc_now = datetime.utcnow()
+            beijing_now = utc_now + timedelta(hours=8)
+            final_update_time = beijing_now.strftime("%Y-%m-%d")
+        
         data = {
-            "updateTime": beijing_now.strftime("%Y-%m-%d %H:%M:%S"),
+            "updateTime": final_update_time,
             "sp500": {
                 "price": sp500_data["price"],
                 "changePercent": sp500_data["changePercent"],
@@ -541,7 +536,7 @@ def fetch_data():
             json.dump(data, f, ensure_ascii=False, indent=2)
         
         print("=" * 60)
-        print(f"✅ 数据更新完成！北京时间: {data['updateTime']}")
+        print(f"✅ 数据更新完成！数据日期: {data['updateTime']}")
         print(f"📊 标普500: {data['sp500']['price']} (涨跌幅: {data['sp500']['changePercent']}%, PE({data['sp500']['peType']}): {data['sp500']['pe']})")
         print(f"📊 纳指100: {data['nasdaq100']['price']} (涨跌幅: {data['nasdaq100']['changePercent']}%, PE({data['nasdaq100']['peType']}): {data['nasdaq100']['pe']})")
         print(f"📊 VIX: {data['vix']['price']} (涨跌幅: {data['vix']['changePercent']}%)")

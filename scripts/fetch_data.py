@@ -329,12 +329,10 @@ def get_fund_list():
         {"code": "019548", "name": "招商纳斯达克100ETF发起联接(QDII)C", "manager": "招商基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.85, "limitStatus": "限大额", "limitAmount": 100},
         {"code": "018966", "name": "汇添富纳斯达克100ETF联接(QDII)A", "manager": "汇添富基金", "classType": "A", "type": "nasdaq", "managementFee": 0.45, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "限大额", "limitAmount": 100},
         {"code": "018967", "name": "汇添富纳斯达克100ETF联接(QDII)C", "manager": "汇添富基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.85, "limitStatus": "限大额", "limitAmount": 100},
-        {"code": "021773", "name": "汇添富纳斯达克100ETF联接(QDII)E", "manager": "汇添富基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.55, "limitStatus": "限大额", "limitAmount": 100},
         {"code": "016055", "name": "博时纳斯达克100ETF发起联接(QDII)A", "manager": "博时基金", "classType": "A", "type": "nasdaq", "managementFee": 0.45, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "暂停申购", "limitAmount": 0},
         {"code": "016057", "name": "博时纳斯达克100ETF发起联接(QDII)C", "manager": "博时基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.75, "limitStatus": "暂停申购", "limitAmount": 0},
         {"code": "019524", "name": "华泰柏瑞纳斯达克100ETF联接(QDII)A", "manager": "华泰柏瑞基金", "classType": "A", "type": "nasdaq", "managementFee": 0.45, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "限大额", "limitAmount": 10},
         {"code": "019525", "name": "华泰柏瑞纳斯达克100ETF联接(QDII)C", "manager": "华泰柏瑞基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.70, "limitStatus": "限大额", "limitAmount": 10},
-        {"code": "022664", "name": "华泰柏瑞纳斯达克100ETF联接(QDII)I", "manager": "华泰柏瑞基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.55, "limitStatus": "限大额", "limitAmount": 10},
         {"code": "018043", "name": "天弘纳斯达克100指数(QDII)A", "manager": "天弘基金", "classType": "A", "type": "nasdaq", "managementFee": 0.40, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "限大额", "limitAmount": 100},
         {"code": "018044", "name": "天弘纳斯达克100指数(QDII)C", "manager": "天弘基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.50, "limitStatus": "限大额", "limitAmount": 100},
         {"code": "022525", "name": "天弘纳斯达克100指数(QDII)D", "manager": "天弘基金", "classType": "A", "type": "nasdaq", "managementFee": 0.60, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "暂停申购", "limitAmount": 0},
@@ -342,7 +340,6 @@ def get_fund_list():
         {"code": "019173", "name": "摩根纳斯达克100指数(QDII)C", "manager": "摩根基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 0.70, "limitStatus": "限大额", "limitAmount": 100},
         {"code": "539001", "name": "建信纳斯达克100指数(QDII)A", "manager": "建信基金", "classType": "A", "type": "nasdaq", "managementFee": 0.80, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "限大额", "limitAmount": 100},
         {"code": "012752", "name": "建信纳斯达克100指数(QDII)C", "manager": "建信基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 1.10, "limitStatus": "限大额", "limitAmount": 100},
-        {"code": "023422", "name": "建信纳斯达克100指数(QDII)D", "manager": "建信基金", "classType": "A", "type": "nasdaq", "managementFee": 0.80, "custodyFee": 0.20, "salesServiceFee": 0.30, "limitStatus": "暂停申购", "limitAmount": 0},
         {"code": "000834", "name": "大成纳斯达克100ETF联接(QDII)A", "manager": "大成基金", "classType": "A", "type": "nasdaq", "managementFee": 0.80, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "限大额", "limitAmount": 500},
         {"code": "008971", "name": "大成纳斯达克100ETF联接(QDII)C", "manager": "大成基金", "classType": "C", "type": "nasdaq", "managementFee": 0.00, "custodyFee": 0.20, "salesServiceFee": 1.10, "limitStatus": "限大额", "limitAmount": 500},
         {"code": "019736", "name": "宝盈纳斯达克100指数(QDII)A", "manager": "宝盈基金", "classType": "A", "type": "nasdaq", "managementFee": 0.45, "custodyFee": 0.20, "salesServiceFee": 0.00, "limitStatus": "限大额", "limitAmount": 100},
@@ -474,6 +471,13 @@ def fetch_off_funds():
             limit_amount = fund.get("limitAmount", None)
             purchase_status = limit_status
         
+        # 转换为小程序需要的格式
+        limit_status_for_app = "normal"
+        if limit_status == "暂停申购":
+            limit_status_for_app = "suspended"
+        elif limit_status == "限大额":
+            limit_status_for_app = "limited"
+        
         limit_display = limit_status
         if limit_amount is not None and limit_amount != 0:
             if limit_status == "限大额":
@@ -507,7 +511,7 @@ def fetch_off_funds():
             "salesServiceFee": sales_service_fee_rounded,
             "purchaseStatus": purchase_status,
             "redeemStatus": redeem_status,
-            "limitStatus": limit_status,
+            "limitStatus": limit_status_for_app,
             "limitAmount": limit_amount,
             "expenseRatio": management_fee_rounded,
             "alipayFee": purchase_fee_rounded,

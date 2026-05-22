@@ -1,286 +1,1032 @@
-const app = getApp();
-
-Page({
-  data: {
-    activeTab: 'sp500',
-    currentDate: '',
-    updateTime: '',
-    pageTitle: '标普500 每日估值',
-    scoreValue: '0.0',
-    scoreDesc: '数据加载中...',
-    scoreBoxClass: 'score-bg-gray',
-    scoreTextClass: 'text-gray',
-    scoreBarClass: 'progress-gray',
-    scoreWidth: 0,
-    statusDesc: '数据加载中...',
-    statusTag: '加载中',
-    statusTagClass: 'tag-gray',
-    peValue: '0.0',
-    vixValue: '0.00',
-    adviceRise: '数据加载中...',
-    adviceFall: '数据加载中...',
-    multiplierDisplay: '-',
-    planAmount: '',
-    calcResult: '',
-    showPE: false,
-    showVIX: false,
-    showScore: false,
-    showPercentile: false,
-    highlightRow: 0,
-    highlightCol: 0,
-    sp500ChangePercent: '0.00%',
-    sp500ChangeClass: 'text-gray',
-    nasdaq100ChangePercent: '0.00%',
-    nasdaq100ChangeClass: 'text-gray',
-    thermoLabel1: '>32',
-    thermoLabel7: '<17',
-    thermoHeaderLt: '<18',
-    thermoHeaderGt: '>35',
-    vixTermLt: '<15',
-    vixTermGt: '>25',
-    etfList: []
+{
+  "updateTime": "2026-05-21 15:30:00",
+  "sp500": {
+    "price": 5467.23,
+    "changePercent": 0.92,
+    "score": 7.4,
+    "pe": 27.3,
+    "peType": "PE-TTM",
+    "vix": 16.34
   },
-
-  onLoad() {
-    this.setDateAndTime();
-    
-    // 注册页面数据更新回调
-    app.registerPageCallback(() => {
-      console.log('收到数据更新通知，刷新页面');
-      this.setTabData(this.data.activeTab);
-    });
-    
-    // 立即尝试加载数据（如果本地数据已存在）
-    if (app.globalData && app.globalData.MARKET_DATA && app.globalData.MARKET_DATA.sp500 && app.globalData.MARKET_DATA.sp500.pe > 0) {
-      console.log('使用本地数据初始化');
-      this.setTabData('sp500');
+  "nasdaq100": {
+    "price": 29789.45,
+    "changePercent": 1.12,
+    "score": 6.8,
+    "pe": 33.0,
+    "peType": "PE-TTM",
+    "vix": 16.34
+  },
+  "vix": {
+    "price": 16.34,
+    "changePercent": 0.15
+  },
+  "us_etfs": [
+    {
+      "ticker": "SPY",
+      "name": "SPY",
+      "fullName": "SPDR 标普500 ETF",
+      "price": 548.52,
+      "changePercent": 0.95,
+      "premium": 0.03,
+      "type": "sp500"
+    },
+    {
+      "ticker": "VOO",
+      "name": "VOO",
+      "fullName": "Vanguard 标普500 ETF",
+      "price": 546.21,
+      "changePercent": 0.93,
+      "premium": 0.01,
+      "type": "sp500"
+    },
+    {
+      "ticker": "IVV",
+      "name": "IVV",
+      "fullName": "iShares 标普500 ETF",
+      "price": 545.85,
+      "changePercent": 0.94,
+      "premium": 0.02,
+      "type": "sp500"
+    },
+    {
+      "ticker": "QQQ",
+      "name": "QQQ",
+      "fullName": "Invesco 纳指100 ETF",
+      "price": 490.15,
+      "changePercent": 1.18,
+      "premium": 0.05,
+      "type": "nasdaq"
+    },
+    {
+      "ticker": "QQQM",
+      "name": "QQQM",
+      "fullName": "Invesco 纳指100迷你 ETF",
+      "price": 184.32,
+      "changePercent": 1.15,
+      "premium": 0.04,
+      "type": "nasdaq"
     }
-  },
-
-  onShow() {
-    this.setDateAndTime();
-    // 每次显示页面时刷新数据
-    if (app.globalData && app.globalData.MARKET_DATA && app.globalData.MARKET_DATA.sp500 && app.globalData.MARKET_DATA.sp500.pe > 0) {
-      this.setTabData(this.data.activeTab);
+  ],
+  "off_funds": [
+    {
+      "code": "018065",
+      "name": "华夏标普500ETF联接（QDII）C",
+      "manager": "华夏基金",
+      "classType": "C",
+      "type": "sp500",
+      "nav": 1.688,
+      "price": 1.688,
+      "dayReturn": 1.22,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.0,
+      "totalFee": 1.05,
+      "managementFee": 0.0,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.85,
+      "purchaseStatus": "suspended",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "suspended",
+      "limitAmount": 0
+    },
+    {
+      "code": "018064",
+      "name": "华夏标普500ETF联接（QDII）A",
+      "manager": "华夏基金",
+      "classType": "A",
+      "type": "sp500",
+      "nav": 1.6944,
+      "price": 1.6944,
+      "dayReturn": 1.21,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.1,
+      "totalFee": 0.75,
+      "managementFee": 0.55,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.0,
+      "purchaseStatus": "suspended",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "suspended",
+      "limitAmount": 0
+    },
+    {
+      "code": "006079",
+      "name": "博时标普500ETF联接（QDII）C",
+      "manager": "博时基金",
+      "classType": "C",
+      "type": "sp500",
+      "nav": 5.2873,
+      "price": 5.2873,
+      "dayReturn": 1.21,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.0,
+      "totalFee": 1.15,
+      "managementFee": 0.0,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.95,
+      "purchaseStatus": "suspended",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "suspended",
+      "limitAmount": 0
+    },
+    {
+      "code": "050025",
+      "name": "博时标普500ETF联接（QDII）A",
+      "manager": "博时基金",
+      "classType": "A",
+      "type": "sp500",
+      "nav": 5.4693,
+      "price": 5.4693,
+      "dayReturn": 1.06,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.12,
+      "totalFee": 0.8,
+      "managementFee": 0.6,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.0,
+      "purchaseStatus": "suspended",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "suspended",
+      "limitAmount": 0
+    },
+    {
+      "code": "017641",
+      "name": "摩根标普500指数（QDII）A",
+      "manager": "摩根基金",
+      "classType": "A",
+      "type": "sp500",
+      "nav": 1.6615,
+      "price": 1.6615,
+      "dayReturn": 1.2,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.12,
+      "totalFee": 0.65,
+      "managementFee": 0.45,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.0,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 100
+    },
+    {
+      "code": "019305",
+      "name": "摩根标普500指数（QDII）C",
+      "manager": "摩根基金",
+      "classType": "C",
+      "type": "sp500",
+      "nav": 1.6486,
+      "price": 1.6486,
+      "dayReturn": 1.22,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.0,
+      "totalFee": 0.95,
+      "managementFee": 0.0,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.75,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 100
+    },
+    {
+      "code": "161125",
+      "name": "易方达标普500指数（QDII-LOF）A",
+      "manager": "易方达基金",
+      "classType": "A",
+      "type": "sp500",
+      "nav": 3.0713,
+      "price": 3.0713,
+      "dayReturn": 1.21,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.12,
+      "totalFee": 1.0,
+      "managementFee": 0.8,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.0,
+      "purchaseStatus": "suspended",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "suspended",
+      "limitAmount": 0
+    },
+    {
+      "code": "012870",
+      "name": "易方达标普500指数（QDII-LOF）C",
+      "manager": "易方达基金",
+      "classType": "C",
+      "type": "sp500",
+      "nav": 3.0228,
+      "price": 3.0228,
+      "dayReturn": 1.23,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.0,
+      "totalFee": 1.3499999999999999,
+      "managementFee": 0.0,
+      "custodyFee": 0.2,
+      "salesServiceFee": 1.15,
+      "purchaseStatus": "suspended",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "suspended",
+      "limitAmount": 0
+    },
+    {
+      "code": "007721",
+      "name": "天弘标普500（QDII-FOF）A",
+      "manager": "天弘基金",
+      "classType": "A",
+      "type": "sp500",
+      "nav": 2.2021,
+      "price": 2.2021,
+      "dayReturn": 1.21,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.1,
+      "totalFee": 0.8,
+      "managementFee": 0.6,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.0,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 100
+    },
+    {
+      "code": "007722",
+      "name": "天弘标普500（QDII-FOF）C",
+      "manager": "天弘基金",
+      "classType": "C",
+      "type": "sp500",
+      "nav": 2.1606,
+      "price": 2.1606,
+      "dayReturn": 1.21,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.0,
+      "totalFee": 1.05,
+      "managementFee": 0.0,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.85,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 100
+    },
+    {
+      "code": "022523",
+      "name": "天弘标普500（QDII-FOF）D",
+      "manager": "天弘基金",
+      "classType": "A",
+      "type": "sp500",
+      "nav": 2.1601,
+      "price": 2.1601,
+      "dayReturn": 1.2,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.12,
+      "totalFee": 1.05,
+      "managementFee": 0.6,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.25,
+      "purchaseStatus": "suspended",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "suspended",
+      "limitAmount": 0
+    },
+    {
+      "code": "090010",
+      "name": "大成标普500等权重指数（QDII）A",
+      "manager": "大成基金",
+      "classType": "A",
+      "type": "sp500",
+      "nav": 2.6547,
+      "price": 2.6547,
+      "dayReturn": 1.18,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.15,
+      "totalFee": 1.2,
+      "managementFee": 1.0,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.0,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 1000
+    },
+    {
+      "code": "008401",
+      "name": "大成标普500等权重指数（QDII）C",
+      "manager": "大成基金",
+      "classType": "C",
+      "type": "sp500",
+      "nav": 2.6536,
+      "price": 2.6536,
+      "dayReturn": 1.17,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.0,
+      "totalFee": 1.5,
+      "managementFee": 0.0,
+      "custodyFee": 0.2,
+      "salesServiceFee": 1.3,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 1000
+    },
+    {
+      "code": "017028",
+      "name": "国泰标普500ETF联接（QDII）A",
+      "manager": "国泰基金",
+      "classType": "A",
+      "type": "sp500",
+      "nav": 1.6765,
+      "price": 1.6765,
+      "dayReturn": 1.21,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.1,
+      "totalFee": 0.75,
+      "managementFee": 0.55,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.0,
+      "purchaseStatus": "suspended",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "suspended",
+      "limitAmount": 0
+    },
+    {
+      "code": "017030",
+      "name": "国泰标普500ETF联接（QDII）C",
+      "manager": "国泰基金",
+      "classType": "C",
+      "type": "sp500",
+      "nav": 1.6592,
+      "price": 1.6592,
+      "dayReturn": 1.18,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.0,
+      "totalFee": 1.05,
+      "managementFee": 0.0,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.85,
+      "purchaseStatus": "suspended",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "suspended",
+      "limitAmount": 0
+    },
+    {
+      "code": "016452",
+      "name": "南方纳斯达克100指数发起（QDII）A",
+      "manager": "南方基金",
+      "classType": "A",
+      "type": "nasdaq",
+      "nav": 2.2773,
+      "price": 2.2773,
+      "dayReturn": -0.37,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.12,
+      "totalFee": 0.65,
+      "managementFee": 0.45,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.0,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 200
+    },
+    {
+      "code": "016453",
+      "name": "南方纳斯达克100指数发起（QDII）C",
+      "manager": "南方基金",
+      "classType": "C",
+      "type": "nasdaq",
+      "nav": 2.2659,
+      "price": 2.2659,
+      "dayReturn": -0.37,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.0,
+      "totalFee": 0.75,
+      "managementFee": 0.0,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.55,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 200
+    },
+    {
+      "code": "016532",
+      "name": "嘉实纳斯达克100ETF联接（QDII）A",
+      "manager": "嘉实基金",
+      "classType": "A",
+      "type": "nasdaq",
+      "nav": 2.1457,
+      "price": 2.1457,
+      "dayReturn": -0.42,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.1,
+      "totalFee": 0.6000000000000001,
+      "managementFee": 0.4,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.0,
+      "purchaseStatus": "suspended",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "suspended",
+      "limitAmount": 0
+    },
+    {
+      "code": "016533",
+      "name": "嘉实纳斯达克100ETF联接（QDII）C",
+      "manager": "嘉实基金",
+      "classType": "C",
+      "type": "nasdaq",
+      "nav": 2.1252,
+      "price": 2.1252,
+      "dayReturn": -0.39,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.0,
+      "totalFee": 0.75,
+      "managementFee": 0.0,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.55,
+      "purchaseStatus": "suspended",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "suspended",
+      "limitAmount": 0
+    },
+    {
+      "code": "270042",
+      "name": "广发纳斯达克100ETF联接（QDII）A",
+      "manager": "广发基金",
+      "classType": "A",
+      "type": "nasdaq",
+      "nav": 8.1645,
+      "price": 8.1645,
+      "dayReturn": -0.43,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.12,
+      "totalFee": 1.0,
+      "managementFee": 0.8,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.0,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 10
+    },
+    {
+      "code": "006479",
+      "name": "广发纳斯达克100ETF联接（QDII）C",
+      "manager": "广发基金",
+      "classType": "C",
+      "type": "nasdaq",
+      "nav": 8.0236,
+      "price": 8.0236,
+      "dayReturn": -0.43,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.0,
+      "totalFee": 1.2,
+      "managementFee": 0.0,
+      "custodyFee": 0.2,
+      "salesServiceFee": 1.0,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 10
+    },
+    {
+      "code": "040046",
+      "name": "华安纳斯达克100ETF联接（QDII）A",
+      "manager": "华安基金",
+      "classType": "A",
+      "type": "nasdaq",
+      "nav": 8.1896,
+      "price": 8.1896,
+      "dayReturn": -0.43,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.12,
+      "totalFee": 0.8,
+      "managementFee": 0.6,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.0,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 10
+    },
+    {
+      "code": "014978",
+      "name": "华安纳斯达克100ETF联接（QDII）C",
+      "manager": "华安基金",
+      "classType": "C",
+      "type": "nasdaq",
+      "nav": 8.0159,
+      "price": 8.0159,
+      "dayReturn": -0.42,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.0,
+      "totalFee": 1.0,
+      "managementFee": 0.0,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.8,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 10
+    },
+    {
+      "code": "019547",
+      "name": "招商纳斯达克100ETF发起联接（QDII）A",
+      "manager": "招商基金",
+      "classType": "A",
+      "type": "nasdaq",
+      "nav": 1.5569,
+      "price": 1.5569,
+      "dayReturn": -0.38,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.12,
+      "totalFee": 0.65,
+      "managementFee": 0.45,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.0,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 100
+    },
+    {
+      "code": "019548",
+      "name": "招商纳斯达克100ETF发起联接（QDII）C",
+      "manager": "招商基金",
+      "classType": "C",
+      "type": "nasdaq",
+      "nav": 1.5434,
+      "price": 1.5434,
+      "dayReturn": -0.36,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.0,
+      "totalFee": 1.05,
+      "managementFee": 0.0,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.85,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 100
+    },
+    {
+      "code": "018966",
+      "name": "汇添富纳斯达克100ETF联接（QDII）A",
+      "manager": "汇添富基金",
+      "classType": "A",
+      "type": "nasdaq",
+      "nav": 1.6362,
+      "price": 1.6362,
+      "dayReturn": -0.39,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.12,
+      "totalFee": 0.65,
+      "managementFee": 0.45,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.0,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 100
+    },
+    {
+      "code": "018967",
+      "name": "汇添富纳斯达克100ETF联接（QDII）C",
+      "manager": "汇添富基金",
+      "classType": "C",
+      "type": "nasdaq",
+      "nav": 1.6173,
+      "price": 1.6173,
+      "dayReturn": -0.41,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.0,
+      "totalFee": 1.05,
+      "managementFee": 0.0,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.85,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 100
+    },
+    {
+      "code": "016055",
+      "name": "博时纳斯达克100ETF发起联接（QDII）A",
+      "manager": "博时基金",
+      "classType": "A",
+      "type": "nasdaq",
+      "nav": 2.0993,
+      "price": 2.0993,
+      "dayReturn": -0.37,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.12,
+      "totalFee": 0.65,
+      "managementFee": 0.45,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.0,
+      "purchaseStatus": "suspended",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "suspended",
+      "limitAmount": 0
+    },
+    {
+      "code": "016057",
+      "name": "博时纳斯达克100ETF发起联接（QDII）C",
+      "manager": "博时基金",
+      "classType": "C",
+      "type": "nasdaq",
+      "nav": 2.0735,
+      "price": 2.0735,
+      "dayReturn": -0.4,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.0,
+      "totalFee": 0.95,
+      "managementFee": 0.0,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.75,
+      "purchaseStatus": "suspended",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "suspended",
+      "limitAmount": 0
+    },
+    {
+      "code": "019524",
+      "name": "华泰柏瑞纳斯达克100ETF联接（QDII）A",
+      "manager": "华泰柏瑞基金",
+      "classType": "A",
+      "type": "nasdaq",
+      "nav": 1.636,
+      "price": 1.636,
+      "dayReturn": -0.39,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.12,
+      "totalFee": 0.65,
+      "managementFee": 0.45,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.0,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 10
+    },
+    {
+      "code": "019525",
+      "name": "华泰柏瑞纳斯达克100ETF联接（QDII）C",
+      "manager": "华泰柏瑞基金",
+      "classType": "C",
+      "type": "nasdaq",
+      "nav": 1.6207,
+      "price": 1.6207,
+      "dayReturn": -0.39,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.0,
+      "totalFee": 0.8999999999999999,
+      "managementFee": 0.0,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.7,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 10
+    },
+    {
+      "code": "018043",
+      "name": "天弘纳斯达克100指数（QDII）A",
+      "manager": "天弘基金",
+      "classType": "A",
+      "type": "nasdaq",
+      "nav": 2.1993,
+      "price": 2.1993,
+      "dayReturn": -0.4,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.1,
+      "totalFee": 0.6000000000000001,
+      "managementFee": 0.4,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.0,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 100
+    },
+    {
+      "code": "018044",
+      "name": "天弘纳斯达克100指数（QDII）C",
+      "manager": "天弘基金",
+      "classType": "C",
+      "type": "nasdaq",
+      "nav": 2.185,
+      "price": 2.185,
+      "dayReturn": -0.38,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.0,
+      "totalFee": 0.7,
+      "managementFee": 0.0,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.5,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 100
+    },
+    {
+      "code": "022525",
+      "name": "天弘纳斯达克100指数（QDII）D",
+      "manager": "天弘基金",
+      "classType": "A",
+      "type": "nasdaq",
+      "nav": 2.1818,
+      "price": 2.1818,
+      "dayReturn": -0.37,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.12,
+      "totalFee": 0.8,
+      "managementFee": 0.6,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.0,
+      "purchaseStatus": "suspended",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "suspended",
+      "limitAmount": 0
+    },
+    {
+      "code": "019172",
+      "name": "摩根纳斯达克100指数（QDII）A",
+      "manager": "摩根基金",
+      "classType": "A",
+      "type": "nasdaq",
+      "nav": 1.7383,
+      "price": 1.7383,
+      "dayReturn": -0.35,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.12,
+      "totalFee": 0.6000000000000001,
+      "managementFee": 0.4,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.0,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 100
+    },
+    {
+      "code": "019173",
+      "name": "摩根纳斯达克100指数（QDII）C",
+      "manager": "摩根基金",
+      "classType": "C",
+      "type": "nasdaq",
+      "nav": 1.7224,
+      "price": 1.7224,
+      "dayReturn": -0.38,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.0,
+      "totalFee": 0.8999999999999999,
+      "managementFee": 0.0,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.7,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 100
+    },
+    {
+      "code": "539001",
+      "name": "建信纳斯达克100指数（QDII）A",
+      "manager": "建信基金",
+      "classType": "A",
+      "type": "nasdaq",
+      "nav": 3.4243,
+      "price": 3.4243,
+      "dayReturn": -0.39,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.12,
+      "totalFee": 1.0,
+      "managementFee": 0.8,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.0,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 100
+    },
+    {
+      "code": "012752",
+      "name": "建信纳斯达克100指数（QDII）C",
+      "manager": "建信基金",
+      "classType": "C",
+      "type": "nasdaq",
+      "nav": 3.3136,
+      "price": 3.3136,
+      "dayReturn": -0.4,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.0,
+      "totalFee": 1.3,
+      "managementFee": 0.0,
+      "custodyFee": 0.2,
+      "salesServiceFee": 1.1,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 100
+    },
+    {
+      "code": "000834",
+      "name": "大成纳斯达克100ETF联接（QDII）A",
+      "manager": "大成基金",
+      "classType": "A",
+      "type": "nasdaq",
+      "nav": 6.2997,
+      "price": 6.2997,
+      "dayReturn": -0.42,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.12,
+      "totalFee": 1.0,
+      "managementFee": 0.8,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.0,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 500
+    },
+    {
+      "code": "008971",
+      "name": "大成纳斯达克100ETF联接（QDII）C",
+      "manager": "大成基金",
+      "classType": "C",
+      "type": "nasdaq",
+      "nav": 6.2469,
+      "price": 6.2469,
+      "dayReturn": -0.41,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.0,
+      "totalFee": 1.3,
+      "managementFee": 0.0,
+      "custodyFee": 0.2,
+      "salesServiceFee": 1.1,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 500
+    },
+    {
+      "code": "019736",
+      "name": "宝盈纳斯达克100指数（QDII）A",
+      "manager": "宝盈基金",
+      "classType": "A",
+      "type": "nasdaq",
+      "nav": 1.478,
+      "price": 1.478,
+      "dayReturn": -0.38,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.12,
+      "totalFee": 0.65,
+      "managementFee": 0.45,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.0,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 100
+    },
+    {
+      "code": "019737",
+      "name": "宝盈纳斯达克100指数（QDII）C",
+      "manager": "宝盈基金",
+      "classType": "C",
+      "type": "nasdaq",
+      "nav": 1.4671,
+      "price": 1.4671,
+      "dayReturn": -0.36,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.0,
+      "totalFee": 0.8999999999999999,
+      "managementFee": 0.0,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.7,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 100
+    },
+    {
+      "code": "019441",
+      "name": "万家纳斯达克100指数（QDII）A",
+      "manager": "万家基金",
+      "classType": "A",
+      "type": "nasdaq",
+      "nav": 1.6636,
+      "price": 1.6636,
+      "dayReturn": -0.37,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.1,
+      "totalFee": 0.65,
+      "managementFee": 0.45,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.0,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 50
+    },
+    {
+      "code": "019442",
+      "name": "万家纳斯达克100指数（QDII）C",
+      "manager": "万家基金",
+      "classType": "C",
+      "type": "nasdaq",
+      "nav": 1.6527,
+      "price": 1.6527,
+      "dayReturn": -0.36,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.0,
+      "totalFee": 0.8500000000000001,
+      "managementFee": 0.0,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.65,
+      "purchaseStatus": "limited",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "limited",
+      "limitAmount": 50
+    },
+    {
+      "code": "161130",
+      "name": "易方达纳斯达克100指数（QDII-LOF）A",
+      "manager": "易方达基金",
+      "classType": "A",
+      "type": "nasdaq",
+      "nav": 4.4018,
+      "price": 4.4018,
+      "dayReturn": -0.41,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.12,
+      "totalFee": 0.6000000000000001,
+      "managementFee": 0.4,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.0,
+      "purchaseStatus": "suspended",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "suspended",
+      "limitAmount": 0
+    },
+    {
+      "code": "015299",
+      "name": "华夏纳斯达克100指数（QDII）A",
+      "manager": "华夏基金",
+      "classType": "A",
+      "type": "nasdaq",
+      "nav": 2.0136,
+      "price": 2.0136,
+      "dayReturn": -0.44,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.12,
+      "totalFee": 0.8,
+      "managementFee": 0.6,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.0,
+      "purchaseStatus": "suspended",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "suspended",
+      "limitAmount": 0
+    },
+    {
+      "code": "015300",
+      "name": "华夏纳斯达克100指数（QDII）C",
+      "manager": "华夏基金",
+      "classType": "C",
+      "type": "nasdaq",
+      "nav": 1.9868,
+      "price": 1.9868,
+      "dayReturn": -0.47,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.0,
+      "totalFee": 1.1,
+      "managementFee": 0.0,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.9,
+      "purchaseStatus": "suspended",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "suspended",
+      "limitAmount": 0
+    },
+    {
+      "code": "160213",
+      "name": "国泰纳斯达克100指数（QDII）",
+      "manager": "国泰基金",
+      "classType": "A",
+      "type": "nasdaq",
+      "nav": 4.4366,
+      "price": 4.4366,
+      "dayReturn": -0.43,
+      "navDate": "2026-05-21",
+      "purchaseFee": 0.15,
+      "totalFee": 1.0,
+      "managementFee": 0.8,
+      "custodyFee": 0.2,
+      "salesServiceFee": 0.0,
+      "purchaseStatus": "suspended",
+      "redeemStatus": "开放赎回",
+      "limitStatus": "suspended",
+      "limitAmount": 0
     }
-  },
-
-  setDateAndTime() {
-    const now = new Date();
-    const y = now.getFullYear();
-    const m = now.getMonth() + 1;
-    const d = now.getDate();
-    const h = now.getHours();
-    const mi = now.getMinutes();
-    this.setData({
-      currentDate: y + '年' + m + '月' + d + '日',
-      updateTime: (h < 10 ? '0' + h : h) + ':' + (mi < 10 ? '0' + mi : mi)
-    });
-  },
-
-  setTabData(tab) {
-    // 检查数据是否存在
-    if (!app.globalData || !app.globalData.MARKET_DATA || !app.globalData.MARKET_DATA[tab]) {
-      console.error('数据未准备好:', tab);
-      return;
-    }
-    
-    const data = app.globalData.MARKET_DATA[tab];
-    const label = tab === 'sp500' ? '标普500' : '纳指100';
-    const pe = data.pe;
-    const vix = data.vix;
-    // 根据PE计算score（基于历史百分位）
-    const score = this.calculateScore(pe, tab);
-
-    const result = {};
-
-    result.activeTab = tab;
-    result.pageTitle = label + ' 每日估值';
-
-    const spChg = app.globalData.MARKET_DATA.sp500.changePercent;
-    const naChg = app.globalData.MARKET_DATA.nasdaq100.changePercent;
-    result.sp500ChangePercent = (spChg >= 0 ? '+' : '') + spChg.toFixed(2) + '%';
-    result.sp500ChangeClass = spChg >= 0 ? 'text-red' : 'text-green';
-    result.nasdaq100ChangePercent = (naChg >= 0 ? '+' : '') + naChg.toFixed(2) + '%';
-    result.nasdaq100ChangeClass = naChg >= 0 ? 'text-red' : 'text-green';
-
-    result.scoreValue = score.toFixed(1);
-
-    if (score < 4) {
-      result.scoreBoxClass = 'score-bg-green';
-      result.scoreTextClass = 'text-green';
-      result.scoreBarClass = 'progress-green';
-    } else if (score < 6) {
-      result.scoreBoxClass = 'score-bg-blue';
-      result.scoreTextClass = 'text-blue';
-      result.scoreBarClass = 'progress-blue';
-    } else if (score < 8) {
-      result.scoreBoxClass = 'score-bg-orange';
-      result.scoreTextClass = 'text-orange';
-      result.scoreBarClass = 'progress-orange';
-    } else {
-      result.scoreBoxClass = 'score-bg-red';
-      result.scoreTextClass = 'text-red';
-      result.scoreBarClass = 'progress-red';
-    }
-
-    result.scoreWidth = ((score / 10) * 100).toFixed(0);
-
-    let scoreLabel, scoreAdvice;
-    if (score < 4) { scoreLabel = '低估'; scoreAdvice = '适合积极布局'; }
-    else if (score < 6) { scoreLabel = '适中'; scoreAdvice = '按计划定投'; }
-    else if (score < 8) { scoreLabel = '偏高'; scoreAdvice = '保持谨慎'; }
-    else { scoreLabel = '高估'; scoreAdvice = '谨慎'; }
-
-    result.scoreDesc = label + '当前' + scoreLabel + '，' + scoreAdvice;
-
-    if (score < 4) {
-      result.statusDesc = '更适合积极布局，把握加仓机会。';
-      result.statusTag = '偏乐观';
-      result.statusTagClass = 'tag-green';
-    } else if (score < 6) {
-      result.statusDesc = '适合按计划定投，保持稳健节奏。';
-      result.statusTag = '稳健';
-      result.statusTagClass = 'tag-blue';
-    } else if (score < 8) {
-      result.statusDesc = '更适合稳节奏，不适合追涨或激进加仓。';
-      result.statusTag = '偏谨慎';
-      result.statusTagClass = 'tag-orange';
-    } else {
-      result.statusDesc = '建议观望或减仓，等待更好机会。';
-      result.statusTag = '谨慎';
-      result.statusTagClass = 'tag-red';
-    }
-
-    result.peValue = pe.toFixed(1);
-    result.vixValue = vix.toFixed(2);
-
-    if (score >= 7) {
-      result.adviceRise = '估值已经偏高，不要追涨。已达到止盈目标的可以分批卖出。';
-      result.adviceFall = '估值虽高但下跌是正常的，可以观望。如果跌到适中区间再考虑买入。';
-    } else if (score >= 4) {
-      result.adviceRise = '估值适中，可以按计划定投。涨幅较大时可以适当减少本次投入。';
-      result.adviceFall = '估值适中，下跌是加仓机会。可以适当增加本次定投金额。';
-    } else {
-      result.adviceRise = '估值偏低是好事，但不要因为涨了就加大投入，保持原计划。';
-      result.adviceFall = '估值偏低是很好的加仓机会。可以加大投入力度。';
-    }
-
-    const mult = this.getMultiplier(pe, vix);
-    result.multiplierDisplay = typeof mult === 'number' ? (mult + '倍') : mult;
-
-    result.highlightRow = this.getHighlightRow(pe);
-    result.highlightCol = this.getHighlightCol(vix);
-
-    // 设置 ETF 数据 - 根据当前 tab 筛选对应的 ETF
-    const etfType = tab === 'sp500' ? 'sp500' : 'nasdaq';
-    if (app.globalData.US_ETFS && app.globalData.US_ETFS.length > 0) {
-      const etfs = app.globalData.US_ETFS.filter(etf => etf.type === etfType);
-      result.etfList = etfs.map(etf => ({
-        ticker: etf.ticker,
-        price: etf.price.toFixed(2),
-        changePercent: (etf.changePercent >= 0 ? '+' : '') + etf.changePercent.toFixed(2) + '%',
-        changeClass: etf.changePercent >= 0 ? 'text-red' : 'text-green'
-      }));
-    } else {
-      result.etfList = [];
-    }
-
-    this.setData(result);
-  },
-
-  getMultiplier(pe, vix) {
-    const vixRange = vix < 18 ? 0 : (vix <= 25 ? 1 : (vix <= 35 ? 2 : 3));
-    const peRange = pe > 32 ? 0 : (pe >= 29 ? 1 : (pe >= 26 ? 2 : (pe >= 23 ? 3 : (pe >= 20 ? 4 : (pe >= 17 ? 5 : 6)))));
-    const table = [
-      [null, null, '观望', 0.3],
-      [null, 0.3, 0.5, 0.7],
-      [0.3, 0.5, 0.7, 1.0],
-      [0.5, 0.7, 1.1, 1.6],
-      [0.2, 1.4, 2.2, 3.2],
-      [2.0, 3.2, 5.5, 8.0],
-      [3.5, 5.8, 10.0, '顶格']
-    ];
-    const val = table[peRange][vixRange];
-    return val != null ? val : 1.0;
-  },
-
-  getHighlightRow(pe) {
-    if (pe > 32) return 0;
-    if (pe >= 29) return 1;
-    if (pe >= 26) return 2;
-    if (pe >= 23) return 3;
-    if (pe >= 20) return 4;
-    if (pe >= 17) return 5;
-    return 6;
-  },
-
-  getHighlightCol(vix) {
-    if (vix < 18) return 1;
-    if (vix <= 25) return 2;
-    if (vix <= 35) return 3;
-    return 4;
-  },
-
-  calculateScore(pe, indexType) {
-    // 基于PE-TTM历史百分位的估值评分计算
-    // 
-    // 逻辑：
-    // 1. 获取当前PE-TTM
-    // 2. 计算在历史区间里的位置：(当前PE - 近10年最低PE) / (近10年最高PE - 近10年最低PE)
-    // 3. 位置 * 10 = 0-10分
-    // 4. 限制在0-1范围内
-    //
-    // 历史区间（行业公认近10年）：
-    // - 标普500(SPY): 最低14, 最高32
-    // - 纳指100(QQQ): 最低18, 最高40
-    
-    const peRanges = {
-      sp500: { min: 14, max: 32 },
-      nasdaq100: { min: 18, max: 40 }
-    };
-    
-    const range = peRanges[indexType] || peRanges.sp500;
-    
-    // 第2步：算当前PE在历史区间里的"位置"
-    let percentile = (pe - range.min) / (range.max - range.min);
-    
-    // 限制在0-1范围内（防止PE超出历史区间）
-    percentile = Math.max(0, Math.min(1, percentile));
-    
-    // 第3步：转换成0-10分，保留1位小数
-    const score = Math.round(percentile * 100) / 10;
-    
-    return score;
-  },
-
-  switchTab(e) {
-    const tab = e.currentTarget.dataset.tab;
-    this.setTabData(tab);
-  },
-
-  onPlanInput(e) {
-    this.setData({ planAmount: e.detail.value });
-  },
-
-  onCalculate() {
-    const amt = parseFloat(this.data.planAmount);
-    if (!amt || isNaN(amt)) {
-      wx.showToast({ title: '请输入金额', icon: 'none' });
-      return;
-    }
-    const tab = this.data.activeTab;
-    const data = app.globalData.MARKET_DATA[tab];
-    const m = this.getMultiplier(data.pe, data.vix);
-    const r = typeof m === 'number' ? Math.round(amt * m) : amt;
-    this.setData({ calcResult: '建议投入: ¥' + r + ' (' + this.data.multiplierDisplay + ')' });
-  },
-
-  onToggle(e) {
-    const t = e.currentTarget.dataset.t;
-    const k = 'show' + t.charAt(0).toUpperCase() + t.slice(1);
-    const obj = {};
-    obj[k] = !this.data[k];
-    this.setData(obj);
-  }
-});
+  ]
+}

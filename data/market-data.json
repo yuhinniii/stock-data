@@ -1,12 +1,12 @@
 {
-  "updateTime": "2026-05-20",
+  "updateTime": "2026-05-21",
   "sp500": {
     "price": 7445.72,
     "changePercent": 0.17,
     "score": 7.5,
     "pe": 27.9,
     "peType": "PE-TTM",
-    "vix": 16.76
+    "vix": 17.06
   },
   "nasdaq100": {
     "price": 29357.27,
@@ -14,11 +14,11 @@
     "score": 9.5,
     "pe": 34.9,
     "peType": "PE-TTM",
-    "vix": 16.76
+    "vix": 17.06
   },
   "vix": {
-    "price": 16.76,
-    "changePercent": -3.9
+    "price": 17.06,
+    "changePercent": 1.79
   },
   "us_etfs": [
     {
@@ -27,7 +27,7 @@
       "fullName": "SPDR 标普500 ETF",
       "price": 742.72,
       "changePercent": 0.2,
-      "premium": -0.11,
+      "premium": 0.18,
       "type": "sp500"
     },
     {
@@ -36,7 +36,7 @@
       "fullName": "Vanguard 标普500 ETF",
       "price": 682.84,
       "changePercent": 0.19,
-      "premium": -0.07,
+      "premium": 0.26,
       "type": "sp500"
     },
     {
@@ -45,7 +45,7 @@
       "fullName": "iShares 标普500 ETF",
       "price": 746.18,
       "changePercent": 0.19,
-      "premium": 0.19,
+      "premium": 0.16,
       "type": "sp500"
     },
     {
@@ -54,7 +54,7 @@
       "fullName": "Invesco 纳指100 ETF",
       "price": 714.51,
       "changePercent": 0.19,
-      "premium": 0.0,
+      "premium": -0.06,
       "type": "nasdaq"
     },
     {
@@ -63,7 +63,7 @@
       "fullName": "Invesco 纳指100迷你 ETF",
       "price": 294.21,
       "changePercent": 0.2,
-      "premium": 0.24,
+      "premium": 0.13,
       "type": "nasdaq"
     }
   ],
@@ -126,10 +126,10 @@
       "manager": "博时基金",
       "classType": "C",
       "type": "sp500",
-      "nav": 5.3008,
-      "price": 5.3008,
-      "dayReturn": 1.06,
-      "navDate": "2026-05-20",
+      "nav": 5.3062,
+      "price": 5.3062,
+      "dayReturn": 0.1,
+      "navDate": "2026-05-21",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
       "totalFee": 1.15,
@@ -1218,10 +1218,10 @@
       "manager": "易方达基金",
       "classType": "A",
       "type": "nasdaq",
-      "nav": 4.4433,
-      "price": 4.4433,
-      "dayReturn": 1.6,
-      "navDate": "2026-05-20",
+      "nav": 4.4499,
+      "price": 4.4499,
+      "dayReturn": 0.15,
+      "navDate": "2026-05-21",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
       "totalFee": 0.6,

@@ -466,20 +466,37 @@ def fetch_off_funds():
     
     return off_funds, global_latest_nav_date
 
-def calculate_score(pe, vix):
-    """计算投资评分"""
-    if pe > 32:
-        return 9.5
-    elif pe > 28:
-        return 8.5
-    elif pe > 24:
-        return 7.5
-    elif pe > 20:
-        return 6.0
-    elif pe > 16:
-        return 4.5
-    else:
-        return 3.0
+def calculate_score(pe, index_type="sp500"):
+    """计算投资评分 - 基于PE-TTM历史百分位
+    
+    逻辑：
+    1. 获取当前PE-TTM
+    2. 计算在历史区间里的位置：(当前PE - 近10年最低PE) / (近10年最高PE - 近10年最低PE)
+    3. 位置 * 10 = 0-10分
+    4. 限制在0-1范围内
+    
+    历史区间（行业公认近10年）：
+    - 标普500(SPY): 最低14, 最高32
+    - 纳指100(QQQ): 最低18, 最高40
+    """
+    # 近10年历史PE区间（固定公认值）
+    pe_ranges = {
+        "sp500": {"min": 14, "max": 32},
+        "nasdaq100": {"min": 18, "max": 40}
+    }
+    
+    range_info = pe_ranges.get(index_type, pe_ranges["sp500"])
+    
+    # 第2步：算当前PE在历史区间里的"位置"
+    percentile = (pe - range_info["min"]) / (range_info["max"] - range_info["min"])
+    
+    # 限制在0-1范围内（防止PE超出历史区间）
+    percentile = max(0, min(1, percentile))
+    
+    # 第3步：转换成0-10分，保留1位小数
+    score = round(percentile * 10, 1)
+    
+    return score
 
 def fetch_data():
     """主函数：获取所有数据"""
@@ -494,8 +511,8 @@ def fetch_data():
         us_etfs = fetch_us_etfs()
         off_funds, global_latest_nav_date = fetch_off_funds()
         
-        score = calculate_score(sp500_data["pe"], vix_data["price"])
-        nasdaq_score = calculate_score(nasdaq100_data["pe"], vix_data["price"])
+        score = calculate_score(sp500_data["pe"], "sp500")
+        nasdaq_score = calculate_score(nasdaq100_data["pe"], "nasdaq100")
         
         # 确定最终的更新时间：优先使用基金估值时间，如果没有则使用当前时间
         final_update_time = None

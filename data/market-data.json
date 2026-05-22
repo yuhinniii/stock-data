@@ -6,7 +6,7 @@
     "score": 7.5,
     "pe": 27.9,
     "peType": "PE-TTM",
-    "vix": 16.75
+    "vix": 16.76
   },
   "nasdaq100": {
     "price": 29357.27,
@@ -14,29 +14,29 @@
     "score": 9.5,
     "pe": 34.9,
     "peType": "PE-TTM",
-    "vix": 16.75
+    "vix": 16.76
   },
   "vix": {
-    "price": 16.75,
-    "changePercent": -3.96
+    "price": 16.76,
+    "changePercent": -3.9
   },
   "us_etfs": [
     {
       "ticker": "SPY",
       "name": "SPY",
       "fullName": "SPDR 标普500 ETF",
-      "price": 742.77,
-      "changePercent": 0.21,
-      "premium": 0.05,
+      "price": 742.72,
+      "changePercent": 0.2,
+      "premium": -0.11,
       "type": "sp500"
     },
     {
       "ticker": "VOO",
       "name": "VOO",
       "fullName": "Vanguard 标普500 ETF",
-      "price": 682.89,
+      "price": 682.84,
       "changePercent": 0.19,
-      "premium": -0.1,
+      "premium": -0.07,
       "type": "sp500"
     },
     {
@@ -45,7 +45,7 @@
       "fullName": "iShares 标普500 ETF",
       "price": 746.18,
       "changePercent": 0.19,
-      "premium": 0.11,
+      "premium": 0.19,
       "type": "sp500"
     },
     {
@@ -54,7 +54,7 @@
       "fullName": "Invesco 纳指100 ETF",
       "price": 714.51,
       "changePercent": 0.19,
-      "premium": -0.22,
+      "premium": 0.0,
       "type": "nasdaq"
     },
     {
@@ -63,7 +63,7 @@
       "fullName": "Invesco 纳指100迷你 ETF",
       "price": 294.21,
       "changePercent": 0.2,
-      "premium": 0.18,
+      "premium": 0.24,
       "type": "nasdaq"
     }
   ],

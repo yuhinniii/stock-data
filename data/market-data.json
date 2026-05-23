@@ -27,7 +27,7 @@
       "fullName": "SPDR 标普500 ETF",
       "price": 745.64,
       "changePercent": 0.39,
-      "premium": -0.21,
+      "premium": 0.23,
       "type": "sp500"
     },
     {
@@ -36,7 +36,7 @@
       "fullName": "Vanguard 标普500 ETF",
       "price": 685.55,
       "changePercent": 0.4,
-      "premium": 0.0,
+      "premium": -0.23,
       "type": "sp500"
     },
     {
@@ -45,7 +45,7 @@
       "fullName": "iShares 标普500 ETF",
       "price": 749.14,
       "changePercent": 0.4,
-      "premium": -0.06,
+      "premium": -0.26,
       "type": "sp500"
     },
     {
@@ -54,7 +54,7 @@
       "fullName": "Invesco 纳指100 ETF",
       "price": 717.54,
       "changePercent": 0.42,
-      "premium": 0.14,
+      "premium": -0.27,
       "type": "nasdaq"
     },
     {
@@ -63,7 +63,7 @@
       "fullName": "Invesco 纳指100迷你 ETF",
       "price": 295.44,
       "changePercent": 0.42,
-      "premium": 0.26,
+      "premium": -0.13,
       "type": "nasdaq"
     }
   ],

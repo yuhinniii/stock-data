@@ -104,7 +104,7 @@ def fetch_sp500_data():
         return {
             "price": round(current_price, 2),
             "changePercent": round(change_pct, 2),
-            "pe": round(pe_ratio, 1),
+            "pe": round(pe_ratio, 3),
             "peType": pe_type
         }
     except Exception as e:
@@ -185,7 +185,7 @@ def fetch_nasdaq100_data():
         return {
             "price": round(current_price, 2),
             "changePercent": round(change_pct, 2),
-            "pe": round(pe_ratio, 1),
+            "pe": round(pe_ratio, 3),
             "peType": pe_type
         }
     except Exception as e:

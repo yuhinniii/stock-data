@@ -1,12 +1,12 @@
 {
-  "updateTime": "2026-05-21",
+  "updateTime": "2026-05-22",
   "sp500": {
     "price": 7473.47,
     "changePercent": 0.37,
     "score": 7.8,
     "pe": 28.011,
     "peType": "PE-TTM",
-    "vix": 16.7
+    "vix": 16.69
   },
   "nasdaq100": {
     "price": 29481.64,
@@ -14,11 +14,11 @@
     "score": 7.7,
     "pe": 35.003,
     "peType": "PE-TTM",
-    "vix": 16.7
+    "vix": 16.69
   },
   "vix": {
-    "price": 16.7,
-    "changePercent": -0.36
+    "price": 16.69,
+    "changePercent": -0.06
   },
   "us_etfs": [
     {
@@ -27,7 +27,7 @@
       "fullName": "SPDR 标普500 ETF",
       "price": 745.64,
       "changePercent": 0.39,
-      "premium": -0.01,
+      "premium": -0.17,
       "type": "sp500"
     },
     {
@@ -36,7 +36,7 @@
       "fullName": "Vanguard 标普500 ETF",
       "price": 685.55,
       "changePercent": 0.4,
-      "premium": -0.09,
+      "premium": 0.18,
       "type": "sp500"
     },
     {
@@ -45,7 +45,7 @@
       "fullName": "iShares 标普500 ETF",
       "price": 749.14,
       "changePercent": 0.4,
-      "premium": -0.01,
+      "premium": -0.17,
       "type": "sp500"
     },
     {
@@ -63,7 +63,7 @@
       "fullName": "Invesco 纳指100迷你 ETF",
       "price": 295.44,
       "changePercent": 0.42,
-      "premium": -0.08,
+      "premium": 0.23,
       "type": "nasdaq"
     }
   ],
@@ -256,10 +256,10 @@
       "manager": "易方达基金",
       "classType": "C",
       "type": "sp500",
-      "nav": 3.0361,
-      "price": 3.0361,
-      "dayReturn": 0.1,
-      "navDate": "2026-05-21",
+      "nav": 3.0479,
+      "price": 3.0479,
+      "dayReturn": 0.39,
+      "navDate": "2026-05-22",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
       "totalFee": 1.35,
@@ -1218,10 +1218,10 @@
       "manager": "易方达基金",
       "classType": "A",
       "type": "nasdaq",
-      "nav": 4.4499,
-      "price": 4.4499,
-      "dayReturn": 0.15,
-      "navDate": "2026-05-21",
+      "nav": 4.4695,
+      "price": 4.4695,
+      "dayReturn": 0.44,
+      "navDate": "2026-05-22",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
       "totalFee": 0.6,
@@ -1244,10 +1244,10 @@
       "manager": "易方达基金",
       "classType": "C",
       "type": "nasdaq",
-      "nav": 4.3755,
-      "price": 4.3755,
-      "dayReturn": 0.15,
-      "navDate": "2026-05-21",
+      "nav": 4.3946,
+      "price": 4.3946,
+      "dayReturn": 0.44,
+      "navDate": "2026-05-22",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
       "totalFee": 0.9,

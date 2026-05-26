@@ -51,50 +51,58 @@ def fetch_sp500_data():
         print(f"   ✅ 获取到最新价格: {current_price:.2f}")
         
         pe_ratio = None
-        pe_type = "估算PE"
+        pe_type = "PE-TTM"
+        pe_source = ""
         
+        # 注意：yfinance 获取的是ETF（SPY/IVV）的 PE，而非标普500指数本身的 PE
+        # ETF PE 与指数 PE 通常有约1-3%的偏差（ETF的持仓权重、费用率等因素导致）
+        # 这是目前免费渠道可获得的最可靠数据，如果未来需要精确指数PE，
+        # 可考虑接入付费数据源（如 Bloomberg、Reuters）
+        
+        # 优先从指数获取（偶尔有数据）
         try:
             time.sleep(0.3)
             sp500_info = sp500.info
             if 'trailingPE' in sp500_info and sp500_info['trailingPE'] is not None:
                 pe_ratio = sp500_info['trailingPE']
-                pe_type = "PE-TTM"
+                pe_source = "标普500指数"
                 print(f"   ✅ 获取到标普500指数 PE-TTM: {pe_ratio:.1f}")
         except:
             pass
         
+        # 指数无PE则用SPY ETF
         if pe_ratio is None:
             try:
                 time.sleep(0.3)
                 spy_info = spy.info
                 if 'trailingPE' in spy_info and spy_info['trailingPE'] is not None:
                     pe_ratio = spy_info['trailingPE']
-                    pe_type = "PE-TTM"
-                    print(f"   ✅ 获取到SPY PE-TTM (标普500): {pe_ratio:.1f}")
+                    pe_source = "SPY ETF"
+                    print(f"   ✅ 获取到SPY PE-TTM: {pe_ratio:.1f}")
             except:
                 pass
         
+        # 再用IVV ETF
         if pe_ratio is None:
             try:
                 time.sleep(0.3)
                 ivv_info = ivv.info
                 if 'trailingPE' in ivv_info and ivv_info['trailingPE'] is not None:
                     pe_ratio = ivv_info['trailingPE']
-                    pe_type = "PE-TTM"
-                    print(f"   ✅ 获取到IVV PE-TTM (标普500): {pe_ratio:.1f}")
+                    pe_source = "IVV ETF"
+                    print(f"   ✅ 获取到IVV PE-TTM: {pe_ratio:.1f}")
             except:
                 pass
         
+        # 最后用预期PE兜底
         if pe_ratio is None:
             try:
-                for etf in [spy, ivv]:
-                    time.sleep(0.3)
-                    info = etf.info
-                    if 'forwardPE' in info and info['forwardPE'] is not None:
-                        pe_ratio = info['forwardPE']
-                        pe_type = "预期PE"
-                        print(f"   ⚠️ 使用预期市盈率: {pe_ratio:.1f}")
-                        break
+                spy_info = spy.info
+                if 'forwardPE' in spy_info and spy_info['forwardPE'] is not None:
+                    pe_ratio = spy_info['forwardPE']
+                    pe_type = "预期PE"
+                    pe_source = "SPY预期PE"
+                    print(f"   ⚠️ 使用SPY预期市盈率: {pe_ratio:.1f}")
             except:
                 pass
         
@@ -105,7 +113,8 @@ def fetch_sp500_data():
             "price": round(current_price, 2),
             "changePercent": round(change_pct, 2),
             "pe": round(pe_ratio, 3),
-            "peType": pe_type
+            "peType": pe_type,
+            "peSource": pe_source
         }
     except Exception as e:
         raise RuntimeError(f"获取标普500数据失败: {e}")
@@ -132,14 +141,17 @@ def fetch_nasdaq100_data():
         print(f"   ✅ 获取到最新价格: {current_price:.2f}")
         
         pe_ratio = None
-        pe_type = "估算PE"
+        pe_type = "PE-TTM"
+        pe_source = ""
+        
+        # 同标普500，yfinance获取的是ETF PE，与指数PE有约1-3%偏差
         
         try:
             time.sleep(0.3)
             ndx_info = nasdaq100.info
             if 'trailingPE' in ndx_info and ndx_info['trailingPE'] is not None:
                 pe_ratio = ndx_info['trailingPE']
-                pe_type = "PE-TTM"
+                pe_source = "纳指100指数"
                 print(f"   ✅ 获取到纳指100指数 PE-TTM: {pe_ratio:.1f}")
         except:
             pass
@@ -150,8 +162,8 @@ def fetch_nasdaq100_data():
                 qqq_info = qqq.info
                 if 'trailingPE' in qqq_info and qqq_info['trailingPE'] is not None:
                     pe_ratio = qqq_info['trailingPE']
-                    pe_type = "PE-TTM"
-                    print(f"   ✅ 获取到QQQ PE-TTM (纳指100): {pe_ratio:.1f}")
+                    pe_source = "QQQ ETF"
+                    print(f"   ✅ 获取到QQQ PE-TTM: {pe_ratio:.1f}")
             except:
                 pass
         
@@ -161,21 +173,19 @@ def fetch_nasdaq100_data():
                 qqqm_info = qqqm.info
                 if 'trailingPE' in qqqm_info and qqqm_info['trailingPE'] is not None:
                     pe_ratio = qqqm_info['trailingPE']
-                    pe_type = "PE-TTM"
-                    print(f"   ✅ 获取到QQQM PE-TTM (纳指100): {pe_ratio:.1f}")
+                    pe_source = "QQQM ETF"
+                    print(f"   ✅ 获取到QQQM PE-TTM: {pe_ratio:.1f}")
             except:
                 pass
         
         if pe_ratio is None:
             try:
-                for etf in [qqq, qqqm]:
-                    time.sleep(0.3)
-                    info = etf.info
-                    if 'forwardPE' in info and info['forwardPE'] is not None:
-                        pe_ratio = info['forwardPE']
-                        pe_type = "预期PE"
-                        print(f"   ⚠️ 使用预期市盈率: {pe_ratio:.1f}")
-                        break
+                qqq_info = qqq.info
+                if 'forwardPE' in qqq_info and qqq_info['forwardPE'] is not None:
+                    pe_ratio = qqq_info['forwardPE']
+                    pe_type = "预期PE"
+                    pe_source = "QQQ预期PE"
+                    print(f"   ⚠️ 使用QQQ预期市盈率: {pe_ratio:.1f}")
             except:
                 pass
         
@@ -186,7 +196,8 @@ def fetch_nasdaq100_data():
             "price": round(current_price, 2),
             "changePercent": round(change_pct, 2),
             "pe": round(pe_ratio, 3),
-            "peType": pe_type
+            "peType": pe_type,
+            "peSource": pe_source
         }
     except Exception as e:
         raise RuntimeError(f"获取纳指100数据失败: {e}")
@@ -266,7 +277,8 @@ def fetch_us_etfs():
                 prev_price = price
             
             change = ((price - prev_price) / prev_price) * 100 if prev_price > 0 else 0
-            premium = random.uniform(-0.3, 0.3)
+            # 溢价率需要IOPV数据对比，免费渠道无法获取，设为0
+            premium = 0.0
             
             us_etfs.append({
                 "ticker": etf_info["ticker"],
@@ -530,7 +542,8 @@ def fetch_data():
                 "changePercent": sp500_data["changePercent"],
                 "score": score,
                 "pe": sp500_data["pe"],
-                "peType": sp500_data.get("peType", "估算PE"),
+                "peType": sp500_data.get("peType", "PE-TTM"),
+                "peSource": sp500_data.get("peSource", ""),
                 "vix": vix_data["price"]
             },
             "nasdaq100": {
@@ -538,7 +551,8 @@ def fetch_data():
                 "changePercent": nasdaq100_data["changePercent"],
                 "score": nasdaq_score,
                 "pe": nasdaq100_data["pe"],
-                "peType": nasdaq100_data.get("peType", "估算PE"),
+                "peType": nasdaq100_data.get("peType", "PE-TTM"),
+                "peSource": nasdaq100_data.get("peSource", ""),
                 "vix": vix_data["price"]
             },
             "vix": {

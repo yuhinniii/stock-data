@@ -406,13 +406,13 @@ def fetch_off_funds():
                 global_latest_nav_date = nav_date_str
 
         # 获取买入费率（申购费率）
-        # fund_individual_detail_info_xq 返回 DataFrame，列名为: 费用类型, 条件或名称, 费用
-        # 行情结构：费用类型='买入规则' 的行中，第一行（最小买入金额档）的费用即为申购费率
+        # 注意：akshare 返回的是基金招募书中的"原始申购费率"（如1.2%），
+        # 但支付宝/天天基金等线上平台实际执行1折费率（0.12%）。
+        # 因此这里获取原始费率后自动 ÷10 折算为线上实际费率。
         if purchase_fee is None:
             try:
                 fund_detail = ak.fund_individual_detail_info_xq(symbol=fund['code'])
                 if fund_detail is not None and not fund_detail.empty:
-                    # 筛选"买入规则"行
                     type_col = None
                     fee_col = None
                     for col in fund_detail.columns:
@@ -424,29 +424,26 @@ def fetch_off_funds():
                     if type_col and fee_col:
                         buy_rows = fund_detail[fund_detail[type_col] == '买入规则']
                         if len(buy_rows) > 0:
-                            fee_val = safe_float(buy_rows.iloc[0][fee_col], -1)
-                            if fee_val > 0:
-                                # 如果是固定金额（如500万以上收1000元），跳过用默认值
-                                # 固定金额通常 >= 100，百分比费率通常 < 10
-                                if fee_val < 100:
-                                    purchase_fee = round(fee_val, 2)
-                                    print(f"    💰 买入费率: {purchase_fee}% (来自雪球)")
-                                else:
-                                    # 固定金额档（如1000元），尝试取第一档百分比
-                                    for i in range(len(buy_rows)):
-                                        val = safe_float(buy_rows.iloc[i][fee_col], -1)
-                                        if 0 < val < 100:
-                                            purchase_fee = round(val, 2)
-                                            print(f"    💰 买入费率: {purchase_fee}% (来自雪球, 第{i+1}档)")
-                                            break
+                            raw_fee = safe_float(buy_rows.iloc[0][fee_col], -1)
+                            if 0 < raw_fee < 100:
+                                # 原始费率 ÷10 = 线上1折实际费率
+                                purchase_fee = round(raw_fee / 10, 2)
+                                print(f"    💰 买入费率: {purchase_fee}% (原始{raw_fee}% ÷10折)")
+                            elif raw_fee >= 100:
+                                # 固定金额档（如1000元），跳过取下一档百分比
+                                for i in range(len(buy_rows)):
+                                    val = safe_float(buy_rows.iloc[i][fee_col], -1)
+                                    if 0 < val < 100:
+                                        purchase_fee = round(val / 10, 2)
+                                        print(f"    💰 买入费率: {purchase_fee}% (原始{val}% ÷10折, 第{i+1}档)")
+                                        break
             except Exception as e:
                 print(f"    ⚠️ 买入费率获取失败: {e}")
 
-        # 仍未获取到则按基金类别给合理默认值
+        # 仍未获取到则按基金类别给默认的线上实际费率
         if purchase_fee is None or purchase_fee == 0:
             if fund["classType"] == "A":
-                # A类基金：线上申购费率通常为原费率1折，约0.10%~0.15%
-                # QDII基金原申购费通常为1.0%~1.5%
+                # A类基金线上费率：原始1.0%~1.5% ÷10 ≈ 0.10%~0.15%
                 purchase_fee = 0.15
                 print(f"    📝 买入费率(默认A类): {purchase_fee}%")
             else:

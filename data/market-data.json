@@ -6,6 +6,7 @@
     "score": 7.9,
     "pe": 28.197,
     "peType": "PE-TTM",
+    "peSource": "SPY ETF",
     "vix": 17.01
   },
   "nasdaq100": {
@@ -14,6 +15,7 @@
     "score": 8.0,
     "pe": 35.624,
     "peType": "PE-TTM",
+    "peSource": "QQQ ETF",
     "vix": 17.01
   },
   "vix": {
@@ -27,7 +29,7 @@
       "fullName": "SPDR 标普500 ETF",
       "price": 750.59,
       "changePercent": 0.66,
-      "premium": 0.02,
+      "premium": 0.0,
       "type": "sp500"
     },
     {
@@ -36,7 +38,7 @@
       "fullName": "Vanguard 标普500 ETF",
       "price": 690.01,
       "changePercent": 0.65,
-      "premium": -0.22,
+      "premium": 0.0,
       "type": "sp500"
     },
     {
@@ -45,7 +47,7 @@
       "fullName": "iShares 标普500 ETF",
       "price": 754.03,
       "changePercent": 0.65,
-      "premium": -0.15,
+      "premium": 0.0,
       "type": "sp500"
     },
     {
@@ -54,7 +56,7 @@
       "fullName": "Invesco 纳指100 ETF",
       "price": 730.28,
       "changePercent": 1.78,
-      "premium": -0.02,
+      "premium": 0.0,
       "type": "nasdaq"
     },
     {
@@ -63,7 +65,7 @@
       "fullName": "Invesco 纳指100迷你 ETF",
       "price": 300.68,
       "changePercent": 1.77,
-      "premium": -0.18,
+      "premium": 0.0,
       "type": "nasdaq"
     }
   ],
@@ -1012,8 +1014,8 @@
       "type": "nasdaq",
       "nav": 3.4695,
       "price": 3.4695,
-      "dayReturn": 0.0,
-      "navDate": "2026-05-25",
+      "dayReturn": 0.48,
+      "navDate": "2026-05-22",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
       "totalFee": 1.0,
@@ -1038,8 +1040,8 @@
       "type": "nasdaq",
       "nav": 3.3598,
       "price": 3.3598,
-      "dayReturn": 0.0,
-      "navDate": "2026-05-25",
+      "dayReturn": 0.48,
+      "navDate": "2026-05-22",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
       "totalFee": 1.3,

@@ -563,7 +563,12 @@ def fetch_data():
             "off_funds": off_funds
         }
         
+        # 写入 data/ 目录（历史备份）
         with open('data/market-data.json', 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+        
+        # 同时写入根目录（供 GitHub Pages 和小程序直接访问）
+        with open('market-data.json', 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
         
         print("=" * 60)

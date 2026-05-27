@@ -371,7 +371,7 @@ def fetch_off_funds():
         data_source = None
         purchase_status = "未知"
         redeem_status = "未知"
-        purchase_fee = 0.0
+        purchase_fee = None  # None 表示还未获取，区别于 0（C类真的为0）
         limit_status = "正常"
         limit_amount = None
         
@@ -404,7 +404,56 @@ def fetch_off_funds():
         if nav_date_str:
             if global_latest_nav_date is None or nav_date_str > global_latest_nav_date:
                 global_latest_nav_date = nav_date_str
-        
+
+        # 获取买入费率（申购费率）
+        # fund_individual_detail_info_xq 返回 DataFrame，列名为: 费用类型, 条件或名称, 费用
+        # 行情结构：费用类型='买入规则' 的行中，第一行（最小买入金额档）的费用即为申购费率
+        if purchase_fee is None:
+            try:
+                fund_detail = ak.fund_individual_detail_info_xq(symbol=fund['code'])
+                if fund_detail is not None and not fund_detail.empty:
+                    # 筛选"买入规则"行
+                    type_col = None
+                    fee_col = None
+                    for col in fund_detail.columns:
+                        col_str = str(col)
+                        if '费用类型' in col_str or '类型' in col_str:
+                            type_col = col
+                        if '费用' == col_str or '费率' in col_str:
+                            fee_col = col
+                    if type_col and fee_col:
+                        buy_rows = fund_detail[fund_detail[type_col] == '买入规则']
+                        if len(buy_rows) > 0:
+                            fee_val = safe_float(buy_rows.iloc[0][fee_col], -1)
+                            if fee_val > 0:
+                                # 如果是固定金额（如500万以上收1000元），跳过用默认值
+                                # 固定金额通常 >= 100，百分比费率通常 < 10
+                                if fee_val < 100:
+                                    purchase_fee = round(fee_val, 2)
+                                    print(f"    💰 买入费率: {purchase_fee}% (来自雪球)")
+                                else:
+                                    # 固定金额档（如1000元），尝试取第一档百分比
+                                    for i in range(len(buy_rows)):
+                                        val = safe_float(buy_rows.iloc[i][fee_col], -1)
+                                        if 0 < val < 100:
+                                            purchase_fee = round(val, 2)
+                                            print(f"    💰 买入费率: {purchase_fee}% (来自雪球, 第{i+1}档)")
+                                            break
+            except Exception as e:
+                print(f"    ⚠️ 买入费率获取失败: {e}")
+
+        # 仍未获取到则按基金类别给合理默认值
+        if purchase_fee is None or purchase_fee == 0:
+            if fund["classType"] == "A":
+                # A类基金：线上申购费率通常为原费率1折，约0.10%~0.15%
+                # QDII基金原申购费通常为1.0%~1.5%
+                purchase_fee = 0.15
+                print(f"    📝 买入费率(默认A类): {purchase_fee}%")
+            else:
+                # C类基金：免申购费
+                purchase_fee = 0.0
+                print(f"    📝 买入费率: 0% (C类免申购费)")
+
         if "managementFee" in fund and fund["managementFee"] is not None:
             management_fee = fund["managementFee"]
         else:

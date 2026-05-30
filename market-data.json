@@ -4,9 +4,9 @@
     "price": 7580.06,
     "changePercent": 0.22,
     "score": 8.0,
-    "pe": 28.419,
+    "pe": 28.403,
     "peType": "PE-TTM",
-    "peSource": "SPY ETF",
+    "peSource": "IVV ETF",
     "vix": 15.32
   },
   "nasdaq100": {

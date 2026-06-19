@@ -1,8 +1,8 @@
 {
   "updateTime": "2026-06-17",
   "sp500": {
-    "price": 7500.58,
-    "changePercent": 1.08,
+    "price": NaN,
+    "changePercent": NaN,
     "score": 7.1,
     "pe": 26.744,
     "peType": "PE-TTM",
@@ -10,8 +10,8 @@
     "vix": 16.78
   },
   "nasdaq100": {
-    "price": 30406.19,
-    "changePercent": 2.48,
+    "price": NaN,
+    "changePercent": NaN,
     "score": 7.3,
     "pe": 34.004,
     "peType": "PE-TTM",
@@ -20,7 +20,7 @@
   },
   "vix": {
     "price": 16.78,
-    "changePercent": 2.32
+    "changePercent": -9.0
   },
   "us_etfs": [
     {

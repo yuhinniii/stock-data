@@ -1,34 +1,34 @@
 {
   "updateTime": "2026-06-24",
   "sp500": {
-    "price": 7350.23,
-    "changePercent": -0.11,
+    "price": 7344.45,
+    "changePercent": -0.19,
     "score": 6.8,
-    "pe": 26.223,
+    "pe": 26.208,
     "peType": "PE-TTM",
     "peSource": "SPY ETF",
-    "vix": 19.23
+    "vix": 19.15
   },
   "nasdaq100": {
-    "price": 29374.66,
-    "changePercent": 0.53,
+    "price": 29330.56,
+    "changePercent": 0.38,
     "score": 6.7,
-    "pe": 32.804,
+    "pe": 32.736,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
-    "vix": 19.23
+    "vix": 19.15
   },
   "vix": {
-    "price": 19.23,
-    "changePercent": 3.22
+    "price": 19.15,
+    "changePercent": 2.79
   },
   "us_etfs": [
     {
       "ticker": "SPY",
       "name": "SPY",
       "fullName": "SPDR 标普500 ETF",
-      "price": 732.29,
-      "changePercent": -0.13,
+      "price": 731.73,
+      "changePercent": -0.21,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -36,8 +36,8 @@
       "ticker": "VOO",
       "name": "VOO",
       "fullName": "Vanguard 标普500 ETF",
-      "price": 675.0,
-      "changePercent": -0.1,
+      "price": 674.43,
+      "changePercent": -0.19,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -45,8 +45,8 @@
       "ticker": "IVV",
       "name": "IVV",
       "fullName": "iShares 标普500 ETF",
-      "price": 735.57,
-      "changePercent": -0.15,
+      "price": 735.29,
+      "changePercent": -0.19,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -54,8 +54,8 @@
       "ticker": "QQQ",
       "name": "QQQ",
       "fullName": "Invesco 纳指100 ETF",
-      "price": 714.63,
-      "changePercent": 0.57,
+      "price": 713.02,
+      "changePercent": 0.34,
       "premium": 0.0,
       "type": "nasdaq"
     },
@@ -63,8 +63,8 @@
       "ticker": "QQQM",
       "name": "QQQM",
       "fullName": "Invesco 纳指100迷你 ETF",
-      "price": 294.25,
-      "changePercent": 0.54,
+      "price": 293.58,
+      "changePercent": 0.32,
       "premium": 0.0,
       "type": "nasdaq"
     }

@@ -7,7 +7,7 @@
     "pe": 26.108,
     "peType": "PE-TTM",
     "peSource": "SPY ETF",
-    "vix": 18.42
+    "vix": 18.41
   },
   "nasdaq100": {
     "price": 29118.24,
@@ -16,11 +16,11 @@
     "pe": 32.439,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
-    "vix": 18.42
+    "vix": 18.41
   },
   "vix": {
-    "price": 18.42,
-    "changePercent": -2.49
+    "price": 18.41,
+    "changePercent": -2.54
   },
   "us_etfs": [
     {
@@ -36,8 +36,8 @@
       "ticker": "VOO",
       "name": "VOO",
       "fullName": "Vanguard 标普500 ETF",
-      "price": 671.25,
-      "changePercent": -0.37,
+      "price": 670.26,
+      "changePercent": -0.52,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -45,8 +45,8 @@
       "ticker": "IVV",
       "name": "IVV",
       "fullName": "iShares 标普500 ETF",
-      "price": 732.65,
-      "changePercent": -0.52,
+      "price": 730.17,
+      "changePercent": -0.86,
       "premium": 0.0,
       "type": "sp500"
     },

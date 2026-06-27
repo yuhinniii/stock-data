@@ -1,26 +1,26 @@
 {
   "updateTime": "2026-06-25",
   "sp500": {
-    "price": NaN,
-    "changePercent": NaN,
+    "price": 7354.02,
+    "changePercent": -0.05,
     "score": 6.7,
     "pe": 26.108,
     "peType": "PE-TTM",
     "peSource": "SPY ETF",
-    "vix": 18.89
+    "vix": 18.41
   },
   "nasdaq100": {
-    "price": NaN,
-    "changePercent": NaN,
+    "price": 29118.24,
+    "changePercent": -1.09,
     "score": 6.6,
     "pe": 32.439,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
-    "vix": 18.89
+    "vix": 18.41
   },
   "vix": {
-    "price": 18.89,
-    "changePercent": 1.4
+    "price": 18.41,
+    "changePercent": -2.54
   },
   "us_etfs": [
     {

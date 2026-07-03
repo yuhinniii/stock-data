@@ -7,7 +7,7 @@
     "pe": 26.674,
     "peType": "PE-TTM",
     "peSource": "SPY ETF",
-    "vix": 16.15
+    "vix": 15.94
   },
   "nasdaq100": {
     "price": 29329.21,
@@ -16,11 +16,11 @@
     "pe": 32.718,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
-    "vix": 16.15
+    "vix": 15.94
   },
   "vix": {
-    "price": 16.15,
-    "changePercent": -2.65
+    "price": 15.94,
+    "changePercent": -1.3
   },
   "us_etfs": [
     {

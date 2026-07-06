@@ -1,34 +1,34 @@
 {
   "updateTime": "2026-07-03",
   "sp500": {
-    "price": 7521.25,
-    "changePercent": 0.51,
-    "score": 7.1,
-    "pe": 26.838,
+    "price": 7530.29,
+    "changePercent": 0.63,
+    "score": 7.2,
+    "pe": 26.872,
     "peType": "PE-TTM",
     "peSource": "SPY ETF",
-    "vix": 16.25
+    "vix": 15.86
   },
   "nasdaq100": {
-    "price": 29760.94,
-    "changePercent": 1.47,
+    "price": 29682.6,
+    "changePercent": 1.2,
     "score": 6.9,
-    "pe": 33.234,
+    "pe": 33.155,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
-    "vix": 16.25
+    "vix": 15.86
   },
   "vix": {
-    "price": 16.25,
-    "changePercent": 0.62
+    "price": 15.86,
+    "changePercent": -1.8
   },
   "us_etfs": [
     {
       "ticker": "SPY",
       "name": "SPY",
       "fullName": "SPDR 标普500 ETF",
-      "price": 749.29,
-      "changePercent": 0.61,
+      "price": 750.32,
+      "changePercent": 0.74,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -36,8 +36,8 @@
       "ticker": "VOO",
       "name": "VOO",
       "fullName": "Vanguard 标普500 ETF",
-      "price": 688.72,
-      "changePercent": 0.57,
+      "price": 689.66,
+      "changePercent": 0.7,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -45,8 +45,8 @@
       "ticker": "IVV",
       "name": "IVV",
       "fullName": "iShares 标普500 ETF",
-      "price": 753.01,
-      "changePercent": 0.61,
+      "price": 753.84,
+      "changePercent": 0.72,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -54,8 +54,8 @@
       "ticker": "QQQ",
       "name": "QQQ",
       "fullName": "Invesco 纳指100 ETF",
-      "price": 723.94,
-      "changePercent": 1.59,
+      "price": 722.1,
+      "changePercent": 1.33,
       "premium": 0.0,
       "type": "nasdaq"
     },
@@ -63,8 +63,8 @@
       "ticker": "QQQM",
       "name": "QQQM",
       "fullName": "Invesco 纳指100迷你 ETF",
-      "price": 298.16,
-      "changePercent": 1.62,
+      "price": 297.21,
+      "changePercent": 1.29,
       "premium": 0.0,
       "type": "nasdaq"
     }
@@ -1116,10 +1116,10 @@
       "manager": "宝盈基金",
       "classType": "A",
       "type": "nasdaq",
-      "nav": 1.4883,
-      "price": 1.4883,
-      "dayReturn": -1.49,
-      "navDate": "2026-07-02",
+      "nav": 1.4873,
+      "price": 1.4873,
+      "dayReturn": -0.07,
+      "navDate": "2026-07-03",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.12,
       "totalFee": 0.65,
@@ -1142,10 +1142,10 @@
       "manager": "宝盈基金",
       "classType": "C",
       "type": "nasdaq",
-      "nav": 1.4786,
-      "price": 1.4786,
-      "dayReturn": -1.49,
-      "navDate": "2026-07-02",
+      "nav": 1.4776,
+      "price": 1.4776,
+      "dayReturn": -0.07,
+      "navDate": "2026-07-03",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
       "totalFee": 0.9,

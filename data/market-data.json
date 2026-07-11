@@ -4,7 +4,7 @@
     "price": 7575.39,
     "changePercent": 0.42,
     "score": 7.3,
-    "pe": 27.051,
+    "pe": 27.156,
     "peType": "PE-TTM",
     "peSource": "SPY ETF",
     "vix": 15.03
@@ -13,7 +13,7 @@
     "price": 29825.11,
     "changePercent": 0.33,
     "score": 6.5,
-    "pe": 32.217,
+    "pe": 32.195,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
     "vix": 15.03
@@ -27,8 +27,8 @@
       "ticker": "SPY",
       "name": "SPY",
       "fullName": "SPDR 标普500 ETF",
-      "price": 752.04,
-      "changePercent": 0.06,
+      "price": 754.95,
+      "changePercent": 0.43,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -54,8 +54,8 @@
       "ticker": "QQQ",
       "name": "QQQ",
       "fullName": "Invesco 纳指100 ETF",
-      "price": 726.02,
-      "changePercent": 0.39,
+      "price": 725.51,
+      "changePercent": 0.32,
       "premium": 0.0,
       "type": "nasdaq"
     },
@@ -63,8 +63,8 @@
       "ticker": "QQQM",
       "name": "QQQM",
       "fullName": "Invesco 纳指100迷你 ETF",
-      "price": 298.79,
-      "changePercent": 0.34,
+      "price": 298.72,
+      "changePercent": 0.32,
       "premium": 0.0,
       "type": "nasdaq"
     }

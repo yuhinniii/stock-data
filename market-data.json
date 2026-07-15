@@ -13,7 +13,7 @@
     "price": 29586.29,
     "changePercent": 1.1,
     "score": 6.3,
-    "pe": 31.936,
+    "pe": 31.937,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
     "vix": 16.5
@@ -54,7 +54,7 @@
       "ticker": "QQQ",
       "name": "QQQ",
       "fullName": "Invesco 纳指100 ETF",
-      "price": 719.69,
+      "price": 719.71,
       "changePercent": 1.12,
       "premium": 0.0,
       "type": "nasdaq"

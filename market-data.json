@@ -1,34 +1,34 @@
 {
   "updateTime": "2026-07-22",
   "sp500": {
-    "price": 7392.6,
-    "changePercent": -1.42,
-    "score": 6.9,
-    "pe": 26.505,
+    "price": 7408.3,
+    "changePercent": -1.21,
+    "score": 7.0,
+    "pe": 26.552,
     "peType": "PE-TTM",
     "peSource": "SPY ETF",
-    "vix": 19.43
+    "vix": 18.7
   },
   "nasdaq100": {
-    "price": 28356.89,
-    "changePercent": -2.21,
-    "score": 5.7,
-    "pe": 30.609,
+    "price": 28454.81,
+    "changePercent": -1.87,
+    "score": 5.8,
+    "pe": 30.706,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
-    "vix": 19.43
+    "vix": 18.7
   },
   "vix": {
-    "price": 19.43,
-    "changePercent": 16.77
+    "price": 18.7,
+    "changePercent": 12.38
   },
   "us_etfs": [
     {
       "ticker": "SPY",
       "name": "SPY",
       "fullName": "SPDR 标普500 ETF",
-      "price": 736.85,
-      "changePercent": -1.41,
+      "price": 738.18,
+      "changePercent": -1.23,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -36,8 +36,8 @@
       "ticker": "VOO",
       "name": "VOO",
       "fullName": "Vanguard 标普500 ETF",
-      "price": 677.32,
-      "changePercent": -1.41,
+      "price": 678.61,
+      "changePercent": -1.23,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -45,8 +45,8 @@
       "ticker": "IVV",
       "name": "IVV",
       "fullName": "iShares 标普500 ETF",
-      "price": 740.31,
-      "changePercent": -1.41,
+      "price": 741.62,
+      "changePercent": -1.24,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -54,8 +54,8 @@
       "ticker": "QQQ",
       "name": "QQQ",
       "fullName": "Invesco 纳指100 ETF",
-      "price": 689.74,
-      "changePercent": -2.21,
+      "price": 691.96,
+      "changePercent": -1.9,
       "premium": 0.0,
       "type": "nasdaq"
     },
@@ -63,8 +63,8 @@
       "ticker": "QQQM",
       "name": "QQQM",
       "fullName": "Invesco 纳指100迷你 ETF",
-      "price": 284.0,
-      "changePercent": -2.21,
+      "price": 284.98,
+      "changePercent": -1.87,
       "premium": 0.0,
       "type": "nasdaq"
     }

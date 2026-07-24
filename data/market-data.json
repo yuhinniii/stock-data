@@ -1,34 +1,34 @@
 {
   "updateTime": "2026-07-23",
   "sp500": {
-    "price": 7411.02,
-    "changePercent": 0.04,
-    "score": 7.0,
-    "pe": 26.555,
+    "price": 7449.35,
+    "changePercent": 0.55,
+    "score": 7.1,
+    "pe": 26.742,
     "peType": "PE-TTM",
     "peSource": "SPY ETF",
-    "vix": 18.64
+    "vix": 17.53
   },
   "nasdaq100": {
-    "price": 28239.09,
-    "changePercent": -0.76,
-    "score": 5.7,
-    "pe": 30.446,
+    "price": 28385.72,
+    "changePercent": -0.24,
+    "score": 5.8,
+    "pe": 30.66,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
-    "vix": 18.64
+    "vix": 17.53
   },
   "vix": {
-    "price": 18.64,
-    "changePercent": -0.32
+    "price": 17.53,
+    "changePercent": -6.26
   },
   "us_etfs": [
     {
       "ticker": "SPY",
       "name": "SPY",
       "fullName": "SPDR 标普500 ETF",
-      "price": 738.25,
-      "changePercent": 0.01,
+      "price": 743.45,
+      "changePercent": 0.71,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -36,8 +36,8 @@
       "ticker": "VOO",
       "name": "VOO",
       "fullName": "Vanguard 标普500 ETF",
-      "price": 678.84,
-      "changePercent": 0.03,
+      "price": 682.47,
+      "changePercent": 0.57,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -45,8 +45,8 @@
       "ticker": "IVV",
       "name": "IVV",
       "fullName": "iShares 标普500 ETF",
-      "price": 742.01,
-      "changePercent": 0.05,
+      "price": 746.63,
+      "changePercent": 0.68,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -54,8 +54,8 @@
       "ticker": "QQQ",
       "name": "QQQ",
       "fullName": "Invesco 纳指100 ETF",
-      "price": 686.11,
-      "changePercent": -0.85,
+      "price": 690.93,
+      "changePercent": -0.15,
       "premium": 0.0,
       "type": "nasdaq"
     },
@@ -63,8 +63,8 @@
       "ticker": "QQQM",
       "name": "QQQM",
       "fullName": "Invesco 纳指100迷你 ETF",
-      "price": 282.55,
-      "changePercent": -0.85,
+      "price": 284.49,
+      "changePercent": -0.17,
       "premium": 0.0,
       "type": "nasdaq"
     }

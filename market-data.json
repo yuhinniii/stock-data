@@ -1,34 +1,34 @@
 {
   "updateTime": "2026-07-23",
   "sp500": {
-    "price": 7429.29,
-    "changePercent": 0.28,
+    "price": 7411.98,
+    "changePercent": 0.05,
     "score": 7.0,
-    "pe": 26.638,
+    "pe": 26.578,
     "peType": "PE-TTM",
     "peSource": "SPY ETF",
-    "vix": 18.03
+    "vix": 18.58
   },
   "nasdaq100": {
-    "price": 28267.81,
-    "changePercent": -0.66,
-    "score": 5.7,
-    "pe": 30.514,
+    "price": 28128.34,
+    "changePercent": -1.15,
+    "score": 5.6,
+    "pe": 30.363,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
-    "vix": 18.03
+    "vix": 18.58
   },
   "vix": {
-    "price": 18.03,
-    "changePercent": -3.58
+    "price": 18.58,
+    "changePercent": -0.64
   },
   "us_etfs": [
     {
       "ticker": "SPY",
       "name": "SPY",
       "fullName": "SPDR 标普500 ETF",
-      "price": 740.56,
-      "changePercent": 0.32,
+      "price": 738.89,
+      "changePercent": 0.1,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -36,8 +36,8 @@
       "ticker": "VOO",
       "name": "VOO",
       "fullName": "Vanguard 标普500 ETF",
-      "price": 680.7,
-      "changePercent": 0.31,
+      "price": 679.1,
+      "changePercent": 0.07,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -45,8 +45,8 @@
       "ticker": "IVV",
       "name": "IVV",
       "fullName": "iShares 标普500 ETF",
-      "price": 744.05,
-      "changePercent": 0.33,
+      "price": 742.37,
+      "changePercent": 0.1,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -54,8 +54,8 @@
       "ticker": "QQQ",
       "name": "QQQ",
       "fullName": "Invesco 纳指100 ETF",
-      "price": 687.62,
-      "changePercent": -0.63,
+      "price": 684.23,
+      "changePercent": -1.12,
       "premium": 0.0,
       "type": "nasdaq"
     },
@@ -63,8 +63,8 @@
       "ticker": "QQQM",
       "name": "QQQM",
       "fullName": "Invesco 纳指100迷你 ETF",
-      "price": 283.18,
-      "changePercent": -0.63,
+      "price": 281.68,
+      "changePercent": -1.16,
       "premium": 0.0,
       "type": "nasdaq"
     }

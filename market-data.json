@@ -1,8 +1,8 @@
 {
   "updateTime": "2026-07-27",
   "sp500": {
-    "price": 7428.78,
-    "changePercent": 0.21,
+    "price": NaN,
+    "changePercent": NaN,
     "score": 7.0,
     "pe": 26.649,
     "peType": "PE-TTM",

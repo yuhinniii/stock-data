@@ -1,34 +1,34 @@
 {
   "updateTime": "2026-07-30",
   "sp500": {
-    "price": 7487.06,
-    "changePercent": 0.66,
-    "score": 7.1,
-    "pe": 26.846,
+    "price": 7489.72,
+    "changePercent": 0.7,
+    "score": 7.2,
+    "pe": 26.871,
     "peType": "PE-TTM",
     "peSource": "SPY ETF",
-    "vix": 16.47
+    "vix": 15.99
   },
   "nasdaq100": {
-    "price": 28310.98,
-    "changePercent": 0.73,
+    "price": 28274.2,
+    "changePercent": 0.6,
     "score": 5.7,
-    "pe": 30.56,
+    "pe": 30.53,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
-    "vix": 16.47
+    "vix": 15.99
   },
   "vix": {
-    "price": 16.47,
-    "changePercent": -3.63
+    "price": 15.99,
+    "changePercent": -6.44
   },
   "us_etfs": [
     {
       "ticker": "SPY",
       "name": "SPY",
       "fullName": "SPDR 标普500 ETF",
-      "price": 746.32,
-      "changePercent": 0.62,
+      "price": 747.03,
+      "changePercent": 0.72,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -36,8 +36,8 @@
       "ticker": "VOO",
       "name": "VOO",
       "fullName": "Vanguard 标普500 ETF",
-      "price": 686.0,
-      "changePercent": 0.62,
+      "price": 686.65,
+      "changePercent": 0.71,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -45,8 +45,8 @@
       "ticker": "IVV",
       "name": "IVV",
       "fullName": "iShares 标普500 ETF",
-      "price": 749.9,
-      "changePercent": 0.63,
+      "price": 750.32,
+      "changePercent": 0.69,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -54,8 +54,8 @@
       "ticker": "QQQ",
       "name": "QQQ",
       "fullName": "Invesco 纳指100 ETF",
-      "price": 688.66,
-      "changePercent": 0.75,
+      "price": 687.99,
+      "changePercent": 0.65,
       "premium": 0.0,
       "type": "nasdaq"
     },
@@ -63,8 +63,8 @@
       "ticker": "QQQM",
       "name": "QQQM",
       "fullName": "Invesco 纳指100迷你 ETF",
-      "price": 283.57,
-      "changePercent": 0.79,
+      "price": 283.29,
+      "changePercent": 0.69,
       "premium": 0.0,
       "type": "nasdaq"
     }

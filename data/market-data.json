@@ -7,7 +7,7 @@
     "pe": 27.254,
     "peType": "PE-TTM",
     "peSource": "SPY ETF",
-    "vix": 15.81
+    "vix": 15.86
   },
   "nasdaq100": {
     "price": 28776.8,
@@ -16,11 +16,11 @@
     "pe": 31.066,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
-    "vix": 15.81
+    "vix": 15.86
   },
   "vix": {
-    "price": 15.81,
-    "changePercent": -1.13
+    "price": 15.86,
+    "changePercent": -0.81
   },
   "us_etfs": [
     {
@@ -45,8 +45,8 @@
       "ticker": "IVV",
       "name": "IVV",
       "fullName": "iShares 标普500 ETF",
-      "price": 761.22,
-      "changePercent": 1.45,
+      "price": 761.32,
+      "changePercent": 1.47,
       "premium": 0.0,
       "type": "sp500"
     },

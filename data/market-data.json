@@ -1,8 +1,8 @@
 {
   "updateTime": "2026-07-31",
   "sp500": {
-    "price": 7600.5,
-    "changePercent": 1.48,
+    "price": NaN,
+    "changePercent": NaN,
     "score": 7.4,
     "pe": 27.254,
     "peType": "PE-TTM",
@@ -10,8 +10,8 @@
     "vix": 15.86
   },
   "nasdaq100": {
-    "price": 28776.8,
-    "changePercent": 1.78,
+    "price": NaN,
+    "changePercent": NaN,
     "score": 5.9,
     "pe": 31.066,
     "peType": "PE-TTM",

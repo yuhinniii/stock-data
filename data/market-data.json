@@ -1,34 +1,34 @@
 {
   "updateTime": "2026-08-04",
   "sp500": {
-    "price": 7739.97,
-    "changePercent": 0.04,
+    "price": 7743.54,
+    "changePercent": 0.09,
     "score": 7.6,
-    "pe": 27.755,
+    "pe": 27.768,
     "peType": "PE-TTM",
     "peSource": "SPY ETF",
-    "vix": 15.94
+    "vix": 15.53
   },
   "nasdaq100": {
-    "price": 29648.29,
+    "price": 29647.49,
     "changePercent": -0.29,
     "score": 6.4,
     "pe": 32.005,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
-    "vix": 15.94
+    "vix": 15.53
   },
   "vix": {
-    "price": 15.94,
-    "changePercent": -3.39
+    "price": 15.53,
+    "changePercent": -5.88
   },
   "us_etfs": [
     {
       "ticker": "SPY",
       "name": "SPY",
       "fullName": "SPDR 标普500 ETF",
-      "price": 771.65,
-      "changePercent": 0.04,
+      "price": 771.92,
+      "changePercent": 0.08,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -36,8 +36,8 @@
       "ticker": "VOO",
       "name": "VOO",
       "fullName": "Vanguard 标普500 ETF",
-      "price": 709.3,
-      "changePercent": 0.05,
+      "price": 709.59,
+      "changePercent": 0.09,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -45,8 +45,8 @@
       "ticker": "IVV",
       "name": "IVV",
       "fullName": "iShares 标普500 ETF",
-      "price": 775.25,
-      "changePercent": 0.06,
+      "price": 775.63,
+      "changePercent": 0.11,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -54,7 +54,7 @@
       "ticker": "QQQ",
       "name": "QQQ",
       "fullName": "Invesco 纳指100 ETF",
-      "price": 721.24,
+      "price": 721.28,
       "changePercent": -0.36,
       "premium": 0.0,
       "type": "nasdaq"
@@ -63,8 +63,8 @@
       "ticker": "QQQM",
       "name": "QQQM",
       "fullName": "Invesco 纳指100迷你 ETF",
-      "price": 296.98,
-      "changePercent": -0.35,
+      "price": 296.97,
+      "changePercent": -0.36,
       "premium": 0.0,
       "type": "nasdaq"
     }

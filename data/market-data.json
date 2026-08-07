@@ -1,34 +1,34 @@
 {
   "updateTime": "2026-08-06",
   "sp500": {
-    "price": 7750.56,
-    "changePercent": 0.53,
+    "price": 7757.64,
+    "changePercent": 0.62,
     "score": 6.7,
-    "pe": 26.031,
+    "pe": 26.049,
     "peType": "PE-TTM",
     "peSource": "SPY ETF",
-    "vix": 14.83
+    "vix": 14.9
   },
   "nasdaq100": {
-    "price": 29666.85,
-    "changePercent": 1.0,
-    "score": 5.8,
-    "pe": 30.863,
+    "price": 29722.3,
+    "changePercent": 1.19,
+    "score": 5.9,
+    "pe": 30.917,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
-    "vix": 14.83
+    "vix": 14.9
   },
   "vix": {
-    "price": 14.83,
-    "changePercent": -2.11
+    "price": 14.9,
+    "changePercent": -1.65
   },
   "us_etfs": [
     {
       "ticker": "SPY",
       "name": "SPY",
       "fullName": "SPDR 标普500 ETF",
-      "price": 772.74,
-      "changePercent": 0.54,
+      "price": 773.26,
+      "changePercent": 0.61,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -36,8 +36,8 @@
       "ticker": "VOO",
       "name": "VOO",
       "fullName": "Vanguard 标普500 ETF",
-      "price": 710.27,
-      "changePercent": 0.55,
+      "price": 710.71,
+      "changePercent": 0.61,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -45,8 +45,8 @@
       "ticker": "IVV",
       "name": "IVV",
       "fullName": "iShares 标普500 ETF",
-      "price": 776.4,
-      "changePercent": 0.55,
+      "price": 776.73,
+      "changePercent": 0.6,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -54,8 +54,8 @@
       "ticker": "QQQ",
       "name": "QQQ",
       "fullName": "Invesco 纳指100 ETF",
-      "price": 721.78,
-      "changePercent": 1.0,
+      "price": 723.03,
+      "changePercent": 1.17,
       "premium": 0.0,
       "type": "nasdaq"
     },
@@ -63,8 +63,8 @@
       "ticker": "QQQM",
       "name": "QQQM",
       "fullName": "Invesco 纳指100迷你 ETF",
-      "price": 297.18,
-      "changePercent": 0.99,
+      "price": 297.7,
+      "changePercent": 1.17,
       "premium": 0.0,
       "type": "nasdaq"
     }

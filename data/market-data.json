@@ -7,7 +7,7 @@
     "pe": 26.041,
     "peType": "PE-TTM",
     "peSource": "SPY ETF",
-    "vix": 15.46
+    "vix": 15.41
   },
   "nasdaq100": {
     "price": 29621.8,
@@ -16,11 +16,11 @@
     "pe": 30.825,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
-    "vix": 15.46
+    "vix": 15.41
   },
   "vix": {
-    "price": 15.46,
-    "changePercent": 3.76
+    "price": 15.41,
+    "changePercent": -0.32
   },
   "us_etfs": [
     {
@@ -1017,7 +1017,7 @@
       "dayReturn": 1.05,
       "navDate": "2026-08-07",
       "dataSource": "东方财富历史净值",
-      "purchaseFee": 0.12,
+      "purchaseFee": 0.15,
       "totalFee": 1.0,
       "managementFee": 0.8,
       "custodyFee": 0.2,
@@ -1027,8 +1027,8 @@
       "limitStatus": "limited",
       "limitAmount": 100,
       "expenseRatio": 0.8,
-      "alipayFee": 0.12,
-      "ttjjFee": 0.12,
+      "alipayFee": 0.15,
+      "ttjjFee": 0.15,
       "totalAlipayFee": 1.0,
       "totalTtjjFee": 1.0
     },

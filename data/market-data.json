@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-08-10",
+  "updateTime": "2026-08-11",
   "sp500": {
     "price": 7728.2,
     "changePercent": -0.32,
@@ -7,7 +7,7 @@
     "pe": 25.958,
     "peType": "PE-TTM",
     "peSource": "SPY ETF",
-    "vix": 15.28
+    "vix": 15.32
   },
   "nasdaq100": {
     "price": 29525.48,
@@ -16,11 +16,11 @@
     "pe": 30.721,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
-    "vix": 15.28
+    "vix": 15.32
   },
   "vix": {
-    "price": 15.28,
-    "changePercent": -1.16
+    "price": 15.32,
+    "changePercent": 0.26
   },
   "us_etfs": [
     {
@@ -232,10 +232,10 @@
       "manager": "易方达基金",
       "classType": "A",
       "type": "sp500",
-      "nav": 3.1856,
-      "price": 3.1856,
-      "dayReturn": -0.08,
-      "navDate": "2026-08-10",
+      "nav": 3.1765,
+      "price": 3.1765,
+      "dayReturn": -0.29,
+      "navDate": "2026-08-11",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.12,
       "totalFee": 1.0,
@@ -258,10 +258,10 @@
       "manager": "易方达基金",
       "classType": "C",
       "type": "sp500",
-      "nav": 3.1306,
-      "price": 3.1306,
-      "dayReturn": -0.08,
-      "navDate": "2026-08-10",
+      "nav": 3.1216,
+      "price": 3.1216,
+      "dayReturn": -0.29,
+      "navDate": "2026-08-11",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
       "totalFee": 1.35,
@@ -1220,10 +1220,10 @@
       "manager": "易方达基金",
       "classType": "A",
       "type": "nasdaq",
-      "nav": 4.4672,
-      "price": 4.4672,
-      "dayReturn": -0.33,
-      "navDate": "2026-08-10",
+      "nav": 4.4545,
+      "price": 4.4545,
+      "dayReturn": -0.28,
+      "navDate": "2026-08-11",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.12,
       "totalFee": 0.6,
@@ -1246,10 +1246,10 @@
       "manager": "易方达基金",
       "classType": "C",
       "type": "nasdaq",
-      "nav": 4.3893,
-      "price": 4.3893,
-      "dayReturn": -0.34,
-      "navDate": "2026-08-10",
+      "nav": 4.3769,
+      "price": 4.3769,
+      "dayReturn": -0.28,
+      "navDate": "2026-08-11",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
       "totalFee": 0.9,

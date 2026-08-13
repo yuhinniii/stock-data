@@ -7,7 +7,7 @@
     "pe": 26.023,
     "peType": "PE-TTM",
     "peSource": "SPY ETF",
-    "vix": 14.66
+    "vix": 14.6
   },
   "nasdaq100": {
     "price": 29742.6,
@@ -16,11 +16,11 @@
     "pe": 30.946,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
-    "vix": 14.66
+    "vix": 14.6
   },
   "vix": {
-    "price": 14.66,
-    "changePercent": 0.76
+    "price": 14.6,
+    "changePercent": 0.34
   },
   "us_etfs": [
     {
@@ -128,10 +128,10 @@
       "manager": "博时基金",
       "classType": "C",
       "type": "sp500",
-      "nav": 5.4526,
-      "price": 5.4526,
-      "dayReturn": -0.29,
-      "navDate": "2026-08-11",
+      "nav": 5.4651,
+      "price": 5.4651,
+      "dayReturn": 0.23,
+      "navDate": "2026-08-12",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.0,
       "totalFee": 1.15,
@@ -154,10 +154,10 @@
       "manager": "博时基金",
       "classType": "A",
       "type": "sp500",
-      "nav": 5.6303,
-      "price": 5.6303,
-      "dayReturn": -0.29,
-      "navDate": "2026-08-11",
+      "nav": 5.6433,
+      "price": 5.6433,
+      "dayReturn": 0.23,
+      "navDate": "2026-08-12",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.12,
       "totalFee": 0.8,
@@ -622,10 +622,10 @@
       "manager": "华安基金",
       "classType": "A",
       "type": "nasdaq",
-      "nav": 8.237,
-      "price": 8.237,
-      "dayReturn": -0.35,
-      "navDate": "2026-08-11",
+      "nav": 8.2923,
+      "price": 8.2923,
+      "dayReturn": 0.67,
+      "navDate": "2026-08-12",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.12,
       "totalFee": 0.8,

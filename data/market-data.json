@@ -7,7 +7,7 @@
     "pe": 26.029,
     "peType": "PE-TTM",
     "peSource": "SPY ETF",
-    "vix": 16.08
+    "vix": 15.87
   },
   "nasdaq100": {
     "price": NaN,
@@ -16,11 +16,11 @@
     "pe": 31.209,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
-    "vix": 16.08
+    "vix": 15.87
   },
   "vix": {
-    "price": 16.08,
-    "changePercent": 12.84
+    "price": 15.87,
+    "changePercent": 11.37
   },
   "us_etfs": [
     {
@@ -102,10 +102,10 @@
       "manager": "华夏基金",
       "classType": "A",
       "type": "sp500",
-      "nav": 1.7302,
-      "price": 1.7302,
-      "dayReturn": -0.21,
-      "navDate": "2026-08-14",
+      "nav": 1.721,
+      "price": 1.721,
+      "dayReturn": -0.53,
+      "navDate": "2026-08-17",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.12,
       "totalFee": 0.75,
@@ -232,10 +232,10 @@
       "manager": "易方达基金",
       "classType": "A",
       "type": "sp500",
-      "nav": 3.1982,
-      "price": 3.1982,
-      "dayReturn": -0.17,
-      "navDate": "2026-08-14",
+      "nav": 3.1822,
+      "price": 3.1822,
+      "dayReturn": -0.5,
+      "navDate": "2026-08-17",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.12,
       "totalFee": 1.0,

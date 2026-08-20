@@ -4,10 +4,10 @@
     "price": 7641.16,
     "changePercent": -0.87,
     "score": 6.5,
-    "pe": 25.696,
+    "pe": 25.69,
     "peType": "PE-TTM",
     "peSource": "SPY ETF",
-    "vix": 15.97
+    "vix": 16.01
   },
   "nasdaq100": {
     "price": 29213.16,
@@ -16,19 +16,19 @@
     "pe": 30.4,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
-    "vix": 15.97
+    "vix": 16.01
   },
   "vix": {
-    "price": 15.97,
-    "changePercent": 7.25
+    "price": 16.01,
+    "changePercent": 7.52
   },
   "us_etfs": [
     {
       "ticker": "SPY",
       "name": "SPY",
       "fullName": "SPDR 标普500 ETF",
-      "price": 762.78,
-      "changePercent": -0.82,
+      "price": 762.6,
+      "changePercent": -0.84,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -45,8 +45,8 @@
       "ticker": "IVV",
       "name": "IVV",
       "fullName": "iShares 标普500 ETF",
-      "price": 766.38,
-      "changePercent": -0.82,
+      "price": 766.34,
+      "changePercent": -0.83,
       "premium": 0.0,
       "type": "sp500"
     },

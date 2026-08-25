@@ -7,20 +7,20 @@
     "pe": 25.769,
     "peType": "PE-TTM",
     "peSource": "SPY ETF",
-    "vix": 15.53
+    "vix": 15.54
   },
   "nasdaq100": {
-    "price": 29165.78,
-    "changePercent": 0.49,
+    "price": 29149.68,
+    "changePercent": 0.44,
     "score": 5.6,
-    "pe": 30.348,
+    "pe": 30.334,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
-    "vix": 15.53
+    "vix": 15.54
   },
   "vix": {
-    "price": 15.53,
-    "changePercent": -2.02
+    "price": 15.54,
+    "changePercent": -1.96
   },
   "us_etfs": [
     {
@@ -36,7 +36,7 @@
       "ticker": "VOO",
       "name": "VOO",
       "fullName": "Vanguard 标普500 ETF",
-      "price": 703.16,
+      "price": 703.18,
       "changePercent": 0.19,
       "premium": 0.0,
       "type": "sp500"
@@ -45,8 +45,8 @@
       "ticker": "IVV",
       "name": "IVV",
       "fullName": "iShares 标普500 ETF",
-      "price": 768.73,
-      "changePercent": 0.21,
+      "price": 768.61,
+      "changePercent": 0.19,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -54,8 +54,8 @@
       "ticker": "QQQ",
       "name": "QQQ",
       "fullName": "Invesco 纳指100 ETF",
-      "price": 709.73,
-      "changePercent": 0.48,
+      "price": 709.39,
+      "changePercent": 0.43,
       "premium": 0.0,
       "type": "nasdaq"
     },
@@ -63,8 +63,8 @@
       "ticker": "QQQM",
       "name": "QQQM",
       "fullName": "Invesco 纳指100迷你 ETF",
-      "price": 292.28,
-      "changePercent": 0.51,
+      "price": 292.09,
+      "changePercent": 0.44,
       "premium": 0.0,
       "type": "nasdaq"
     }

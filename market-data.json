@@ -45,8 +45,8 @@
       "ticker": "IVV",
       "name": "IVV",
       "fullName": "iShares 标普500 ETF",
-      "price": 769.64,
-      "changePercent": 0.33,
+      "price": 769.62,
+      "changePercent": 0.32,
       "premium": 0.0,
       "type": "sp500"
     },

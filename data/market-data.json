@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-08-24",
+  "updateTime": "2026-08-25",
   "sp500": {
     "price": 7677.28,
     "changePercent": 0.32,
@@ -7,7 +7,7 @@
     "pe": 25.801,
     "peType": "PE-TTM",
     "peSource": "SPY ETF",
-    "vix": 15.68
+    "vix": 15.7
   },
   "nasdaq100": {
     "price": 29209.23,
@@ -16,11 +16,11 @@
     "pe": 30.391,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
-    "vix": 15.68
+    "vix": 15.7
   },
   "vix": {
-    "price": 15.68,
-    "changePercent": 1.49
+    "price": 15.7,
+    "changePercent": 1.62
   },
   "us_etfs": [
     {
@@ -232,10 +232,10 @@
       "manager": "易方达基金",
       "classType": "A",
       "type": "sp500",
-      "nav": 3.1451,
-      "price": 3.1451,
-      "dayReturn": -0.24,
-      "navDate": "2026-08-24",
+      "nav": 3.1551,
+      "price": 3.1551,
+      "dayReturn": 0.32,
+      "navDate": "2026-08-25",
       "dataSource": "东方财富历史净值",
       "purchaseFee": 0.12,
       "totalFee": 1.0,

@@ -7,7 +7,7 @@
     "pe": 24.885,
     "peType": "PE-TTM",
     "peSource": "SPY ETF",
-    "vix": 14.56
+    "vix": 14.53
   },
   "nasdaq100": {
     "price": 29544.15,
@@ -16,11 +16,11 @@
     "pe": 29.304,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
-    "vix": 14.56
+    "vix": 14.53
   },
   "vix": {
-    "price": 14.56,
-    "changePercent": 1.68
+    "price": 14.53,
+    "changePercent": 1.47
   },
   "us_etfs": [
     {
@@ -36,7 +36,7 @@
       "ticker": "VOO",
       "name": "VOO",
       "fullName": "Vanguard 标普500 ETF",
-      "price": 708.05,
+      "price": 708.01,
       "changePercent": -0.38,
       "premium": 0.0,
       "type": "sp500"

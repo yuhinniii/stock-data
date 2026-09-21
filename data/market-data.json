@@ -1,34 +1,34 @@
 {
   "updateTime": "2026-09-18",
   "sp500": {
-    "price": 7753.69,
-    "changePercent": 1.35,
+    "price": 7764.7,
+    "changePercent": 1.49,
     "score": 6.1,
-    "pe": 24.951,
+    "pe": 24.992,
     "peType": "PE-TTM",
     "peSource": "SPY ETF",
-    "vix": 15.04
+    "vix": 14.87
   },
   "nasdaq100": {
-    "price": 30372.66,
-    "changePercent": 2.46,
-    "score": 5.5,
-    "pe": 30.108,
+    "price": 30482.35,
+    "changePercent": 2.83,
+    "score": 5.6,
+    "pe": 30.221,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
-    "vix": 15.04
+    "vix": 14.87
   },
   "vix": {
-    "price": 15.04,
-    "changePercent": 1.55
+    "price": 14.87,
+    "changePercent": 0.41
   },
   "us_etfs": [
     {
       "ticker": "SPY",
       "name": "SPY",
       "fullName": "SPDR 标普500 ETF",
-      "price": 772.27,
-      "changePercent": 1.39,
+      "price": 773.5,
+      "changePercent": 1.55,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -36,8 +36,8 @@
       "ticker": "VOO",
       "name": "VOO",
       "fullName": "Vanguard 标普500 ETF",
-      "price": 711.7,
-      "changePercent": 1.41,
+      "price": 712.78,
+      "changePercent": 1.57,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -45,8 +45,8 @@
       "ticker": "IVV",
       "name": "IVV",
       "fullName": "iShares 标普500 ETF",
-      "price": 775.7,
-      "changePercent": 1.41,
+      "price": 776.86,
+      "changePercent": 1.56,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -54,8 +54,8 @@
       "ticker": "QQQ",
       "name": "QQQ",
       "fullName": "Invesco 纳指100 ETF",
-      "price": 738.68,
-      "changePercent": 2.5,
+      "price": 741.47,
+      "changePercent": 2.88,
       "premium": 0.0,
       "type": "nasdaq"
     },
@@ -63,8 +63,8 @@
       "ticker": "QQQM",
       "name": "QQQM",
       "fullName": "Invesco 纳指100迷你 ETF",
-      "price": 304.2,
-      "changePercent": 2.56,
+      "price": 305.27,
+      "changePercent": 2.92,
       "premium": 0.0,
       "type": "nasdaq"
     }

@@ -3,24 +3,24 @@
   "sp500": {
     "price": 7811.54,
     "changePercent": 0.59,
-    "score": 6.0,
-    "pe": 24.719,
+    "score": 6.2,
+    "pe": 25.155,
     "peType": "PE-TTM",
     "peSource": "SPY ETF",
-    "vix": 14.82
+    "vix": 14.84
   },
   "nasdaq100": {
     "price": 30883.15,
     "changePercent": 0.51,
-    "score": 4.9,
-    "pe": 28.767,
+    "score": 5.7,
+    "pe": 30.621,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
-    "vix": 14.82
+    "vix": 14.84
   },
   "vix": {
-    "price": 14.82,
-    "changePercent": -3.83
+    "price": 14.84,
+    "changePercent": -3.7
   },
   "us_etfs": [
     {

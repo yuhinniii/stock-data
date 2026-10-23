@@ -1,34 +1,34 @@
 {
   "updateTime": "2026-10-22",
   "sp500": {
-    "price": 7656.88,
-    "changePercent": -0.09,
-    "score": 5.7,
-    "pe": 24.23,
+    "price": 7626.92,
+    "changePercent": -0.48,
+    "score": 5.6,
+    "pe": 24.134,
     "peType": "PE-TTM",
     "peSource": "SPY ETF",
-    "vix": 19.16
+    "vix": 19.79
   },
   "nasdaq100": {
-    "price": 29115.94,
-    "changePercent": 0.54,
+    "price": 28964.05,
+    "changePercent": 0.02,
     "score": 4.1,
-    "pe": 27.117,
+    "pe": 26.975,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
-    "vix": 19.16
+    "vix": 19.79
   },
   "vix": {
-    "price": 19.16,
-    "changePercent": 0.68
+    "price": 19.79,
+    "changePercent": 3.99
   },
   "us_etfs": [
     {
       "ticker": "SPY",
       "name": "SPY",
       "fullName": "SPDR 标普500 ETF",
-      "price": 763.19,
-      "changePercent": -0.1,
+      "price": 760.11,
+      "changePercent": -0.5,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -36,8 +36,8 @@
       "ticker": "VOO",
       "name": "VOO",
       "fullName": "Vanguard 标普500 ETF",
-      "price": 701.53,
-      "changePercent": -0.11,
+      "price": 698.78,
+      "changePercent": -0.5,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -45,8 +45,8 @@
       "ticker": "IVV",
       "name": "IVV",
       "fullName": "iShares 标普500 ETF",
-      "price": 766.51,
-      "changePercent": -0.12,
+      "price": 763.55,
+      "changePercent": -0.5,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -54,8 +54,8 @@
       "ticker": "QQQ",
       "name": "QQQ",
       "fullName": "Invesco 纳指100 ETF",
-      "price": 707.96,
-      "changePercent": 0.5,
+      "price": 704.41,
+      "changePercent": -0.01,
       "premium": 0.0,
       "type": "nasdaq"
     },
@@ -63,8 +63,8 @@
       "ticker": "QQQM",
       "name": "QQQM",
       "fullName": "Invesco 纳指100迷你 ETF",
-      "price": 291.6,
-      "changePercent": 0.51,
+      "price": 290.08,
+      "changePercent": -0.02,
       "premium": 0.0,
       "type": "nasdaq"
     }

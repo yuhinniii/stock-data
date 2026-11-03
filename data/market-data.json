@@ -1,34 +1,34 @@
 {
   "updateTime": "2026-11-02",
   "sp500": {
-    "price": 7573.07,
-    "changePercent": 0.42,
+    "price": 7568.92,
+    "changePercent": 0.36,
     "score": 5.5,
-    "pe": 23.969,
+    "pe": 23.95,
     "peType": "PE-TTM",
     "peSource": "SPY ETF",
-    "vix": 20.53
+    "vix": 20.84
   },
   "nasdaq100": {
-    "price": 28218.16,
-    "changePercent": 0.82,
-    "score": 3.8,
-    "pe": 26.287,
+    "price": 28180.26,
+    "changePercent": 0.68,
+    "score": 3.7,
+    "pe": 26.24,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
-    "vix": 20.53
+    "vix": 20.84
   },
   "vix": {
-    "price": 20.53,
-    "changePercent": -2.93
+    "price": 20.84,
+    "changePercent": -1.47
   },
   "us_etfs": [
     {
       "ticker": "SPY",
       "name": "SPY",
       "fullName": "SPDR 标普500 ETF",
-      "price": 755.08,
-      "changePercent": 0.4,
+      "price": 754.35,
+      "changePercent": 0.3,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -36,8 +36,8 @@
       "ticker": "VOO",
       "name": "VOO",
       "fullName": "Vanguard 标普500 ETF",
-      "price": 693.99,
-      "changePercent": 0.39,
+      "price": 693.46,
+      "changePercent": 0.31,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -45,8 +45,8 @@
       "ticker": "IVV",
       "name": "IVV",
       "fullName": "iShares 标普500 ETF",
-      "price": 758.42,
-      "changePercent": 0.41,
+      "price": 757.77,
+      "changePercent": 0.32,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -54,8 +54,8 @@
       "ticker": "QQQ",
       "name": "QQQ",
       "fullName": "Invesco 纳指100 ETF",
-      "price": 686.52,
-      "changePercent": 0.8,
+      "price": 685.28,
+      "changePercent": 0.62,
       "premium": 0.0,
       "type": "nasdaq"
     },
@@ -63,8 +63,8 @@
       "ticker": "QQQM",
       "name": "QQQM",
       "fullName": "Invesco 纳指100迷你 ETF",
-      "price": 282.68,
-      "changePercent": 0.78,
+      "price": 282.23,
+      "changePercent": 0.62,
       "premium": 0.0,
       "type": "nasdaq"
     }

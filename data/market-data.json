@@ -1,34 +1,34 @@
 {
   "updateTime": "2026-11-11",
   "sp500": {
-    "price": 7619.38,
-    "changePercent": 1.31,
-    "score": 5.7,
-    "pe": 24.173,
+    "price": 7592.4,
+    "changePercent": -0.35,
+    "score": 5.6,
+    "pe": 24.087,
     "peType": "PE-TTM",
     "peSource": "SPY ETF",
-    "vix": 18.8
+    "vix": 18.7
   },
   "nasdaq100": {
-    "price": 28374.25,
-    "changePercent": 2.28,
+    "price": 28289.19,
+    "changePercent": -0.3,
     "score": 4.7,
-    "pe": 28.437,
+    "pe": 28.346,
     "peType": "PE-TTM",
     "peSource": "QQQ ETF",
-    "vix": 18.8
+    "vix": 18.7
   },
   "vix": {
-    "price": 18.8,
-    "changePercent": 7.49
+    "price": 18.7,
+    "changePercent": 6.92
   },
   "us_etfs": [
     {
       "ticker": "SPY",
       "name": "SPY",
       "fullName": "SPDR 标普500 ETF",
-      "price": 759.81,
-      "changePercent": 1.32,
+      "price": 757.12,
+      "changePercent": -0.35,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -36,8 +36,8 @@
       "ticker": "VOO",
       "name": "VOO",
       "fullName": "Vanguard 标普500 ETF",
-      "price": 698.35,
-      "changePercent": 1.28,
+      "price": 696.0,
+      "changePercent": -0.34,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -45,8 +45,8 @@
       "ticker": "IVV",
       "name": "IVV",
       "fullName": "iShares 标普500 ETF",
-      "price": 763.08,
-      "changePercent": 1.29,
+      "price": 760.78,
+      "changePercent": -0.3,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -54,8 +54,8 @@
       "ticker": "QQQ",
       "name": "QQQ",
       "fullName": "Invesco 纳指100 ETF",
-      "price": 690.38,
-      "changePercent": 2.31,
+      "price": 688.17,
+      "changePercent": -0.32,
       "premium": 0.0,
       "type": "nasdaq"
     },
@@ -63,8 +63,8 @@
       "ticker": "QQQM",
       "name": "QQQM",
       "fullName": "Invesco 纳指100迷你 ETF",
-      "price": 284.23,
-      "changePercent": 2.29,
+      "price": 283.39,
+      "changePercent": -0.3,
       "premium": 0.0,
       "type": "nasdaq"
     }

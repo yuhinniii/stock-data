@@ -28,7 +28,7 @@
       "name": "SPY",
       "fullName": "SPDR 标普500 ETF",
       "price": 754.37,
-      "changePercent": -0.4,
+      "changePercent": -0.36,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -37,7 +37,7 @@
       "name": "VOO",
       "fullName": "Vanguard 标普500 ETF",
       "price": 693.38,
-      "changePercent": -0.39,
+      "changePercent": -0.38,
       "premium": 0.0,
       "type": "sp500"
     },
@@ -46,7 +46,7 @@
       "name": "IVV",
       "fullName": "iShares 标普500 ETF",
       "price": 757.65,
-      "changePercent": -0.39,
+      "changePercent": -0.41,
       "premium": 0.0,
       "type": "sp500"
     },
